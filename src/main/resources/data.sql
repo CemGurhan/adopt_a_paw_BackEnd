@@ -178,6 +178,10 @@ INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, orga
 INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Pickles', 'Domestic Shorthair', 5, 2, 'Cambridge', False, False, 6, 2);
 INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Winter', 'Domestic Shorthair', 1, 1, 'Cambridge', False, False, 6, 2);
 
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Norman', 'Albino', 1, 1, 'Cambridge', False, False, 6, 3);
+
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES
+
 
 INSERT INTO applications (application_type_id, animal_id, customer_id) VALUES (1,11,4);
 INSERT INTO applications (application_type_id, animal_id, customer_id) VALUES (1,13,5);
