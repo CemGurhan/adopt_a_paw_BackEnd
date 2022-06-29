@@ -50,7 +50,7 @@ INSERT INTO customer_preferences_mapper (species_id,customer_id) VALUES (3,5);
 
 
 INSERT INTO organisations (name) VALUES ('RSPCA');
-INSERT INTO organisations (name) VALUES ('Four Paws');
+INSERT INTO organisations (name) VALUES ('Battersea');
 INSERT INTO organisations (name) VALUES ('Dogs Trust');
 INSERT INTO organisations (name) VALUES ('Blue Cross');
 INSERT INTO organisations (name) VALUES ('Pets at Home');
