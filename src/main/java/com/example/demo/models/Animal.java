@@ -22,7 +22,7 @@ public class Animal {
     private int age;
 
     @Column(name = "sex_id")
-    private Long sex_id;
+    private Integer sex_id;
 
     @Column(name = "location")
     private String location;
@@ -53,13 +53,13 @@ public class Animal {
     }
 
     // arg constructor
-    public Animal (Long id, String name, Integer species_id, Integer age, String breed, String sex, String location, String organisation, Integer organisation_id, boolean reserved, boolean adopted) {
+    public Animal (Long id, String name, Integer sex_id,Integer species_id, Integer age, String breed, String location, Integer organisation_id, boolean reserved, boolean adopted) {
         this.id = id;
         this.name = name;
         this.species_id = species_id;
         this.age = age;
         this.breed = breed;
-
+        this.sex_id = sex_id;
         this.location = location;
 
         this.organisation_id = organisation_id;
@@ -92,7 +92,13 @@ public class Animal {
     }
 
 
+    public Integer getSex_id() {
+        return sex_id;
+    }
 
+    public void setSex_id(Integer sex_id) {
+        this.sex_id = sex_id;
+    }
 
     public String getLocation() {
         return location;

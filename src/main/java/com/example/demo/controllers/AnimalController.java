@@ -1,9 +1,9 @@
 package com.example.demo.controllers;
 
 import com.example.demo.models.Animal;
+import com.example.demo.models.SexEnums;
 import com.example.demo.repositories.AnimalRepo;
 import com.example.demo.services.AnimalService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/animal")
+//@RequestMapping("/animal")
 @CrossOrigin(origins = "http://localhost:3000")
 public class AnimalController {
 
@@ -104,6 +104,14 @@ public class AnimalController {
     public String findSexByID(@PathVariable("id") Long id){
 
         return animalService.findSexByID(id);
+
+    }
+
+    @GetMapping("returnAllSexEnums")
+    public List<SexEnums> returnAllSexEnums(){
+
+        return animalService.returnAllSexEnums();
+
 
     }
 }

@@ -1,13 +1,14 @@
 package com.example.demo.services;
 
 
-import com.example.demo.controllers.AnimalController;
 import com.example.demo.models.Animal;
+import com.example.demo.models.SexEnums;
 import com.example.demo.repositories.AnimalRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -59,6 +60,14 @@ public class AnimalService {
 
     public String findSexByID(Long id){
         return animalRepo.findSexByID(id);
+    }
+
+    public List<SexEnums> returnAllSexEnums(){
+
+        return animalRepo.findAllSexEnums();
+
+
+
     }
 
 

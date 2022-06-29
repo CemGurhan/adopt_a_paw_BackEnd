@@ -1,11 +1,12 @@
 package com.example.demo.repositories;
 
 import com.example.demo.models.Animal;
+import com.example.demo.models.SexEnums;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,4 +22,7 @@ public interface AnimalRepo extends JpaRepository <Animal, Long> {
 
     @Query(value = "SELECT sex FROM sex_enums WHERE id=?", nativeQuery = true)
     String findSexByID(Long id);
+
+    @Query(value = "SELECT id , sex  FROM sex_enums",nativeQuery = true)
+    List<SexEnums> findAllSexEnums();
 }
