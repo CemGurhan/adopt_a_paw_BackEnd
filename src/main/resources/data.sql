@@ -166,6 +166,14 @@ INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, orga
 
 
 
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Barry', 'Greyhound', 7, 1, 'Cambridge', True, False, 6, 1);
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Archie', 'Lurcher', 2, 1, 'Cambridge', False, False, 6, 1);
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Mally', 'Crossbreed', 5, 1, 'Cambridge', False, False, 6, 1);
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Memphis', 'Staffordshire Bull Terrier', 2, 1, 'Cambridge', False, False, 6, 1);
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Tokyo', 'Crossbreed', 2, 2, 'Cambridge', False, False, 6, 1);
+
+
+
 INSERT INTO applications (application_type_id, animal_id, customer_id) VALUES (1,11,4);
 INSERT INTO applications (application_type_id, animal_id, customer_id) VALUES (1,13,5);
 INSERT INTO applications (application_type_id, animal_id, customer_id) VALUES (1,14,1);
