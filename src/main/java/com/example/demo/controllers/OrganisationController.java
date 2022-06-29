@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.*;
 public class OrganisationController {
 
 
-    @GetMapping("findOrganisationByID/{id}")
-    public Organisation findOrganisationByID(@PathVariable("id") Long id){
-
-
-
-
-    }
+//    @GetMapping("findOrganisationByID/{id}")
+//    public Organisation findOrganisationByID(@PathVariable("id") Long id){
+//
+//
+//
+//
+//    }
 
 }
