@@ -98,6 +98,12 @@ INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, orga
 INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Bow', 'Shar-pei', 8, 2, 'Battersea', False, False, 2, 1);
 INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Dave', 'Tibetan Mastiff', 5, 1, 'Brands Hatch', True, False, 2, 1);
 
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Aubrey', 'Domestic Shorthair', 1, 2, 'Old Windsor', False, False, 2, 2);
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Messi', 'Domestic Shorthair', 5, 1, 'Battersea', False, False, 2, 2);
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Ariana', 'Domestic Shorthair', 1, 2, 'Old Windsor', True, False, 2, 2);
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Oyster', 'Domestic Shorthair', 1, 2, 'Battersea', True, False, 2, 2);
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Smurf', 'Domestic Longhair', 7, 1, 'Communities Guildford', True, False, 2, 2);
+
 
 
 
