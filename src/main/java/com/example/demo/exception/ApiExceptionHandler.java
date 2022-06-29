@@ -23,14 +23,29 @@ public class ApiExceptionHandler  {
         );
 
 
+        return new ResponseEntity<>(apiException, badRequest);
+
+
+    }
+
+    @ExceptionHandler(value = {EmptyDbException.class})
+    public ResponseEntity<Object> handleEmptyDbException(EmptyDbException e){
+
+        HttpStatus badRequest = HttpStatus.NOT_FOUND;
+        ApiException apiException = new ApiException(
+                e.getMessage(),
+                badRequest,
+                ZonedDateTime.now(ZoneId.of("Z"))
+
+        );
 
 
         return new ResponseEntity<>(apiException, badRequest);
 
 
-
-
     }
+
+
 
 
 

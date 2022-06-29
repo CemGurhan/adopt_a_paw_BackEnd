@@ -1,6 +1,7 @@
 package com.example.demo.controllers;
 
 import com.example.demo.exception.ApiRequestException;
+import com.example.demo.exception.EmptyDbException;
 import com.example.demo.models.Application;
 import com.example.demo.services.ApplicationService;
 import org.springframework.http.HttpStatus;
@@ -35,12 +36,12 @@ public class ApplicationController {
     @GetMapping("findAllApplications")
     public List<Application> findAllApplications(){
 
-//        if(applicationService.findAllApplications()==null){
-//            throw new ApiRequestException("No Applications to show. Try populating the applications database");
-//        }else{
-//            return applicationService.findAllApplications();
-//        }
-        throw new ApiRequestException("No Applications to show. Try populating the applications database");
+        if(applicationService.findAllApplications()==null){
+            throw new EmptyDbException("'Applications' database is empty");
+        }else{
+            return applicationService.findAllApplications();
+        }
+
 
 
     }
