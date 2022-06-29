@@ -1,5 +1,6 @@
 package com.example.demo.controllers;
 
+import com.example.demo.exception.ApiRequestException;
 import com.example.demo.models.Application;
 import com.example.demo.services.ApplicationService;
 import org.springframework.http.HttpStatus;
@@ -23,13 +24,25 @@ public class ApplicationController {
     @GetMapping("findApplicationByID/{id}")
     public Application findApplicationByID(@PathVariable("id") Long id){
 
-        return applicationService.findApplicationByID(id);
+        if(applicationService.findApplicationByID(id) == null){
+            throw new ApiRequestException("Invalid Application ID. This Application does not exist");
+        }else {
+            return applicationService.findApplicationByID(id);
+        }
 
     }
 
     @GetMapping("findAllApplications")
     public List<Application> findAllApplications(){
-        return applicationService.findAllApplications();
+
+//        if(applicationService.findAllApplications()==null){
+//            throw new ApiRequestException("No Applications to show. Try populating the applications database");
+//        }else{
+//            return applicationService.findAllApplications();
+//        }
+        throw new ApiRequestException("No Applications to show. Try populating the applications database");
+
+
     }
 
     @PostMapping("addNewApplication/{application_type_id}/{animal_id}/{customer_id}")
