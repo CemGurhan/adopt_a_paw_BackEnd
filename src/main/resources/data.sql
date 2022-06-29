@@ -132,7 +132,11 @@ INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, orga
 INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Howie', 'English Spot', 1, 1, 'Oxfordshire', False, False, 4, 4);
 INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Coco', 'Mini Lop', 3, 2, 'Hampshire', False, False, 4, 4);
 
-INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Peanut', 'Domestic', 1, 1, 'Suffolk', True, False, 4, 5);
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Fudge', 'Domestic', 1, 1, 'Suffolk', True, False, 4, 5);
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Thyme', 'Domestic', 2, 1, 'Burford', False, False, 4, 5);
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Mabel', 'Domestic', 2, 2, 'Burford', True, False, 4, 5);
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Rupert', 'Domestic', 1, 1, 'Sheffield', False, False, 4, 5);
 
 
 
