@@ -158,7 +158,11 @@ INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, orga
 INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Skye', 'Lop', 1, 1, 'Hertfordshire', False, False, 5, 4);
 INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Olive', 'Lop', 4, 2, 'Bedfordshire', True, False, 5, 4);
 
-
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Wilbur', 'Domestic', 1, 1, 'Hertfordshire', False, False, 5, 5);
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Winston', 'Domestic', 1, 1, 'Hertfordshire', False, False, 5, 5);
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Bodger', 'Domestic', 1, 1, 'Hertfordshire', False, False, 5, 5);
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Crunchie', 'Domestic', 2, 1, 'Hertfordshire', False, False, 5, 5);
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Bertie', 'Domestic', 2, 1, 'Hertfordshire', True, False, 5, 5);
 
 
 
