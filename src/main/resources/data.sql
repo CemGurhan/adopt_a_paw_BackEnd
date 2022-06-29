@@ -53,8 +53,8 @@ INSERT INTO organisations (name) VALUES ('RSPCA');
 INSERT INTO organisations (name) VALUES ('Battersea');
 INSERT INTO organisations (name) VALUES ('Dogs Trust');
 INSERT INTO organisations (name) VALUES ('Blue Cross');
-INSERT INTO organisations (name) VALUES ('Pets at Home');
-INSERT INTO organisations (name) VALUES ('Freshfields');
+INSERT INTO organisations (name) VALUES ('National Animal Welfare Trust');
+INSERT INTO organisations (name) VALUES ('Woodgreen');
 
 
 
