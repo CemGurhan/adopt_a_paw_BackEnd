@@ -114,7 +114,18 @@ INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, orga
 
 
 
-INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Nala', 'Siberian Husky', 9, 2, 'Hampshire', True, False, 4, 1);
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Teddy', 'Maltese', 1, 1, 'Bromsgrove', False, False, 4, 1);
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Stanley', 'Jack Russell Terrier', 8, 1, 'Devon', True, False, 4, 1);
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Dustin', 'Australian Kelpie', 1, 1, 'Newport', True, False, 4, 1);
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Apollo', 'Weimaraner', 2, 1, 'Yorkshire', False, False, 4, 1);
+
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Tiger', 'Bengal', 2, 1, 'Bromsgrove', True, False, 4, 2);
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Kimchi', 'Domestic Shorthair', 3, 1, 'Oxfordshire', True, False, 4, 2);
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Prince', 'Domestic Shorthair', 4, 1, 'Oxfordshire', False, False, 4, 2);
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Haribo', 'Domestic Shorthair', 13, 2, 'Greater Manchester', True, False, 4, 2);
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Pebble', 'Domestic Shorthair', 6, 2, 'Sheffield', True, False, 4, 2);
+
 
 
 INSERT INTO applications (application_type_id, animal_id, customer_id) VALUES (1,11,4);
