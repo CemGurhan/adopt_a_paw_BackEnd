@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,4 +26,17 @@ public interface AnimalRepo extends JpaRepository <Animal, Long> {
 
     @Query(value = "SELECT id , sex  FROM sex_enums",nativeQuery = true)
     List<SexEnums> findAllSexEnums();
+
+    @Query(value = "select * from animals where lower(name) like lower(?1)", nativeQuery = true)
+    List<Animal> findByName(String name);
+
+    List<Animal> findByAgeGreaterThanEqualAndAgeLessThanEqual(int minAge, int maxAge);
+
+
+    @Query(value = "select * from animals where lower(location) like lower(?1)", nativeQuery = true)
+    List<Animal> findByLocation(String location);
+
+    List<Animal> findByReservedFalse();
+
+    List<Animal> findByAdoptedIs(Boolean adopted);
 }

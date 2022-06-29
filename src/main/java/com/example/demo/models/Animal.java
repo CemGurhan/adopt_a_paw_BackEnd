@@ -53,7 +53,7 @@ public class Animal {
     }
 
     // arg constructor
-    public Animal (Long id, String name, Integer sex_id,Integer species_id, Integer age, String breed, String location, Integer organisation_id, boolean reserved, boolean adopted) {
+    public Animal (Long id, String name, Integer species_id, Integer age, String breed, Integer sex_id, String location, Integer organisation_id, boolean reserved, boolean adopted) {
         this.id = id;
         this.name = name;
         this.species_id = species_id;
@@ -61,7 +61,6 @@ public class Animal {
         this.breed = breed;
         this.sex_id = sex_id;
         this.location = location;
-
         this.organisation_id = organisation_id;
         this.reserved = reserved;
         this.adopted = adopted;
