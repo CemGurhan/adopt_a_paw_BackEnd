@@ -37,7 +37,7 @@ public interface AnimalRepo extends JpaRepository <Animal, Long> {
     List<Animal> findByAgeGreaterThanEqualAndAgeLessThanEqual(int minAge, int maxAge);
 
     @Query(value = "select * from animals where sex_id = ?1", nativeQuery = true)
-    List<Animal> findBySex(Long sexID);
+    List<Animal> findBySex(Integer sexID);
 
     @Query(value = "select * from animals where lower(location) like lower(?1)", nativeQuery = true)
     List<Animal> findByLocation(String location);

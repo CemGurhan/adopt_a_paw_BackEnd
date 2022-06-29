@@ -5,6 +5,7 @@ import com.example.demo.models.SexEnums;
 import com.example.demo.models.SpeciesEnums;
 import com.example.demo.repositories.AnimalRepo;
 import com.example.demo.services.AnimalService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,11 +15,11 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-//@RequestMapping("/animal")
+@RequestMapping("/animal")
 @CrossOrigin(origins = "http://localhost:3000")
 public class AnimalController {
 
-
+    @Autowired
     private AnimalService animalService;
 
     public AnimalController (AnimalService animalService) {
@@ -48,7 +49,7 @@ public class AnimalController {
             @RequestParam(required = false, name = "name") String name,
             @RequestParam(required = false, name = "min age", defaultValue = "0") int minAge,
             @RequestParam(required = false, name = "max age", defaultValue = "100") int maxAge,
-            @RequestParam(required = false, name = "sex") Long sexID,
+            @RequestParam(required = false, name = "sex") Integer sexID,
             @RequestParam(required = false, name = "location") String location,
             @RequestParam(required = false, name = "Show only available animals", defaultValue = "false") Boolean availableOnly
     ){
@@ -73,7 +74,7 @@ public class AnimalController {
 //        }
 //    }
 
-    @GetMapping("/animal/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity findByID(@PathVariable Long id){
         Optional<Animal> animalOptional = animalService.findByID(id);
         if (animalOptional.isPresent()){
@@ -83,27 +84,30 @@ public class AnimalController {
     }
 
     // UPDATE - PUT
-//    @PutMapping("/{id}")
-//    public ResponseEntity<Animal> updateAnimal(
-//            @PathVariable("id") Long id,
-//            @RequestParam(required = false) String name,
-//            @RequestParam(required = false) Integer age,
-//            @RequestParam(required = false) String sex,
-//            @RequestParam(required = false) Integer species_id,
-//            @RequestParam(required = false) String breed,
-//            @RequestParam(required = false) String location,
-//            @RequestParam(required = false) String organisation,
-//            @RequestParam(required = false) Integer organisation_id,
-//            @RequestParam(required = false) boolean reserved,
-//            @RequestParam(required = false) boolean adopted
-//    ){
-//         animalService.updateAnimal(id, name, species_id, age, breed, sex, location, organisation, organisation_id, reserved, adopted);
-//    }
+    @PutMapping("/{id}")
+    public ResponseEntity<Animal> updateAnimal(
+            @PathVariable("id") Long id,
+            @RequestParam(required = false) String name,
+            @RequestParam(required = false) Integer age,
+            @RequestParam(required = false) Integer sexID,
+            @RequestParam(required = false) String location,
+            @RequestParam(required = false) Integer organisationID,
+            @RequestParam(required = false) Integer speciesID,
+            @RequestParam(required = false) String breed,
+            @RequestParam(required = false) boolean reserved,
+            @RequestParam(required = false) boolean adopted
+    ){
+        try {
+            return ResponseEntity.ok().body(animalService.updateAnimal(id, name, age, sexID, location, organisationID, speciesID, breed, reserved, adopted));
+        } catch (Exception e){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage(), e);
+        }
+    }
 
 
     // DELETE
 
-    @DeleteMapping("/animal/{id}")
+    @DeleteMapping("/{id}")
     public void deleteAnimal(@PathVariable(value = "id") Long id) {
         animalService.deleteAnimal(id);
     }
