@@ -152,11 +152,13 @@ INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, orga
 INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Spirit', 'Domestic Shorthair', 2, 2, 'Cornwall', False, False, 5, 2);
 INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Harold', 'Domestic Shorthair', 7, 1, 'Essex', False, False, 5, 2);
 
-INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES
-INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES
-INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES
-INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES
-INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Milo', 'Crossbreed', 4, 1, 'Bedfordshire', False, False, 5, 4);
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Rio', 'Lop', 1, 1, 'Bedfordshire', False, False, 5, 4);
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Bonnie', 'English Lop', 1, 2, 'Berkshire', False, False, 5, 4);
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Skye', 'Lop', 1, 1, 'Hertfordshire', False, False, 5, 4);
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Olive', 'Lop', 4, 2, 'Bedfordshire', True, False, 5, 4);
+
+
 
 
 
