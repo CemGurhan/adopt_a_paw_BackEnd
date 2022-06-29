@@ -1,8 +1,8 @@
 package com.example.demo.services;
 
 
-import com.example.demo.controllers.AnimalController;
 import com.example.demo.models.Animal;
+import com.example.demo.models.SexEnums;
 import com.example.demo.repositories.AnimalRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,9 +16,13 @@ import java.util.stream.Collectors;
 @Service
 public class AnimalService {
 
-    @Autowired
+
     private AnimalRepo animalRepo;
-    @Transactional
+
+    public AnimalService(AnimalRepo animalRepo){
+        this.animalRepo = animalRepo;
+    }
+
 
 
     // UPDATE ANIMAL METHOD
@@ -55,6 +59,10 @@ public class AnimalService {
         }
 
         return animal;
+    }
+
+    public List<Animal> getAllAnimals(){
+        return animalRepo.findAll();
     }
 
     // DELETE ANIMAL METHOD
@@ -101,6 +109,14 @@ public class AnimalService {
 
     public String findSexByID(Long id){
         return animalRepo.findSexByID(id);
+    }
+
+    public List<SexEnums> returnAllSexEnums(){
+
+        return animalRepo.findAllSexEnums();
+
+
+
     }
 
 

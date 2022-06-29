@@ -90,6 +90,15 @@ public class Animal {
         this.age = age;
     }
 
+
+    public Integer getSex_id() {
+        return sex_id;
+    }
+
+    public void setSex_id(Integer sex_id) {
+        this.sex_id = sex_id;
+    }
+
     public String getLocation() {
         return location;
     }
@@ -105,6 +114,7 @@ public class Animal {
     public void setReserved(Boolean reserved) {
         this.reserved = reserved;
     }
+
 
     public Boolean getAdopted() {
         return adopted;
@@ -146,11 +156,4 @@ public class Animal {
         this.application = application;
     }
 
-    public Integer getSex_id() {
-        return sex_id;
-    }
-
-    public void setSex_id(Integer sex_id) {
-        this.sex_id = sex_id;
-    }
 }

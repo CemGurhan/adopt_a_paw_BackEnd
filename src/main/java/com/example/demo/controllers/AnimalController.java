@@ -1,9 +1,9 @@
 package com.example.demo.controllers;
 
 import com.example.demo.models.Animal;
+import com.example.demo.models.SexEnums;
 import com.example.demo.repositories.AnimalRepo;
 import com.example.demo.services.AnimalService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -37,10 +37,10 @@ public class AnimalController {
 //    // READ - GET
 //
 //    // get all animals //
-//    @GetMapping("/animal")
-//    public ResponseEntity<List<Animal>> getAllAnimals() {
-//        return new ResponseEntity<>(animalRepo.findAll(), HttpStatus.OK);
-//    }
+    @GetMapping("/animal")
+    public ResponseEntity<List<Animal>> getAllAnimals() {
+        return new ResponseEntity<>(animalService.getAllAnimals(), HttpStatus.OK);
+    }
 
     @GetMapping("/filteranimals")
     public ResponseEntity<List<Animal>> filterAnimals(
@@ -121,6 +121,14 @@ public class AnimalController {
     public String findSexByID(@PathVariable("id") Long id){
 
         return animalService.findSexByID(id);
+
+    }
+
+    @GetMapping("returnAllSexEnums")
+    public List<SexEnums> returnAllSexEnums(){
+
+        return animalService.returnAllSexEnums();
+
 
     }
 }
