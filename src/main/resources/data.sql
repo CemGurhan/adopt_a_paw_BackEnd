@@ -1,6 +1,6 @@
 INSERT INTO animal_types (species) VALUES ('Dog');
 INSERT INTO animal_types (species) VALUES ('Cat');
-INSERT INTO animal_types (species) VALUES ('Snake');
+INSERT INTO animal_types (species) VALUES ('Ferret');
 INSERT INTO animal_types (species) VALUES ('Rabbit');
 INSERT INTO animal_types (species) VALUES ('Guinea-Pig');
 
@@ -72,9 +72,9 @@ INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, orga
 INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Biggles', 'Domestic Shorthair', 16, 1, 'Cheltenham', False, False, 1, 2);
 
 
-INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Taurus', 'Bull', 2, 1, 'Brighton', False, False, 1, 3);
-INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Goldie', 'Royal Python', 2, 2, 'Brighton', False, False, 1, 3);
-INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Barnaby', 'Boa', 1, 1, 'Brighton', False, False, 1, 3);
+--INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Taurus', 'Bull', 2, 1, 'Brighton', False, False, 1, 3);
+--INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Goldie', 'Royal Python', 2, 2, 'Brighton', False, False, 1, 3);
+--INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Barnaby', 'Boa', 1, 1, 'Brighton', False, False, 1, 3);
 
 
 INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Champ', 'Lop', 1, 1, 'Accrington', False, False, 1, 4);
