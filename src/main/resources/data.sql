@@ -146,6 +146,16 @@ INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, orga
 INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Shadow', 'Shar-Pei', 3, 1, 'Essex', False, False, 5, 1);
 INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Kobe', 'French Bulldog/Pug', 1, 1, 'Berkshire', False, False, 5, 1);
 
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Freddie', 'Domestic Shorthair', 1, 1, 'Hertfordshire', False, False, 5, 2);
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Mimi', 'Domestic Shorthair', 5, 2, 'Hertfordshire', False, False, 5, 2);
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Dizzy', 'Domestic Shorthair', 15, 1, 'Berkshire', False, False, 5, 2);
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Spirit', 'Domestic Shorthair', 2, 2, 'Cornwall', False, False, 5, 2);
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Harold', 'Domestic Shorthair', 7, 1, 'Essex', False, False, 5, 2);
+
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES
 INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES
 
 
