@@ -82,14 +82,14 @@ public class AnimalController {
     }
 
     // UPDATE - PUT
-    @PutMapping("/animal/{id}")
-    public void updateAnimal(
+    @PutMapping("/{id}")
+    public ResponseEntity<Animal> updateAnimal(
             @PathVariable("id") Long id,
             @RequestParam(required = false) String name,
-            @RequestParam(required = false) Integer species_id,
             @RequestParam(required = false) Integer age,
+            @RequestParam(required = false) Integer sex,
+            @RequestParam(required = false) Integer species_id,
             @RequestParam(required = false) String breed,
-            @RequestParam(required = false) String sex,
             @RequestParam(required = false) String location,
             @RequestParam(required = false) String organisation,
             @RequestParam(required = false) Integer organisation_id,
