@@ -17,7 +17,7 @@ import java.util.Optional;
 @CrossOrigin(origins = "http://localhost:3000")
 public class AnimalController {
 
-    @Autowired
+
     private AnimalService animalService;
 
     public AnimalController (AnimalService animalService) {
@@ -37,10 +37,10 @@ public class AnimalController {
 //    // READ - GET
 //
 //    // get all animals //
-//    @GetMapping("/animal")
-//    public ResponseEntity<List<Animal>> getAllAnimals() {
-//        return new ResponseEntity<>(animalRepo.findAll(), HttpStatus.OK);
-//    }
+    @GetMapping("/animal")
+    public ResponseEntity<List<Animal>> getAllAnimals() {
+        return new ResponseEntity<>(animalService.getAllAnimals(), HttpStatus.OK);
+    }
 
     @GetMapping("/filteranimals")
     public ResponseEntity<List<Animal>> filterAnimals(
@@ -82,22 +82,22 @@ public class AnimalController {
     }
 
     // UPDATE - PUT
-    @PutMapping("/{id}")
-    public ResponseEntity<Animal> updateAnimal(
-            @PathVariable("id") Long id,
-            @RequestParam(required = false) String name,
-            @RequestParam(required = false) Integer age,
-            @RequestParam(required = false) Integer sex,
-            @RequestParam(required = false) Integer species_id,
-            @RequestParam(required = false) String breed,
-            @RequestParam(required = false) String location,
-            @RequestParam(required = false) String organisation,
-            @RequestParam(required = false) Integer organisation_id,
-            @RequestParam(required = false) boolean reserved,
-            @RequestParam(required = false) boolean adopted
-    ){
-        animalService.updateAnimal(id, name, species_id, age, breed, sex, location, organisation, organisation_id, reserved, adopted);
-    }
+//    @PutMapping("/{id}")
+//    public ResponseEntity<Animal> updateAnimal(
+//            @PathVariable("id") Long id,
+//            @RequestParam(required = false) String name,
+//            @RequestParam(required = false) Integer age,
+//            @RequestParam(required = false) String sex,
+//            @RequestParam(required = false) Integer species_id,
+//            @RequestParam(required = false) String breed,
+//            @RequestParam(required = false) String location,
+//            @RequestParam(required = false) String organisation,
+//            @RequestParam(required = false) Integer organisation_id,
+//            @RequestParam(required = false) boolean reserved,
+//            @RequestParam(required = false) boolean adopted
+//    ){
+//         animalService.updateAnimal(id, name, species_id, age, breed, sex, location, organisation, organisation_id, reserved, adopted);
+//    }
 
 
     // DELETE

@@ -16,9 +16,13 @@ import java.util.stream.Collectors;
 @Service
 public class AnimalService {
 
-    @Autowired
+
     private AnimalRepo animalRepo;
-    @Transactional
+
+    public AnimalService(AnimalRepo animalRepo){
+        this.animalRepo = animalRepo;
+    }
+
 
 
     // UPDATE ANIMAL METHOD
@@ -43,6 +47,10 @@ public class AnimalService {
             animal.setOrganisation_id(organisation_id);
         }
 
+    }
+
+    public List<Animal> getAllAnimals(){
+        return animalRepo.findAll();
     }
 
     // DELETE ANIMAL METHOD
