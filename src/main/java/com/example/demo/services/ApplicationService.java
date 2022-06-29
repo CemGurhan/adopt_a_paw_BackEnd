@@ -2,6 +2,7 @@ package com.example.demo.services;
 
 import com.example.demo.models.Animal;
 import com.example.demo.models.Application;
+import com.example.demo.models.ApplicationTypeEnums;
 import com.example.demo.repositories.ApplicationRepo;
 import org.springframework.stereotype.Service;
 
@@ -50,6 +51,10 @@ public class ApplicationService {
     public void deleteApplication(Application returnApplication){
 
         applicationRepo.delete(returnApplication);
+    }
+
+    public ApplicationTypeEnums findApplicationTypeByID(Long id){
+        return applicationRepo.findApplicationTypeById(id);
     }
 
 
