@@ -92,6 +92,16 @@ INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, orga
 
 
 
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Bella', 'Terrier/Jack Russell', 2, 2, 'Brands Hatch', False, False, 2, 1);
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Bruno', 'Bulldog', 4, 1, 'Battersea', False, False, 2, 1);
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Cooper', 'Siberian Husky', 1, 1, 'Old Windsor', False, False, 2, 1);
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Bow', 'Shar-pei', 8, 2, 'Battersea', False, False, 2, 1);
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Dave', 'Tibetan Mastiff', 5, 1, 'Brands Hatch', True, False, 2, 1);
+
+
+
+
+
 
 INSERT INTO applications (application_type_id, animal_id, customer_id) VALUES (1,11,4);
 INSERT INTO applications (application_type_id, animal_id, customer_id) VALUES (1,13,5);
