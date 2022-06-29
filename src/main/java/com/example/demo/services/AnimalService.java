@@ -75,7 +75,7 @@ public class AnimalService {
         animalRepo.deleteById(id);
     }
 
-    public List<Animal> returnRelevantAnimals(String name, int minAge, int maxAge, Long sexID, String location, Boolean availableOnly) throws Exception{
+    public List<Animal> returnRelevantAnimals(String name, int minAge, int maxAge, Integer sexID, String location, Boolean availableOnly) throws Exception{
 
         if (minAge > maxAge){
             throw new Exception("Max age must be lower than min age!");
