@@ -8,8 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class AnimalService {
@@ -51,6 +53,34 @@ public class AnimalService {
                     "Animal with id: " + id + " does not exist!");
         }
         animalRepo.deleteById(id);
+    }
+
+    public List<Animal> returnRelevantAnimals(String name, int minAge, int maxAge, Long sexID, String location, Boolean availableOnly) throws Exception{
+
+        if (minAge > maxAge){
+            throw new Exception("Max age must be lower than min age!");
+        }
+
+        List<Animal> result = animalRepo.findByAgeGreaterThanEqualAndAgeLessThanEqual(minAge, maxAge);
+
+        if (name != null){
+            List<Animal> byName = animalRepo.findByName(name);
+            result = result.stream().filter(byName::contains).collect(Collectors.toList());
+        }
+
+        if (sexID != null){
+            List<Animal> bySex = animalRepo.findBySex(sexID);
+            result = result.stream().filter(bySex::contains).collect(Collectors.toList());
+        }
+        if (location != null){
+            List<Animal> byLocation = animalRepo.findByLocation(location);
+            result = result.stream().filter(byLocation::contains).collect(Collectors.toList());
+        }
+        if (availableOnly){
+            List<Animal> byAvailable = animalRepo.findByReservedFalse();
+            result = result.stream().filter(byAvailable::contains).collect(Collectors.toList());
+        }
+        return result;
     }
 
     public String findSpeciesByID(Long id){

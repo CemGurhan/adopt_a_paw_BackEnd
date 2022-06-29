@@ -21,4 +21,19 @@ public interface AnimalRepo extends JpaRepository <Animal, Long> {
 
     @Query(value = "SELECT sex FROM sex_enums WHERE id=?", nativeQuery = true)
     String findSexByID(Long id);
+
+    @Query(value = "select * from animals where lower(name) like lower(?1)", nativeQuery = true)
+    List<Animal> findByName(String name);
+
+    List<Animal> findByAgeGreaterThanEqualAndAgeLessThanEqual(int minAge, int maxAge);
+
+    @Query(value = "select * from animals where sex_id = ?1", nativeQuery = true)
+    List<Animal> findBySex(Long sexID);
+
+    @Query(value = "select * from animals where lower(location) like lower(?1)", nativeQuery = true)
+    List<Animal> findByLocation(String location);
+
+    List<Animal> findByReservedFalse();
+
+    List<Animal> findByAdoptedIs(Boolean adopted);
 }
