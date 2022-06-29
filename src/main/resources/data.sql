@@ -126,6 +126,14 @@ INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, orga
 INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Haribo', 'Domestic Shorthair', 13, 2, 'Greater Manchester', True, False, 4, 2);
 INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Pebble', 'Domestic Shorthair', 6, 2, 'Sheffield', True, False, 4, 2);
 
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Peter', 'English Spot', 2, 1, 'Sheffield', True, False, 4, 4);
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Bubblegum', 'Lionhead', 1, 1, 'Sheffield', True, False, 4, 4);
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Oreo', 'Lionhead', 2, 2, 'Yorkshire', False, False, 4, 4);
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Howie', 'English Spot', 1, 1, 'Oxfordshire', False, False, 4, 4);
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Coco', 'Mini Lop', 3, 2, 'Hampshire', False, False, 4, 4);
+
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES
+
 
 
 INSERT INTO applications (application_type_id, animal_id, customer_id) VALUES (1,11,4);
