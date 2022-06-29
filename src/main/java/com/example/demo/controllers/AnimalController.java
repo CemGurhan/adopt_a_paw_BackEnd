@@ -72,7 +72,7 @@ public class AnimalController {
 //        }
 //    }
 
-    @GetMapping("/animal/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity findByID(@PathVariable Long id){
         Optional<Animal> animalOptional = animalService.findByID(id);
         if (animalOptional.isPresent()){
@@ -87,22 +87,25 @@ public class AnimalController {
             @PathVariable("id") Long id,
             @RequestParam(required = false) String name,
             @RequestParam(required = false) Integer age,
-            @RequestParam(required = false) Integer sex,
-            @RequestParam(required = false) Integer species_id,
-            @RequestParam(required = false) String breed,
+            @RequestParam(required = false) Integer sexID,
             @RequestParam(required = false) String location,
-            @RequestParam(required = false) String organisation,
-            @RequestParam(required = false) Integer organisation_id,
+            @RequestParam(required = false) Integer organisationID,
+            @RequestParam(required = false) Integer speciesID,
+            @RequestParam(required = false) String breed,
             @RequestParam(required = false) boolean reserved,
             @RequestParam(required = false) boolean adopted
     ){
-        animalService.updateAnimal(id, name, species_id, age, breed, sex, location, organisation, organisation_id, reserved, adopted);
+        try {
+            return ResponseEntity.ok().body(animalService.updateAnimal(id, name, age, sexID, location, organisationID, speciesID, breed, reserved, adopted));
+        } catch (Exception e){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage(), e);
+        }
     }
 
 
     // DELETE
 
-    @DeleteMapping("/animal/{id}")
+    @DeleteMapping("/{id}")
     public void deleteAnimal(@PathVariable(value = "id") Long id) {
         animalService.deleteAnimal(id);
     }
