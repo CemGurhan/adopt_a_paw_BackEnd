@@ -77,6 +77,13 @@ INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, orga
 INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Barnaby', 'Boa', 1, 1, 'Brighton', False, False, 1, 3);
 
 
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Champ', 'Lop', 1, 1, 'Accrington', False, False, 1, 4);
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Tammy', 'Domestic', 1, 2, 'Northumberland', False, False, 1, 4);
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Russel', 'Rex', 1, 1, 'Wakefield', False, False, 1, 4);
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Thelma', 'Lionhead', 1, 2, 'Wimblington', False, False, 1, 4);
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Pablo', 'Crossbreed', 1, 1, 'Blackpool', False, False, 1, 4);
+
+
 
 
 
