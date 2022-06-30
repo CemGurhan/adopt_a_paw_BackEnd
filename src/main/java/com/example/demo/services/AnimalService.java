@@ -1,32 +1,50 @@
 package com.example.demo.services;
 
 
-import com.example.demo.controllers.AnimalController;
 import com.example.demo.models.Animal;
+import com.example.demo.models.SexEnums;
+import com.example.demo.models.SpeciesEnums;
 import com.example.demo.repositories.AnimalRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class AnimalService {
 
-    @Autowired
+
     private AnimalRepo animalRepo;
-    @Transactional
+
+    public AnimalService(AnimalRepo animalRepo){
+        this.animalRepo = animalRepo;
+    }
+
 
 
     // UPDATE ANIMAL METHOD
-    public void updateAnimal(Long id, String name, Integer species_id, Integer age, String breed, String sex, String location, String organisation, Integer organisation_id, boolean reserved, boolean adopted) {
+    public Animal updateAnimal(
+            Long id,
+            String name,
+            Integer age,
+            Integer sexID,
+            String location,
+            Integer organisationID,
+            Integer speciesID,
+            String breed,
+            boolean reserved,
+            boolean adopted
+    ) {
         Animal animal = animalRepo.findById(id).orElseThrow(() -> new IllegalStateException("Animal with " + id + " does not exist!"));
         if (animal.getName() != null && !Objects.equals(animal.getName(), name)) {
             animal.setName(name);
         }
-        if (animal.getSpecies_id() != null && !Objects.equals(animal.getSpecies_id(), species_id)) {
-            animal.setSpecies_id(species_id);
+        if (animal.getSpecies_id() != null && !Objects.equals(animal.getSpecies_id(), speciesID)) {
+            animal.setSpecies_id(speciesID);
         }
 
         if (animal.getBreed() != null && !Objects.equals(animal.getBreed(), breed)) {
@@ -38,9 +56,14 @@ public class AnimalService {
         }
 
         if (animal.getOrganisation_id() != null && !Objects.equals(animal.getOrganisation_id(), name)) {
-            animal.setOrganisation_id(organisation_id);
+            animal.setOrganisation_id(organisationID);
         }
 
+        return animal;
+    }
+
+    public List<Animal> getAllAnimals(){
+        return animalRepo.findAll();
     }
 
     // DELETE ANIMAL METHOD
@@ -53,12 +76,52 @@ public class AnimalService {
         animalRepo.deleteById(id);
     }
 
-    public String findSpeciesByID(Long id){
+    public List<Animal> returnRelevantAnimals(String name, int minAge, int maxAge, Integer sexID, String location, Boolean availableOnly) throws Exception{
+
+        if (minAge > maxAge){
+            throw new Exception("Max age must be lower than min age!");
+        }
+
+        List<Animal> result = animalRepo.findByAgeGreaterThanEqualAndAgeLessThanEqual(minAge, maxAge);
+
+        if (name != null){
+            List<Animal> byName = animalRepo.findByName(name);
+            result = result.stream().filter(byName::contains).collect(Collectors.toList());
+        }
+
+        if (sexID != null){
+            List<Animal> bySex = animalRepo.findBySex(sexID);
+            result = result.stream().filter(bySex::contains).collect(Collectors.toList());
+        }
+        if (location != null){
+            List<Animal> byLocation = animalRepo.findByLocation(location);
+            result = result.stream().filter(byLocation::contains).collect(Collectors.toList());
+        }
+        if (availableOnly){
+            List<Animal> byAvailable = animalRepo.findByReservedFalse();
+            result = result.stream().filter(byAvailable::contains).collect(Collectors.toList());
+        }
+        return result;
+    }
+
+    public SpeciesEnums findSpeciesByID(Long id){
         return animalRepo.findSpeciesByID(id);
     }
 
-    public String findSexByID(Long id){
+    public List<SpeciesEnums> findAllSpecies(){
+        return animalRepo.findAllSpecies();
+    }
+
+    public SexEnums findSexByID(Long id){
         return animalRepo.findSexByID(id);
+    }
+
+    public List<SexEnums> returnAllSexEnums(){
+
+        return animalRepo.findAllSexEnums();
+
+
+
     }
 
 
