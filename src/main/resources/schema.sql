@@ -12,7 +12,7 @@ DROP TYPE IF EXISTS species_types;
 CREATE TYPE species_types AS ENUM (
 'Dog',
 'Cat',
-'Snake',
+'Ferret',
 'Rabbit',
 'Guinea-Pig'
 );
