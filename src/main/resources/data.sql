@@ -186,11 +186,11 @@ INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, orga
 INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Wesley & Winnie', 'Mini Lop', 2, 1, 'Cambridge', False, False, 6, 4);
 INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Benny & Jellybean', 'Crossbreed', 1, 1, 'Cambridge', False, False, 6, 4);
 
-INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES
-INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES
-INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES
-INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES
-INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Daisy', 'Domestic', 4, 2, 'Cambridge', True, False, 6, 5);
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Fluffy & Caramel', 'Domestic', 1, 2, 'Cambridge', False, False, 6, 5);
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Monty & Morty', 'Domestic', 5, 1, 'Cambridge', False, False, 6, 5);
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Shuffle & Sprinkles', 'Domestic', 1, 2, 'Cambridge', False, False, 6, 5);
+INSERT INTO animals (name, breed, age, sex_id, location, reserved, adopted, organisation_id, species_id) VALUES('Wilbur & Hew', 'Domestic', 4, 1, 'Cambridge', False, False, 6, 5);
 
 
 INSERT INTO applications (application_type_id, animal_id, customer_id) VALUES (1,11,4);
