@@ -23,8 +23,8 @@ INSERT INTO customer_preferences_mapper (species_id,customer_id) VALUES (2,1);
 
 INSERT INTO organisations (name) VALUES ('RSPCA');
 
-INSERT INTO animals (age,location,name,organisation_id,sex_id,species_id)
-            VALUES (11,'London','Dodo1',1,1,2);
+--INSERT INTO animals (age,location,name,organisation_id,sex_id,species_id)
+--            VALUES (11,'London','Dodo1',1,1,2);
 
 --INSERT INTO applications (application_type_id,animal_id,customer_id) VALUES (1,1,1);
 
