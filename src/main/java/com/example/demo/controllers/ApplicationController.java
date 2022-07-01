@@ -56,13 +56,13 @@ public class ApplicationController {
     }
 
     @PostMapping("addNewApplication/{application_type_id}/{animal_id}/{customer_id}")
-    public ResponseEntity addNewApplication(@PathVariable("application_type_id") Long application_type_id,
+    public ResponseEntity<HttpStatus> addNewApplication(@PathVariable("application_type_id") Long application_type_id,
                                                          @PathVariable("animal_id") Long animal_id,
                                                          @PathVariable("customer_id") Long customer_id){
 
         try {
             applicationService.addNewApplication(application_type_id, animal_id, customer_id);
-            return ResponseEntity.ok().body("Added");
+            return new ResponseEntity<>(HttpStatus.OK);
         } catch (Exception e) {
             if(applicationService.findApplicationTypeByID(application_type_id) == null&&customerService.findCustomerByID(customer_id)==null
                && animalService.findByID(animal_id).isEmpty()){
@@ -87,27 +87,50 @@ public class ApplicationController {
                 throw new BadRequestException("Invalid application_type_id");
             }
 
-            throw new BadRequestException("ERROR");
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
 
     @PutMapping("updateApplicationStatus/{application_id}/{application_type_id}")
-    public void updateApplicationStatus(@PathVariable("application_id") Long application_id,
+    public ResponseEntity<HttpStatus> updateApplicationStatus(@PathVariable("application_id") Long application_id,
                                         @PathVariable("application_type_id") Long application_type_id){
 
-        Application returnApplication = applicationService.findApplicationByID(application_id);
+        try{
+            applicationService.findApplicationTypeByID(application_type_id);
+            Application returnApplication = applicationService.findApplicationByID(application_id);
+            applicationService.updateApplicationStatus(returnApplication,application_type_id);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }catch(Exception e){
 
-        applicationService.updateApplicationStatus(returnApplication,application_type_id);
+            if(applicationService.findApplicationByID(application_id)==null && applicationService.findApplicationTypeByID(application_type_id)==null){
+                throw new BadRequestException("Both application ID and application type ID are invalid");
+            }
+            if(applicationService.findApplicationByID(application_id)==null){
+                throw new BadRequestException("Invalid application ID");
+            } if (applicationService.findApplicationTypeByID(application_type_id)==null) {
+                throw new BadRequestException("Invalid application type ID");
+                
+            }
+        }
+        
+
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 
 
     }
 
     @DeleteMapping("deleteApplication/{id}")
-    public void deleteApplication(@PathVariable("id") Long id){
+    public ResponseEntity<HttpStatus> deleteApplication(@PathVariable("id") Long id){
 
-        Application returnApplication = applicationService.findApplicationByID(id);
+        try{
+            Application returnApplication = applicationService.findApplicationByID(id);
+            applicationService.deleteApplication(returnApplication);
+        }catch (Exception e){
+            throw new BadRequestException("Invalid application ID");
+        }
 
-        applicationService.deleteApplication(returnApplication);
+        return new ResponseEntity<>(HttpStatus.OK);
+
 
 
 
@@ -115,8 +138,25 @@ public class ApplicationController {
 
     @GetMapping("findApplicationTypeByID/{id}")
     public ApplicationTypeEnums findApplicationTypeByID(@PathVariable("id") Long id){
+
+        if(applicationService.findApplicationTypeByID(id)==null){
+            throw new BadRequestException("Invalid Application Type ID");
+        }
+
+
         return applicationService.findApplicationTypeByID(id);
     }
+
+    @GetMapping("getAllApplicationTypes")
+    public List<ApplicationTypeEnums> getAllApplicationTypes(){
+
+        if(applicationService.getAllApplicationTypes()==null){
+            throw new EmptyDbException("'Application_types' DB is empty");
+        }
+        return applicationService.getAllApplicationTypes();
+    }
+
+
 
 
 

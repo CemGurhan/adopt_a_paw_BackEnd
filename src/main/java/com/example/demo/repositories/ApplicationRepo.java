@@ -9,6 +9,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Repository
 public interface ApplicationRepo extends JpaRepository<Application,Long> {
 
@@ -26,6 +28,8 @@ public interface ApplicationRepo extends JpaRepository<Application,Long> {
     @Query(value = "SELECT id,application_status as applicationStatus FROM application_types WHERE id = ?", nativeQuery = true)
     ApplicationTypeEnums findApplicationTypeById(Long id);
 
+    @Query(value = "SELECT id,application_status as applicationStatus FROM application_types ", nativeQuery = true)
+    List<ApplicationTypeEnums> getAllApplicationTypes();
 
 
 }

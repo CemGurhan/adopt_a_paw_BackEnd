@@ -57,5 +57,11 @@ public class ApplicationService {
         return applicationRepo.findApplicationTypeById(id);
     }
 
+    public List<ApplicationTypeEnums> getAllApplicationTypes(){
+
+        return applicationRepo.getAllApplicationTypes();
+
+    }
+
 
 }
