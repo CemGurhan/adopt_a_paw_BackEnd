@@ -21,11 +21,11 @@ public class Application {
     @JoinColumn(name = "animal_id")
     private Animal animal;
 
-    private Long application_type_id;
+    @Column
+    @Enumerated(EnumType.ORDINAL)
+    private ApplicationStatus applicationStatus;
 
     public Application(){}
-
-
 
     public Long getId() {
         return id;
@@ -51,11 +51,11 @@ public class Application {
         this.animal = animal;
     }
 
-    public Long getApplication_type_id() {
-        return application_type_id;
+    public ApplicationStatus getApplicationStatus() {
+        return applicationStatus;
     }
 
-    public void setApplication_type_id(Long application_type_id) {
-        this.application_type_id = application_type_id;
+    public void setApplicationStatus(ApplicationStatus applicationStatus) {
+        this.applicationStatus = applicationStatus;
     }
 }

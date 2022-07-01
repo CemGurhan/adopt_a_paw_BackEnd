@@ -29,7 +29,7 @@ public class Customer {
     @JsonIgnoreProperties({"customer"})
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private List<Application> application;
-
+    
     public String getFirstName() {
         return firstName;
     }
