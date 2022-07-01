@@ -3,6 +3,7 @@ package com.example.demo.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -29,7 +30,44 @@ public class Customer {
     @JsonIgnoreProperties({"customer"})
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private List<Application> application;
-    
+
+
+    @JsonIgnoreProperties({"customer"})
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    private List<CustomerPreferredSpecies> customerPreferredSpecies;
+
+
+
+
+    public Customer (){
+    }
+
+    public Customer(Long id, String firstName, String lastName, int age, String location, Boolean previousAdoptions) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.location = location;
+        this.previousAdoptions = previousAdoptions;
+
+    }
+
+    public List<Application> getApplication() {
+        return application;
+    }
+
+    public void setApplication(List<Application> application) {
+        this.application = application;
+    }
+
+    public List<CustomerPreferredSpecies> getPreferredSpecies() {
+        return customerPreferredSpecies;
+    }
+
+    public void setPreferredSpecies(List<CustomerPreferredSpecies> customerPreferredSpecies) {
+        this.customerPreferredSpecies = customerPreferredSpecies;
+    }
+
     public String getFirstName() {
         return firstName;
     }
@@ -78,6 +116,5 @@ public class Customer {
         this.id = id;
     }
 
-    public Customer (){
-    }
+
 }

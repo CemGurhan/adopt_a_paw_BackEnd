@@ -55,7 +55,6 @@ public class Animal {
 
     @JsonIgnoreProperties({"animal"})
     @OneToMany(mappedBy = "animal", cascade = CascadeType.ALL)
-
     private List<Application> application;
 
     // no arg constructor

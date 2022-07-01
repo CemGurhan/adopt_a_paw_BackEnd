@@ -37,7 +37,7 @@ INSERT INTO customers (age,first_name,last_name,location, previous_adoptions) VA
 INSERT INTO customers (age,first_name,last_name,location, previous_adoptions) VALUES (27,'Lewis','Broadhurst','Birmingham', True);
 
 
-INSERT INTO customer_preferences_mapper (species,customer_id) VALUES ('Dog',1);
+--INSERT INTO customer_preferences_mapper (species,customer_id) VALUES ('Dog',1);
 --INSERT INTO customer_preferences_mapper (species_id,customer_id) VALUES (2,1);
 --INSERT INTO customer_preferences_mapper (species_id,customer_id) VALUES (2,2);
 --INSERT INTO customer_preferences_mapper (species_id,customer_id) VALUES (1,3);

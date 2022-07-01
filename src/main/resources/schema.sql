@@ -1,5 +1,5 @@
 --DROP TABLE IF EXISTS sex_enums;
-DROP TABLE IF EXISTS customer_preferences_mapper;
+--DROP TABLE IF EXISTS customer_preferences_mapper;
 --DROP TABLE IF EXISTS animal_types;
 --DROP TABLE IF EXISTS application_types;
 --DROP TYPE IF EXISTS sex;
@@ -23,13 +23,13 @@ DROP TABLE IF EXISTS customer_preferences_mapper;
 --
 --);
 
-CREATE TABLE customer_preferences_mapper (
-    id SERIAL PRIMARY KEY,
-    species VarChar(255),
-    customer_id INTEGER,
---    FOREIGN KEY (species_id) REFERENCES animal_types (id),
-    FOREIGN KEY (customer_id) REFERENCES customers (id)
-);
+--CREATE TABLE customer_preferences_mapper (
+--    id SERIAL PRIMARY KEY,
+--    species VarChar(255),
+--    customer_id INTEGER,
+----    FOREIGN KEY (species_id) REFERENCES animal_types (id),
+--    FOREIGN KEY (customer_id) REFERENCES customers (id)
+--);
 
 
 

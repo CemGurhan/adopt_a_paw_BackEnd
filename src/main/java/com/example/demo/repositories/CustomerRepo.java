@@ -25,4 +25,6 @@ public interface CustomerRepo extends JpaRepository<Customer,Long> {
     void deleteCustomerPreferences(Long id);
 
 
+
+
 }

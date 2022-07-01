@@ -1,35 +1,35 @@
 package com.example.demo.models;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "applications")
-public class Application {
+public class CustomerPreferredSpecies {
 
     @Id
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
-    @ManyToOne
-    @JoinColumn(name = "animal_id")
-    private Animal animal;
+    private Species species;
 
-    @Column
-    @Enumerated(EnumType.ORDINAL)
-    private ApplicationStatus applicationStatus;
 
-    public Application(){}
+
+    public CustomerPreferredSpecies() {
+    }
+
+    public CustomerPreferredSpecies(Long id, Customer customer, Species species) {
+        this.id = id;
+        this.customer = customer;
+        this.species = species;
+    }
 
     public Long getId() {
         return id;
@@ -45,21 +45,5 @@ public class Application {
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
-    }
-
-    public Animal getAnimal() {
-        return animal;
-    }
-
-    public void setAnimal(Animal animal) {
-        this.animal = animal;
-    }
-
-    public ApplicationStatus getApplicationStatus() {
-        return applicationStatus;
-    }
-
-    public void setApplicationStatus(ApplicationStatus applicationStatus) {
-        this.applicationStatus = applicationStatus;
     }
 }

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-//@RequestMapping("/customer")
+@RequestMapping("/customer")
 @CrossOrigin(origins = "http://localhost:3000")
 public class CustomerController {
 
@@ -20,7 +20,7 @@ public class CustomerController {
     }
 
 
-    @GetMapping("findCustomerByID/{id}")
+    @GetMapping("/findCustomerByID/{id}")
     public Customer findCustomerByID(@PathVariable("id") Long id){
 
         if(customerService.findCustomerByID(id)==null){
@@ -32,13 +32,11 @@ public class CustomerController {
 
     }
 
-    @GetMapping("findAllCustomers")
+    @GetMapping("/findAllCustomers")
     public List<Customer> findAllCustomers(){
 
-        if(customerService.findAllCustomers()==null){
-            throw new EmptyDbException("'customers' DB is empty");
-        }
         return customerService.findAllCustomers();
+
     }
 
 
@@ -78,6 +76,7 @@ public class CustomerController {
         customerService.deleteCustomerPreferences(id);
         customerService.deleteCustomer(returnCustomer);
     }
+
 
 
 
