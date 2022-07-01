@@ -2,7 +2,6 @@ package com.example.demo.repositories;
 
 
 import com.example.demo.models.Application;
-import com.example.demo.models.ApplicationTypeEnums;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

@@ -1,12 +1,8 @@
 package com.example.demo.controllers;
 
 import com.example.demo.exception.BadRequestException;
-import com.example.demo.exception.EmptyDbException;
 import com.example.demo.models.Customer;
-import com.example.demo.models.Species;
 import com.example.demo.services.CustomerService;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

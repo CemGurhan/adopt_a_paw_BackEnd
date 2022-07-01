@@ -1,8 +1,8 @@
 package com.example.demo.models;
 
 
+import com.example.demo.models.enums.ApplicationStatus;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 

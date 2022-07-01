@@ -3,15 +3,12 @@ package com.example.demo.controllers;
 import com.example.demo.exception.BadRequestException;
 import com.example.demo.exception.EmptyDbException;
 import com.example.demo.models.Application;
-import com.example.demo.models.ApplicationTypeEnums;
-import com.example.demo.repositories.AnimalRepo;
 import com.example.demo.services.AnimalService;
 import com.example.demo.services.ApplicationService;
 import com.example.demo.services.CustomerService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 

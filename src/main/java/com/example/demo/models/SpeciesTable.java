@@ -1,7 +1,7 @@
 package com.example.demo.models;
 
+import com.example.demo.models.enums.Species;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.List;

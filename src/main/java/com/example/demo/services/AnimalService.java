@@ -2,7 +2,6 @@ package com.example.demo.services;
 
 
 import com.example.demo.models.Animal;
-import com.example.demo.models.SpeciesEnums;
 import com.example.demo.repositories.AnimalRepo;
 import org.springframework.stereotype.Service;
 

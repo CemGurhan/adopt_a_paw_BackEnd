@@ -1,7 +1,9 @@
 package com.example.demo.models;
 
+import com.example.demo.models.enums.AvailableStatus;
+import com.example.demo.models.enums.Sex;
+import com.example.demo.models.enums.Species;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 
 import javax.persistence.*;
 import java.util.List;
