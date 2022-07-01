@@ -1,6 +1,8 @@
 package com.example.demo.controllers;
 
+import com.example.demo.exception.BadRequestException;
 import com.example.demo.models.Customer;
+import com.example.demo.models.enums.Species;
 import com.example.demo.services.CustomerService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -8,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-//@RequestMapping("/customer")
+@RequestMapping("/customer")
 @CrossOrigin(origins = "http://localhost:3000")
 public class CustomerController {
 
@@ -19,27 +21,42 @@ public class CustomerController {
     }
 
 
-    @GetMapping("findCustomerByID/{id}")
+    @GetMapping("/findCustomerByID/{id}")
     public Customer findCustomerByID(@PathVariable("id") Long id){
+
+        if(customerService.findCustomerByID(id)==null){
+            throw new BadRequestException("Invalid Customer ID");
+        }
 
         return customerService.findCustomerByID(id);
 
 
     }
 
-    @GetMapping("findAllCustomers")
+    @GetMapping("/findAllCustomers")
     public List<Customer> findAllCustomers(){
+
         return customerService.findAllCustomers();
+
+    }
+
+    @PostMapping("/setCustomerPreferredSpecies/{customer_id}/{species}")
+    public void setCustomerSpecies(@PathVariable("customer_id") Long customer_id,
+                                       @PathVariable("species") Species species){
+
+
+
+        customerService.addCustomerPreferredSpecies(customer_id, species);
+
+
+
+
+
     }
 
 
 
-    @GetMapping("find_customer_preferences/{id}")
-    public List<String> findCustomerPreferences(@PathVariable("id") Long id){
 
-        return customerService.findCustomerPreferences(id);
-
-    }
 
     @PostMapping("addNewCustomer")
     public void addNewCustomer(@RequestBody Customer customer){
@@ -57,10 +74,6 @@ public class CustomerController {
 
         customerService.updateCustomer(returnCustomer, customerDetails);
 
-
-
-
-
     }
 
     @DeleteMapping("deleteCustomer/{id}")
@@ -72,6 +85,11 @@ public class CustomerController {
         customerService.deleteCustomer(returnCustomer);
 
     }
+
+
+
+
+
 
 
 

@@ -1,7 +1,9 @@
 package com.example.demo.services;
 
 import com.example.demo.models.Customer;
+import com.example.demo.models.enums.Species;
 import com.example.demo.repositories.CustomerRepo;
+import com.example.demo.repositories.SpeciesTableRepo;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,10 +13,12 @@ public class CustomerService {
 
     private CustomerRepo customerRepo;
 
-    public CustomerService(CustomerRepo customerRepo){
-        this.customerRepo = customerRepo;
-    }
+    private SpeciesTableRepo speciesTableRepo;
 
+    public CustomerService(CustomerRepo customerRepo, SpeciesTableRepo speciesTableRepo) {
+        this.customerRepo = customerRepo;
+        this.speciesTableRepo = speciesTableRepo;
+    }
 
     public Customer findCustomerByID(Long id){
         return customerRepo.findCustomerByID(id);
@@ -33,6 +37,8 @@ public class CustomerService {
     }
 
 
+
+
     public List<String> findCustomerPreferences(Long id) {
 
         return customerRepo.findCustomerPreferences(id);
@@ -41,7 +47,10 @@ public class CustomerService {
 
     public void updateCustomer(Customer returnCustomer, Customer customerDetails){
 
-        returnCustomer.setFirstName(customerDetails.getFirstName());
+        if(customerDetails.getFirstName()!=null){
+            returnCustomer.setFirstName(customerDetails.getFirstName());
+        }
+
         returnCustomer.setLastName(customerDetails.getLastName());
         returnCustomer.setAge(customerDetails.getAge());
         returnCustomer.setLocation(customerDetails.getLocation());
@@ -59,6 +68,18 @@ public class CustomerService {
 
     public void deleteCustomer(Customer returnCustomer){
         customerRepo.delete(returnCustomer);
+    }
+
+    public void addCustomerPreferredSpecies(Long customer_id, Species species){
+
+        if(speciesTableRepo.findBySpeciesEquals(species.toString()) == null){
+
+            speciesTableRepo.addToSpeciesTable(species.toString());
+
+        }
+
+        customerRepo.addCustomerPreferredSpecies(customer_id, speciesTableRepo.findSpeciesID(species.toString()));
+
     }
 
 

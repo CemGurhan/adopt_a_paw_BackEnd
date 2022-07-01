@@ -1,7 +1,9 @@
 package com.example.demo.models;
 
+import com.example.demo.models.enums.AvailableStatus;
+import com.example.demo.models.enums.Sex;
+import com.example.demo.models.enums.Species;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 
 import javax.persistence.*;
 import java.util.List;
@@ -21,8 +23,12 @@ public class Animal {
     @Column(name = "age")
     private int age;
 
-    @Column(name = "sex_id")
-    private Integer sex_id;
+    @Column
+    @Enumerated(EnumType.ORDINAL)
+    private Sex sex;
+
+//    @Column(name = "sex_id")
+//    private Integer sex_id;
 
     @Column(name = "location")
     private String location;
@@ -30,21 +36,27 @@ public class Animal {
     @Column(name = "organisation_id")
     private Integer organisation_id;
 
-    @Column(name = "species_id")
-    private Integer species_id;
+//    @Column(name = "species_id")
+//    private Integer species_id;
+    @Column
+    @Enumerated(EnumType.STRING)
+    private Species species;
 
     @Column(name="breed", columnDefinition = "varchar(255) default 'UNKNOWN'")
     private String breed;
 
-    @Column(name = "reserved" , columnDefinition = "boolean default false")
-    private boolean reserved;
+    @Column
+    @Enumerated(EnumType.ORDINAL)
+    private AvailableStatus availableStatus;
 
-    @Column(name = "adopted" , columnDefinition = "boolean default false")
-    private boolean adopted;
+//    @Column(name = "reserved" , columnDefinition = "boolean default false")
+//    private boolean reserved;
+//
+//    @Column(name = "adopted" , columnDefinition = "boolean default false")
+//    private boolean adopted;
 
     @JsonIgnoreProperties({"animal"})
     @OneToMany(mappedBy = "animal", cascade = CascadeType.ALL)
-
     private List<Application> application;
 
     // no arg constructor
@@ -53,17 +65,16 @@ public class Animal {
     }
 
     // arg constructor
-    public Animal (Long id, String name, Integer species_id, Integer age, String breed, Integer sex_id, String location, Integer organisation_id, boolean reserved, boolean adopted) {
+    public Animal (Long id, String name, Species species, Integer age, String breed, Sex sex, String location, Integer organisation_id, AvailableStatus availableStatus) {
         this.id = id;
         this.name = name;
-        this.species_id = species_id;
+        this.species = species;
         this.age = age;
         this.breed = breed;
-        this.sex_id = sex_id;
+        this.sex = sex;
         this.location = location;
         this.organisation_id = organisation_id;
-        this.reserved = reserved;
-        this.adopted = adopted;
+        this.availableStatus = availableStatus;
     }
 
     public Long getId() {
@@ -90,13 +101,12 @@ public class Animal {
         this.age = age;
     }
 
-
-    public Integer getSex_id() {
-        return sex_id;
+    public Sex getSex() {
+        return sex;
     }
 
-    public void setSex_id(Integer sex_id) {
-        this.sex_id = sex_id;
+    public void setSex(Sex sex) {
+        this.sex = sex;
     }
 
     public String getLocation() {
@@ -107,21 +117,12 @@ public class Animal {
         this.location = location;
     }
 
-    public Boolean getReserved() {
-        return reserved;
+    public AvailableStatus getAvailableStatus() {
+        return availableStatus;
     }
 
-    public void setReserved(Boolean reserved) {
-        this.reserved = reserved;
-    }
-
-
-    public Boolean getAdopted() {
-        return adopted;
-    }
-
-    public void setAdopted(Boolean adopted) {
-        this.adopted = adopted;
+    public void setAvailableStatus(AvailableStatus availableStatus) {
+        this.availableStatus = availableStatus;
     }
 
     public Integer getOrganisation_id() {
@@ -132,12 +133,12 @@ public class Animal {
         this.organisation_id = organisation_id;
     }
 
-    public Integer getSpecies_id() {
-        return species_id;
+    public Species getSpecies() {
+        return species;
     }
 
-    public void setSpecies_id(Integer species_id) {
-        this.species_id = species_id;
+    public void setSpecies(Species species) {
+        this.species = species;
     }
 
     public String getBreed() {

@@ -1,5 +1,6 @@
 package com.example.demo.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -29,6 +30,47 @@ public class Customer {
     @JsonIgnoreProperties({"customer"})
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private List<Application> application;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JsonIgnore
+    @JoinTable(
+            name="customer_preferred_species",
+            joinColumns = @JoinColumn(name = "customer_id"),
+            inverseJoinColumns = @JoinColumn(name="species_id") // get id from inverse entity in relationship (speciesTable)
+    )
+    private List<SpeciesTable> species;
+
+
+
+
+    public Customer (){
+    }
+
+    public Customer(Long id, String firstName, String lastName, int age, String location, Boolean previousAdoptions) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.location = location;
+        this.previousAdoptions = previousAdoptions;
+
+    }
+
+    public List<Application> getApplication() {
+        return application;
+    }
+
+    public void setApplication(List<Application> application) {
+        this.application = application;
+    }
+
+    public List<SpeciesTable> getCustomerPreferredSpecies() {
+        return species;
+    }
+
+    public void setCustomerPreferredSpecies(List<SpeciesTable> species) {
+        this.species = species;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -78,6 +120,5 @@ public class Customer {
         this.id = id;
     }
 
-    public Customer (){
-    }
+
 }

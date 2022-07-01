@@ -1,8 +1,6 @@
 package com.example.demo.services;
 
-import com.example.demo.models.Animal;
 import com.example.demo.models.Application;
-import com.example.demo.models.ApplicationTypeEnums;
 import com.example.demo.repositories.ApplicationRepo;
 import org.springframework.stereotype.Service;
 
@@ -40,22 +38,17 @@ public class ApplicationService {
         applicationRepo.addNewApplication(application_type_id, animal_id, customer_id);
     }
 
-    public void updateApplicationStatus(Application returnApplication, Long application_type_id){
-
-        returnApplication.setApplication_type_id(application_type_id);
-
-        applicationRepo.save(returnApplication);
-
-    }
+//    public void updateApplicationStatus(Application returnApplication, Long application_type_id){
+//
+//        returnApplication.setApplication_type_id(application_type_id);
+//
+//        applicationRepo.save(returnApplication);
+//
+//    }
 
     public void deleteApplication(Application returnApplication){
 
         applicationRepo.delete(returnApplication);
     }
-
-    public ApplicationTypeEnums findApplicationTypeByID(Long id){
-        return applicationRepo.findApplicationTypeById(id);
-    }
-
 
 }
