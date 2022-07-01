@@ -1,8 +1,10 @@
---INSERT INTO animal_types (species) VALUES ('Dog');
---INSERT INTO animal_types (species) VALUES ('Cat');
---INSERT INTO animal_types (species) VALUES ('Ferret');
---INSERT INTO animal_types (species) VALUES ('Rabbit');
---INSERT INTO animal_types (species) VALUES ('Guinea-Pig');
+INSERT INTO species_table (species) VALUES ('Dog');
+INSERT INTO species_table (species) VALUES ('Cat');
+INSERT INTO species_table (species) VALUES ('Ferret');
+INSERT INTO species_table (species) VALUES ('Rabbit');
+INSERT INTO species_table (species) VALUES ('Guinea-Pig');
+
+
 
 
 --INSERT INTO application_types (application_status) VALUES('PENDING');
@@ -16,12 +18,16 @@
 
 
 
+
+
 INSERT INTO customers (age,first_name,last_name,location, previous_adoptions) VALUES (23,'Cem','Gurhan','London',true);
+
+INSERT INTO customer_preferred_species (customer_id, species_id) VALUES (1,1);
 
 --INSERT INTO customer_preferences_mapper (species_id,customer_id) VALUES (1,1);
 --INSERT INTO customer_preferences_mapper (species_id,customer_id) VALUES (2,1);
 
-INSERT INTO organisations (name) VALUES ('RSPCA');
+--INSERT INTO organisations (name) VALUES ('RSPCA');
 
 --INSERT INTO animals (age,location,name,organisation_id,sex,species_id)
 --            VALUES (11,'London','Dodo1',1,1,2);
@@ -35,6 +41,8 @@ INSERT INTO customers (age,first_name,last_name,location, previous_adoptions) VA
 INSERT INTO customers (age,first_name,last_name,location, previous_adoptions) VALUES (24,'Edward','Todd','St Albans', False);
 INSERT INTO customers (age,first_name,last_name,location, previous_adoptions) VALUES (25,'Becca','Bartholomew','London', False);
 INSERT INTO customers (age,first_name,last_name,location, previous_adoptions) VALUES (27,'Lewis','Broadhurst','Birmingham', True);
+
+--INSERT INTO customer_preferred_species (species, customer_id) VALUES ('Dog',1);
 
 
 --INSERT INTO customer_preferences_mapper (species,customer_id) VALUES ('Dog',1);
@@ -58,7 +66,7 @@ INSERT INTO organisations (name) VALUES ('Woodgreen');
 
 
 
-INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Tiny Tim', 'Chihuahua', 4, 0, 'Hillingdon', 0, 1, 'Dog');
+--INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Tiny Tim', 'Chihuahua', 4, 0, 'Hillingdon', 0, 1, 'Dog');
 --INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Crumpet', 'Shih Tzu', 5, 1, 'Potters Bar', 1, 1);
 --INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Flame', 'Staffordshire Bull Terrier', 12, 1, 'Coventry', 1, 1);
 --INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Coco', 'French Bulldog', 1, 2, 'Southport', 1, 1);
@@ -195,7 +203,7 @@ INSERT INTO animals (name, breed, age, sex, location, available_status, organisa
 --INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Wilbur & Hew', 'Domestic', 4, 1, 'Cambridge', 6, 5);
 
 
-INSERT INTO applications (application_status, animal_id, customer_id) VALUES (1,1,4);
+--INSERT INTO applications (application_status, animal_id, customer_id) VALUES (1,1,4);
 --INSERT INTO applications (application_status, animal_id, customer_id) VALUES (0,13,5);
 --INSERT INTO applications (application_status, animal_id, customer_id) VALUES (0,14,1);
 --INSERT INTO applications (application_status, animal_id, customer_id) VALUES (1,4,3);

@@ -3,7 +3,10 @@ package com.example.demo.controllers;
 import com.example.demo.exception.BadRequestException;
 import com.example.demo.exception.EmptyDbException;
 import com.example.demo.models.Customer;
+import com.example.demo.models.Species;
 import com.example.demo.services.CustomerService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -41,14 +44,9 @@ public class CustomerController {
 
 
 
-    @GetMapping("find_customer_preferences/{id}")
-    public List<String> findCustomerPreferences(@PathVariable("id") Long id){
 
 
 
-        return customerService.findCustomerPreferences(id);
-
-    }
 
     @PostMapping("addNewCustomer")
     public void addNewCustomer(@RequestBody Customer customer){
@@ -76,6 +74,8 @@ public class CustomerController {
         customerService.deleteCustomerPreferences(id);
         customerService.deleteCustomer(returnCustomer);
     }
+
+
 
 
 

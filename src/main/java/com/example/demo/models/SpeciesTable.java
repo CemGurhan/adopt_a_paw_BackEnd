@@ -4,9 +4,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
-public class CustomerPreferredSpecies {
+public class SpeciesTable {
 
     @Id
     @Column(name = "id", nullable = false)
@@ -14,20 +15,22 @@ public class CustomerPreferredSpecies {
     private Long id;
 
     @JsonIgnore
-    @ManyToOne
-    @JoinColumn(name = "customer_id")
-    private Customer customer;
+    @ManyToMany(mappedBy = "species")
+//    @JoinColumn(name = "customer_id")
+    private List<Customer> customer;
 
+    @Column
+    @Enumerated(EnumType.STRING)
     private Species species;
 
 
 
-    public CustomerPreferredSpecies() {
+    public SpeciesTable() {
     }
 
-    public CustomerPreferredSpecies(Long id, Customer customer, Species species) {
+    public SpeciesTable(Long id, Species species) {
         this.id = id;
-        this.customer = customer;
+
         this.species = species;
     }
 
@@ -39,11 +42,20 @@ public class CustomerPreferredSpecies {
         this.id = id;
     }
 
-    public Customer getCustomer() {
+    public List<Customer> getCustomer() {
         return customer;
     }
 
-    public void setCustomer(Customer customer) {
+    public void setCustomer(List<Customer> customer) {
         this.customer = customer;
     }
+
+    public Species getSpecies() {
+        return species;
+    }
+
+    public void setSpecies(Species species) {
+        this.species = species;
+    }
 }
+
