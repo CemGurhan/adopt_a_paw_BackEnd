@@ -109,8 +109,6 @@ public class ApplicationController {
 
         applicationService.deleteApplication(returnApplication);
 
-
-
     }
 
     @GetMapping("findApplicationTypeByID/{id}")
