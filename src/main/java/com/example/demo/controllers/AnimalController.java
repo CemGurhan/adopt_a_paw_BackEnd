@@ -1,9 +1,7 @@
 package com.example.demo.controllers;
 
 import com.example.demo.models.Animal;
-import com.example.demo.models.SexEnums;
 import com.example.demo.models.SpeciesEnums;
-import com.example.demo.repositories.AnimalRepo;
 import com.example.demo.services.AnimalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -124,19 +122,19 @@ public class AnimalController {
         return animalService.findAllSpecies();
     }
 
-    @GetMapping("findSexByID/{id}")
-    public SexEnums findSexByID(@PathVariable("id") Long id){
-
-        return animalService.findSexByID(id);
-
-    }
-
-    @GetMapping("returnAllSexEnums")
-    public List<SexEnums> returnAllSexEnums(){
-
-        return animalService.returnAllSexEnums();
-
-
-    }
+//    @GetMapping("findSexByID/{id}")
+//    public SexEnums findSexByID(@PathVariable("id") Long id){
+//
+//        return animalService.findSexByID(id);
+//
+//    }
+//
+//    @GetMapping("returnAllSexEnums")
+//    public List<SexEnums> returnAllSexEnums(){
+//
+//        return animalService.returnAllSexEnums();
+//
+//
+//    }
 }
 

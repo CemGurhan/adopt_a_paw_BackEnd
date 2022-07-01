@@ -40,13 +40,13 @@ public class ApplicationService {
         applicationRepo.addNewApplication(application_type_id, animal_id, customer_id);
     }
 
-    public void updateApplicationStatus(Application returnApplication, Long application_type_id){
-
-        returnApplication.setApplication_type_id(application_type_id);
-
-        applicationRepo.save(returnApplication);
-
-    }
+//    public void updateApplicationStatus(Application returnApplication, Long application_type_id){
+//
+//        returnApplication.setApplication_type_id(application_type_id);
+//
+//        applicationRepo.save(returnApplication);
+//
+//    }
 
     public void deleteApplication(Application returnApplication){
 

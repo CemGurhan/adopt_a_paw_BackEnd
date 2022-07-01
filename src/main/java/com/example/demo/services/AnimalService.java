@@ -2,13 +2,10 @@ package com.example.demo.services;
 
 
 import com.example.demo.models.Animal;
-import com.example.demo.models.SexEnums;
 import com.example.demo.models.SpeciesEnums;
 import com.example.demo.repositories.AnimalRepo;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -43,9 +40,9 @@ public class AnimalService {
         if (animal.getName() != null && !Objects.equals(animal.getName(), name)) {
             animal.setName(name);
         }
-        if (animal.getSpecies_id() != null && !Objects.equals(animal.getSpecies_id(), speciesID)) {
-            animal.setSpecies_id(speciesID);
-        }
+//        if (animal.getSpecies_id() != null && !Objects.equals(animal.getSpecies_id(), speciesID)) {
+//            animal.setSpecies_id(speciesID);
+//        }
 
         if (animal.getBreed() != null && !Objects.equals(animal.getBreed(), breed)) {
             animal.setBreed(breed);
@@ -97,10 +94,10 @@ public class AnimalService {
             List<Animal> byLocation = animalRepo.findByLocation(location);
             result = result.stream().filter(byLocation::contains).collect(Collectors.toList());
         }
-        if (availableOnly){
-            List<Animal> byAvailable = animalRepo.findByReservedFalse();
-            result = result.stream().filter(byAvailable::contains).collect(Collectors.toList());
-        }
+//        if (availableOnly){
+//            List<Animal> byAvailable = animalRepo.findByReservedFalse();
+//            result = result.stream().filter(byAvailable::contains).collect(Collectors.toList());
+//        }
         return result;
     }
 
@@ -112,17 +109,14 @@ public class AnimalService {
         return animalRepo.findAllSpecies();
     }
 
-    public SexEnums findSexByID(Long id){
-        return animalRepo.findSexByID(id);
-    }
-
-    public List<SexEnums> returnAllSexEnums(){
-
-        return animalRepo.findAllSexEnums();
-
-
-
-    }
+//    public SexEnums findSexByID(Long id){
+//        return animalRepo.findSexByID(id);
+//    }
+//
+//    public List<SexEnums> returnAllSexEnums(){
+//
+//        return animalRepo.findAllSexEnums();
+//    }
 
 
     public Optional<Animal> findByID(Long id){
