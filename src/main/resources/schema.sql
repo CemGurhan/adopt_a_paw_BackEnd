@@ -5,14 +5,14 @@
 --DROP TYPE IF EXISTS sex;
 --DROP TYPE IF EXISTS application_status;
 --DROP TYPE IF EXISTS species_types;
-
-
+--
+--
 --CREATE TYPE species_types AS ENUM (
 --'Dog',
 --'Cat',
 --'Ferret',
 --'Rabbit',
---'Guinea-Pig'
+--'Guineapig'
 --);
 
 

@@ -2,6 +2,7 @@ package com.example.demo.controllers;
 
 import com.example.demo.exception.BadRequestException;
 import com.example.demo.models.Customer;
+import com.example.demo.models.enums.Species;
 import com.example.demo.services.CustomerService;
 import org.springframework.web.bind.annotation.*;
 
@@ -38,7 +39,19 @@ public class CustomerController {
 
     }
 
+    @PostMapping("/setCustomerPreferredSpecies/{customer_id}/{species}")
+    public void setCustomerSpecies(@PathVariable("customer_id") Long customer_id,
+                                       @PathVariable("species") Species species){
 
+
+
+        customerService.addCustomerPreferredSpecies(customer_id, species);
+
+
+
+
+
+    }
 
 
 
@@ -70,6 +83,8 @@ public class CustomerController {
         customerService.deleteCustomerPreferences(id);
         customerService.deleteCustomer(returnCustomer);
     }
+
+
 
 
 

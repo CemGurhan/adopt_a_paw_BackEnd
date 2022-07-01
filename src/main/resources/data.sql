@@ -1,8 +1,8 @@
-INSERT INTO species_table (species) VALUES ('Dog');
-INSERT INTO species_table (species) VALUES ('Cat');
-INSERT INTO species_table (species) VALUES ('Ferret');
-INSERT INTO species_table (species) VALUES ('Rabbit');
-INSERT INTO species_table (species) VALUES ('Guinea-Pig');
+--INSERT INTO species_table (species) VALUES ('Dog');
+--INSERT INTO species_table (species) VALUES ('Cat');
+--INSERT INTO species_table (species) VALUES ('Ferret');
+--INSERT INTO species_table (species) VALUES ('Rabbit');
+--INSERT INTO species_table (species) VALUES ('Guineapig');
 
 
 
@@ -22,7 +22,7 @@ INSERT INTO species_table (species) VALUES ('Guinea-Pig');
 
 INSERT INTO customers (age,first_name,last_name,location, previous_adoptions) VALUES (23,'Cem','Gurhan','London',true);
 
-INSERT INTO customer_preferred_species (customer_id, species_id) VALUES (1,1);
+--INSERT INTO customer_preferred_species (customer_id, species_id) VALUES (1,1);
 
 --INSERT INTO customer_preferences_mapper (species_id,customer_id) VALUES (1,1);
 --INSERT INTO customer_preferences_mapper (species_id,customer_id) VALUES (2,1);

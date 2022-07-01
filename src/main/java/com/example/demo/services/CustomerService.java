@@ -1,7 +1,9 @@
 package com.example.demo.services;
 
 import com.example.demo.models.Customer;
+import com.example.demo.models.enums.Species;
 import com.example.demo.repositories.CustomerRepo;
+import com.example.demo.repositories.SpeciesTableRepo;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,10 +13,12 @@ public class CustomerService {
 
     private CustomerRepo customerRepo;
 
-    public CustomerService(CustomerRepo customerRepo){
-        this.customerRepo = customerRepo;
-    }
+    private SpeciesTableRepo speciesTableRepo;
 
+    public CustomerService(CustomerRepo customerRepo, SpeciesTableRepo speciesTableRepo) {
+        this.customerRepo = customerRepo;
+        this.speciesTableRepo = speciesTableRepo;
+    }
 
     public Customer findCustomerByID(Long id){
         return customerRepo.findCustomerByID(id);
@@ -64,6 +68,18 @@ public class CustomerService {
 
     public void deleteCustomer(Customer returnCustomer){
         customerRepo.delete(returnCustomer);
+    }
+
+    public void addCustomerPreferredSpecies(Long customer_id, Species species){
+
+        if(speciesTableRepo.findBySpeciesEquals(species.toString()) == null){
+
+            speciesTableRepo.addToSpeciesTable(species.toString());
+
+        }
+
+        customerRepo.addCustomerPreferredSpecies(customer_id, speciesTableRepo.findSpeciesID(species.toString()));
+
     }
 
 

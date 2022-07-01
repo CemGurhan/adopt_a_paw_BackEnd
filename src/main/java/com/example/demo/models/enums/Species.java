@@ -5,5 +5,5 @@ public enum Species {
     Cat,
     Ferret,
     Rabbit,
-    GuineaPig;
+    Guineapig;
 }

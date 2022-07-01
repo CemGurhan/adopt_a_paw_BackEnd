@@ -25,6 +25,13 @@ public interface CustomerRepo extends JpaRepository<Customer,Long> {
     void deleteCustomerPreferences(Long id);
 
 
+    @Transactional
+    @Modifying
+    @Query(value = "INSERT INTO customer_preferred_species (customer_id, species_id) VALUES (?1, ?2)", nativeQuery = true)
+    void addCustomerPreferredSpecies(Long customer_id, Long species_id);
+
+
+
 
 
 }

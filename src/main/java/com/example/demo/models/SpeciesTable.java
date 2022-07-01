@@ -20,15 +20,15 @@ public class SpeciesTable {
     private List<Customer> customer;
 
     @Column
-    @Enumerated(EnumType.STRING)
-    private Species species;
+
+    private String species;
 
 
 
     public SpeciesTable() {
     }
 
-    public SpeciesTable(Long id, Species species) {
+    public SpeciesTable(Long id, String species) {
         this.id = id;
 
         this.species = species;
@@ -50,11 +50,11 @@ public class SpeciesTable {
         this.customer = customer;
     }
 
-    public Species getSpecies() {
+    public String getSpecies() {
         return species;
     }
 
-    public void setSpecies(Species species) {
+    public void setSpecies(String species) {
         this.species = species;
     }
 }
