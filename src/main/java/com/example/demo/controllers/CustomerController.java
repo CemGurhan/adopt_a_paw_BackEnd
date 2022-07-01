@@ -1,5 +1,7 @@
 package com.example.demo.controllers;
 
+import com.example.demo.exception.BadRequestException;
+import com.example.demo.exception.EmptyDbException;
 import com.example.demo.models.Customer;
 import com.example.demo.services.CustomerService;
 import org.springframework.web.bind.annotation.*;
@@ -21,6 +23,10 @@ public class CustomerController {
     @GetMapping("findCustomerByID/{id}")
     public Customer findCustomerByID(@PathVariable("id") Long id){
 
+        if(customerService.findCustomerByID(id)==null){
+            throw new BadRequestException("Invalid Customer ID");
+        }
+
         return customerService.findCustomerByID(id);
 
 
@@ -28,6 +34,10 @@ public class CustomerController {
 
     @GetMapping("findAllCustomers")
     public List<Customer> findAllCustomers(){
+
+        if(customerService.findAllCustomers()==null){
+            throw new EmptyDbException("'customers' DB is empty");
+        }
         return customerService.findAllCustomers();
     }
 
@@ -35,6 +45,8 @@ public class CustomerController {
 
     @GetMapping("find_customer_preferences/{id}")
     public List<String> findCustomerPreferences(@PathVariable("id") Long id){
+
+
 
         return customerService.findCustomerPreferences(id);
 
@@ -55,10 +67,6 @@ public class CustomerController {
         Customer returnCustomer = customerService.findCustomerByID(id);
 
         customerService.updateCustomer(returnCustomer, customerDetails);
-
-
-
-
 
     }
 
