@@ -109,17 +109,6 @@ public class AnimalController {
         animalService.deleteAnimal(id);
     }
 
-    @GetMapping("findSpeciesByID/{id}")
-    public SpeciesEnums findSpeciesByID(@PathVariable("id") Long id){
-
-        return animalService.findSpeciesByID(id);
-
-    }
-
-    @GetMapping("findAllSpecies")
-    public List<SpeciesEnums> findAllSpecies(){
-        return animalService.findAllSpecies();
-    }
 
 //    @GetMapping("findSexByID/{id}")
 //    public SexEnums findSexByID(@PathVariable("id") Long id){

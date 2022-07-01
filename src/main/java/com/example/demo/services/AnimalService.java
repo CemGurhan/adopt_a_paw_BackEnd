@@ -100,24 +100,6 @@ public class AnimalService {
         return result;
     }
 
-    public SpeciesEnums findSpeciesByID(Long id){
-        return animalRepo.findSpeciesByID(id);
-    }
-
-    public List<SpeciesEnums> findAllSpecies(){
-        return animalRepo.findAllSpecies();
-    }
-
-//    public SexEnums findSexByID(Long id){
-//        return animalRepo.findSexByID(id);
-//    }
-//
-//    public List<SexEnums> returnAllSexEnums(){
-//
-//        return animalRepo.findAllSexEnums();
-//    }
-
-
     public Optional<Animal> findByID(Long id){
         return animalRepo.findById(id);
     }

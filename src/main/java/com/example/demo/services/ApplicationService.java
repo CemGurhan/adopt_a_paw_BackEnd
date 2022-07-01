@@ -51,15 +51,4 @@ public class ApplicationService {
         applicationRepo.delete(returnApplication);
     }
 
-    public ApplicationTypeEnums findApplicationTypeByID(Long id){
-        return applicationRepo.findApplicationTypeById(id);
-    }
-
-    public List<ApplicationTypeEnums> getAllApplicationTypes(){
-
-        return applicationRepo.getAllApplicationTypes();
-
-    }
-
-
 }

@@ -23,12 +23,4 @@ public interface ApplicationRepo extends JpaRepository<Application,Long> {
     @Query(value = "INSERT INTO applications (application_type_id,animal_id,customer_id) VALUES (?1,?2,?3)"
                     ,nativeQuery = true)
     void addNewApplication(Long application_type_id, Long animal_id, Long customer_id);
-
-    @Query(value = "SELECT id,application_status as applicationStatus FROM application_types WHERE id = ?", nativeQuery = true)
-    ApplicationTypeEnums findApplicationTypeById(Long id);
-
-    @Query(value = "SELECT id,application_status as applicationStatus FROM application_types ", nativeQuery = true)
-    List<ApplicationTypeEnums> getAllApplicationTypes();
-
-
 }

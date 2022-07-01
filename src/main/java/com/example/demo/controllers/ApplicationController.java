@@ -52,41 +52,41 @@ public class ApplicationController {
 
     }
 
-    @PostMapping("addNewApplication/{application_type_id}/{animal_id}/{customer_id}")
-    public ResponseEntity<HttpStatus> addNewApplication(@PathVariable("application_type_id") Long application_type_id,
-                                                         @PathVariable("animal_id") Long animal_id,
-                                                         @PathVariable("customer_id") Long customer_id){
-
-        try {
-            applicationService.addNewApplication(application_type_id, animal_id, customer_id);
-            return new ResponseEntity<>(HttpStatus.OK);
-        } catch (Exception e) {
-            if(applicationService.findApplicationTypeByID(application_type_id) == null&&customerService.findCustomerByID(customer_id)==null
-               && animalService.findByID(animal_id).isEmpty()){
-                throw new BadRequestException("customer_id, application_type_id and animal_id are all invalid");
-            }
-            if(applicationService.findApplicationTypeByID(application_type_id) == null&&customerService.findCustomerByID(customer_id)==null){
-                throw new BadRequestException("both customer_id and application_type_id are invalid");
-            }
-            if(animalService.findByID(animal_id).isEmpty()&&applicationService.findApplicationTypeByID(application_type_id) == null){
-                throw new BadRequestException("both animal_id and application_type_id are invalid");
-            }
-            if(animalService.findByID(animal_id).isEmpty()&&customerService.findCustomerByID(customer_id)==null){
-                throw new BadRequestException("both animal_id and customer_id are invalid");
-            }
-            if(animalService.findByID(animal_id).isEmpty()){
-                throw new BadRequestException("Invalid animal_id");
-            }
-            if(customerService.findCustomerByID(customer_id)==null){
-                throw new BadRequestException("Invalid customer_id");
-            }
-            if(applicationService.findApplicationTypeByID(application_type_id) == null){
-                throw new BadRequestException("Invalid application_type_id");
-            }
-
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
-    }
+//    @PostMapping("addNewApplication/{application_type_id}/{animal_id}/{customer_id}")
+//    public ResponseEntity<HttpStatus> addNewApplication(@PathVariable("application_type_id") Long application_type_id,
+//                                                         @PathVariable("animal_id") Long animal_id,
+//                                                         @PathVariable("customer_id") Long customer_id){
+//
+//        try {
+//            applicationService.addNewApplication(application_type_id, animal_id, customer_id);
+//            return new ResponseEntity<>(HttpStatus.OK);
+//        } catch (Exception e) {
+//            if(applicationService.findApplicationTypeByID(application_type_id) == null&&customerService.findCustomerByID(customer_id)==null
+//               && animalService.findByID(animal_id).isEmpty()){
+//                throw new BadRequestException("customer_id, application_type_id and animal_id are all invalid");
+//            }
+//            if(applicationService.findApplicationTypeByID(application_type_id) == null&&customerService.findCustomerByID(customer_id)==null){
+//                throw new BadRequestException("both customer_id and application_type_id are invalid");
+//            }
+//            if(animalService.findByID(animal_id).isEmpty()&&applicationService.findApplicationTypeByID(application_type_id) == null){
+//                throw new BadRequestException("both animal_id and application_type_id are invalid");
+//            }
+//            if(animalService.findByID(animal_id).isEmpty()&&customerService.findCustomerByID(customer_id)==null){
+//                throw new BadRequestException("both animal_id and customer_id are invalid");
+//            }
+//            if(animalService.findByID(animal_id).isEmpty()){
+//                throw new BadRequestException("Invalid animal_id");
+//            }
+//            if(customerService.findCustomerByID(customer_id)==null){
+//                throw new BadRequestException("Invalid customer_id");
+//            }
+//            if(applicationService.findApplicationTypeByID(application_type_id) == null){
+//                throw new BadRequestException("Invalid application_type_id");
+//            }
+//
+//            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+//        }
+//    }
 
 //    @PutMapping("updateApplicationStatus/{application_id}/{application_type_id}")
 //    public ResponseEntity<HttpStatus> updateApplicationStatus(@PathVariable("application_id") Long application_id,
@@ -128,29 +128,4 @@ public class ApplicationController {
 
 
     }
-
-    @GetMapping("findApplicationTypeByID/{id}")
-    public ApplicationTypeEnums findApplicationTypeByID(@PathVariable("id") Long id){
-
-        if(applicationService.findApplicationTypeByID(id)==null){
-            throw new BadRequestException("Invalid Application Type ID");
-        }
-
-
-        return applicationService.findApplicationTypeByID(id);
-    }
-
-    @GetMapping("getAllApplicationTypes")
-    public List<ApplicationTypeEnums> getAllApplicationTypes(){
-
-        if(applicationService.getAllApplicationTypes()==null){
-            throw new EmptyDbException("'Application_types' DB is empty");
-        }
-        return applicationService.getAllApplicationTypes();
-    }
-
-
-
-
-
 }
