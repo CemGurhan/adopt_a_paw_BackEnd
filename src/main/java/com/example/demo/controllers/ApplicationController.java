@@ -63,8 +63,6 @@ public class ApplicationController {
         return applicationService.deleteApplication(application_id);
 
 
-
-
     }
 
     @PostMapping("/addNewApplication/{animal_id}/{customer_id}")

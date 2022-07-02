@@ -4,6 +4,7 @@ import com.example.demo.exception.BadRequestException;
 import com.example.demo.models.Customer;
 import com.example.demo.models.enums.Species;
 import com.example.demo.services.CustomerService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -82,6 +83,7 @@ public class CustomerController {
 
         customerService.deleteCustomerPreferences(id);
         customerService.deleteCustomer(returnCustomer);
+
     }
 
 
