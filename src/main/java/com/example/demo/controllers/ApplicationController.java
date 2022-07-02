@@ -68,7 +68,7 @@ public class ApplicationController {
     @PostMapping("/addNewApplication/{animal_id}/{customer_id}")
     public ResponseEntity<Application> addNewApplication(@PathVariable("animal_id") Long animal_id,
                                          @PathVariable("customer_id") Long customer_id,
-                                         @RequestParam(defaultValue = "0") ApplicationStatus applicationStatus){
+                                         @RequestParam(defaultValue = "0", name = "application_status") ApplicationStatus applicationStatus){
 
         return applicationService.addNewApplication(animal_id,customer_id,applicationStatus);
 
@@ -79,7 +79,7 @@ public class ApplicationController {
 
     @PutMapping("/updateApplicationStatus/{application_id}")
     public ResponseEntity<Application> updateApplictionStatus(@PathVariable("application_id") Long application_id,
-                                              @RequestParam ApplicationStatus applicationStatus){
+                                              @RequestParam(name = "application_status") ApplicationStatus applicationStatus){
 
         return applicationService.updateApplicationStatus(application_id, applicationStatus);
     }
