@@ -84,32 +84,17 @@ public class ApplicationController {
 
     }
 
+    @PutMapping("/updateApplicationStatus/{application_id}")
+    public Application updateApplictionStatus(@PathVariable("application_id") Long application_id,
+                                              @RequestParam ApplicationStatus applicationStatus){
+
+        return applicationService.updateApplicationStatus(application_id, applicationStatus);
+    }
 
 
 
-//    @PutMapping("updateApplicationStatus/{application_id}/{application_type_id}")
-//    public ResponseEntity<HttpStatus> updateApplicationStatus(@PathVariable("application_id") Long application_id,
-//                                        @PathVariable("application_type_id") Long application_type_id){
-//
-//        try{
-//            applicationService.findApplicationTypeByID(application_type_id);
-//            Application returnApplication = applicationService.findApplicationByID(application_id);
-//            applicationService.updateApplicationStatus(returnApplication,application_type_id);
-//            return new ResponseEntity<>(HttpStatus.OK);
-//        }catch(Exception e){
-//
-//            if(applicationService.findApplicationByID(application_id)==null && applicationService.findApplicationTypeByID(application_type_id)==null){
-//                throw new BadRequestException("Both application ID and application type ID are invalid");
-//            }
-//            if(applicationService.findApplicationByID(application_id)==null){
-//                throw new BadRequestException("Invalid application ID");
-//            } if (applicationService.findApplicationTypeByID(application_type_id)==null) {
-//                throw new BadRequestException("Invalid application type ID");
-//
-//            }
-//        }
-//        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-//    }
+
+
 
 
 }

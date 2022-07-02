@@ -1,5 +1,6 @@
 package com.example.demo.services;
 
+import com.example.demo.exception.BadRequestException;
 import com.example.demo.models.Application;
 import com.example.demo.models.enums.ApplicationStatus;
 import com.example.demo.repositories.ApplicationRepo;
@@ -47,10 +48,14 @@ public class ApplicationService {
 
         if(animalService.findByID(animal_id).isPresent()){
             newApplication.setAnimal(animalService.findByID(animal_id).get());
+        }else{
+            throw new BadRequestException("Invalid animal_id");
         }
 
         if(customerService.findCustomerByID(customer_id) != null){
             newApplication.setCustomer(customerService.findCustomerByID(customer_id));
+        }else{
+            throw new BadRequestException("Invalid customerID");
         }
 
         if(applicationStatus!=null){
@@ -60,6 +65,29 @@ public class ApplicationService {
         applicationRepo.save(newApplication);
 
         return newApplication;
+
+    }
+
+    public Application updateApplicationStatus(Long application_id, ApplicationStatus applicationStatus){
+
+
+
+        if(applicationRepo.findById(application_id).isPresent() && applicationStatus != null){
+
+            Application updatedApplication = applicationRepo.findById(application_id).get();
+
+            updatedApplication.setApplicationStatus(applicationStatus);
+
+            applicationRepo.save(updatedApplication);
+
+            return updatedApplication;
+
+        }
+
+        throw new BadRequestException("Invalid application_id");
+
+
+
 
     }
 
