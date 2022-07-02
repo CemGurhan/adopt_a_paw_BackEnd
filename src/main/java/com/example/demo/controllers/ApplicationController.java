@@ -3,6 +3,7 @@ package com.example.demo.controllers;
 import com.example.demo.exception.BadRequestException;
 import com.example.demo.exception.EmptyDbException;
 import com.example.demo.models.Application;
+import com.example.demo.models.enums.ApplicationStatus;
 import com.example.demo.services.AnimalService;
 import com.example.demo.services.ApplicationService;
 import com.example.demo.services.CustomerService;
@@ -21,6 +22,8 @@ public class ApplicationController {
     private AnimalService animalService;
 
     private CustomerService customerService;
+
+
 
     public ApplicationController(ApplicationService applicationService, AnimalService animalService, CustomerService customerService) {
         this.applicationService = applicationService;
@@ -52,41 +55,37 @@ public class ApplicationController {
 
     }
 
-//    @PostMapping("addNewApplication/{application_type_id}/{animal_id}/{customer_id}")
-//    public ResponseEntity<HttpStatus> addNewApplication(@PathVariable("application_type_id") Long application_type_id,
-//                                                         @PathVariable("animal_id") Long animal_id,
-//                                                         @PathVariable("customer_id") Long customer_id){
-//
-//        try {
-//            applicationService.addNewApplication(application_type_id, animal_id, customer_id);
-//            return new ResponseEntity<>(HttpStatus.OK);
-//        } catch (Exception e) {
-//            if(applicationService.findApplicationTypeByID(application_type_id) == null&&customerService.findCustomerByID(customer_id)==null
-//               && animalService.findByID(animal_id).isEmpty()){
-//                throw new BadRequestException("customer_id, application_type_id and animal_id are all invalid");
-//            }
-//            if(applicationService.findApplicationTypeByID(application_type_id) == null&&customerService.findCustomerByID(customer_id)==null){
-//                throw new BadRequestException("both customer_id and application_type_id are invalid");
-//            }
-//            if(animalService.findByID(animal_id).isEmpty()&&applicationService.findApplicationTypeByID(application_type_id) == null){
-//                throw new BadRequestException("both animal_id and application_type_id are invalid");
-//            }
-//            if(animalService.findByID(animal_id).isEmpty()&&customerService.findCustomerByID(customer_id)==null){
-//                throw new BadRequestException("both animal_id and customer_id are invalid");
-//            }
-//            if(animalService.findByID(animal_id).isEmpty()){
-//                throw new BadRequestException("Invalid animal_id");
-//            }
-//            if(customerService.findCustomerByID(customer_id)==null){
-//                throw new BadRequestException("Invalid customer_id");
-//            }
-//            if(applicationService.findApplicationTypeByID(application_type_id) == null){
-//                throw new BadRequestException("Invalid application_type_id");
-//            }
-//
-//            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-//        }
-//    }
+    @DeleteMapping("deleteApplication/{id}")
+    public ResponseEntity<HttpStatus> deleteApplication(@PathVariable("id") Long id){
+
+        try{
+            Application returnApplication = applicationService.findApplicationByID(id);
+            applicationService.deleteApplication(returnApplication);
+        }catch (Exception e){
+            throw new BadRequestException("Invalid application ID");
+        }
+
+        return new ResponseEntity<>(HttpStatus.OK);
+
+
+
+
+    }
+
+    @PostMapping("/addNewApplication/{animal_id}/{customer_id}")
+    public Application addNewApplication(@PathVariable("animal_id") Long animal_id,
+                                         @PathVariable("customer_id") Long customer_id,
+                                         @RequestParam(defaultValue = "0") ApplicationStatus applicationStatus){
+
+        return applicationService.addNewApplication(animal_id,customer_id,applicationStatus);
+
+
+
+
+    }
+
+
+
 
 //    @PutMapping("updateApplicationStatus/{application_id}/{application_type_id}")
 //    public ResponseEntity<HttpStatus> updateApplicationStatus(@PathVariable("application_id") Long application_id,
@@ -112,20 +111,5 @@ public class ApplicationController {
 //        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 //    }
 
-    @DeleteMapping("deleteApplication/{id}")
-    public ResponseEntity<HttpStatus> deleteApplication(@PathVariable("id") Long id){
 
-        try{
-            Application returnApplication = applicationService.findApplicationByID(id);
-            applicationService.deleteApplication(returnApplication);
-        }catch (Exception e){
-            throw new BadRequestException("Invalid application ID");
-        }
-
-        return new ResponseEntity<>(HttpStatus.OK);
-
-
-
-
-    }
 }

@@ -25,11 +25,13 @@ public class Application {
     @JoinColumn(name = "animal_id")
     private Animal animal;
 
-    @Column
+
     @Enumerated(EnumType.ORDINAL)
     private ApplicationStatus applicationStatus;
 
     public Application(){}
+
+
 
     public Long getId() {
         return id;
