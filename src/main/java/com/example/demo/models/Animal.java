@@ -3,6 +3,7 @@ package com.example.demo.models;
 import com.example.demo.models.enums.AvailableStatus;
 import com.example.demo.models.enums.Sex;
 import com.example.demo.models.enums.Species;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -146,6 +147,7 @@ public class Animal {
         this.breed = breed;
     }
 
+    @JsonIgnore
     public List<Application> getApplication() {
         return application;
     }

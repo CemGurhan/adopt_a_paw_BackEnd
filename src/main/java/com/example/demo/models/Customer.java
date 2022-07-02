@@ -56,7 +56,7 @@ public class Customer {
 
     }
 
-    @JsonIgnore
+
     public List<Application> getApplication() {
         return application;
     }
