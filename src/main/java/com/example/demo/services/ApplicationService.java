@@ -4,6 +4,8 @@ import com.example.demo.exception.BadRequestException;
 import com.example.demo.models.Application;
 import com.example.demo.models.enums.ApplicationStatus;
 import com.example.demo.repositories.ApplicationRepo;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -32,19 +34,17 @@ public class ApplicationService {
 
     }
 
-    public void addNewApplication(Long application_type_id, Long animal_id, Long customer_id) throws Exception{
 
-        if (animalService.findByID(animal_id).isEmpty()){
-            throw new Exception("Animal not found");
-        }
-        applicationRepo.addNewApplication(application_type_id, animal_id, customer_id);
-    }
 
-    public Application addNewApplication(Long animal_id, Long customer_id, ApplicationStatus applicationStatus){
+    public ResponseEntity<Application> addNewApplication(Long animal_id, Long customer_id, ApplicationStatus applicationStatus){
 
         Application newApplication = new Application();
 
 
+
+        if(animalService.findByID(animal_id).isEmpty() && customerService.findCustomerByID(customer_id) == null){
+            throw new BadRequestException("Invalid animal_id and customer_id");
+        }
 
         if(animalService.findByID(animal_id).isPresent()){
             newApplication.setAnimal(animalService.findByID(animal_id).get());
@@ -55,7 +55,7 @@ public class ApplicationService {
         if(customerService.findCustomerByID(customer_id) != null){
             newApplication.setCustomer(customerService.findCustomerByID(customer_id));
         }else{
-            throw new BadRequestException("Invalid customerID");
+            throw new BadRequestException("Invalid customer_id");
         }
 
         if(applicationStatus!=null){
@@ -64,11 +64,12 @@ public class ApplicationService {
 
         applicationRepo.save(newApplication);
 
-        return newApplication;
+
+        return ResponseEntity.ok(newApplication);
 
     }
 
-    public Application updateApplicationStatus(Long application_id, ApplicationStatus applicationStatus){
+    public ResponseEntity<Application> updateApplicationStatus(Long application_id, ApplicationStatus applicationStatus){
 
 
 
@@ -80,7 +81,7 @@ public class ApplicationService {
 
             applicationRepo.save(updatedApplication);
 
-            return updatedApplication;
+            return ResponseEntity.ok(updatedApplication);
 
         }
 
@@ -91,9 +92,16 @@ public class ApplicationService {
 
     }
 
-    public void deleteApplication(Application returnApplication){
+    public ResponseEntity<String> deleteApplication(Long application_id){
 
-        applicationRepo.delete(returnApplication);
+        try{
+            Application returnApplication = applicationRepo.findApplicationByID(application_id);
+            applicationRepo.delete(returnApplication);
+            return ResponseEntity.ok("Application with id " + application_id + " deleted");
+        }catch (Exception e){
+            throw new BadRequestException("Invalid application ID");
+        }
+
     }
 
 }

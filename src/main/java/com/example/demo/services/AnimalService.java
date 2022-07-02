@@ -1,8 +1,10 @@
 package com.example.demo.services;
 
 
+import com.example.demo.exception.BadRequestException;
 import com.example.demo.models.Animal;
 import com.example.demo.repositories.AnimalRepo;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,56 +22,54 @@ public class AnimalService {
         this.animalRepo = animalRepo;
     }
 
-
-
-    // UPDATE ANIMAL METHOD
-    public Animal updateAnimal(
-            Long id,
-            String name,
-            Integer age,
-            Integer sexID,
-            String location,
-            Integer organisationID,
-            Integer speciesID,
-            String breed,
-            boolean reserved,
-            boolean adopted
-    ) {
-        Animal animal = animalRepo.findById(id).orElseThrow(() -> new IllegalStateException("Animal with " + id + " does not exist!"));
-        if (animal.getName() != null && !Objects.equals(animal.getName(), name)) {
-            animal.setName(name);
-        }
-//        if (animal.getSpecies_id() != null && !Objects.equals(animal.getSpecies_id(), speciesID)) {
-//            animal.setSpecies_id(speciesID);
-//        }
-
-        if (animal.getBreed() != null && !Objects.equals(animal.getBreed(), breed)) {
-            animal.setBreed(breed);
-        }
-
-        if (animal.getLocation() != null && !Objects.equals(animal.getLocation(), location)) {
-            animal.setLocation(location);
-        }
-
-        if (animal.getOrganisation_id() != null && !Objects.equals(animal.getOrganisation_id(), name)) {
-            animal.setOrganisation_id(organisationID);
-        }
-
-        return animal;
-    }
-
     public List<Animal> getAllAnimals(){
+
         return animalRepo.findAll();
     }
+    public Optional<Animal> findByID(Long id){
+        return animalRepo.findById(id);
+    }
+
+    // UPDATE ANIMAL METHOD
+    public ResponseEntity<Animal> updateAnimal(Long animal_id, Animal animalDetails) {
+
+        if(animalRepo.findById(animal_id).isPresent()){
+            Animal updatedAnimal = animalRepo.findById(animal_id).get();
+
+            if (animalDetails.getAge() != null) updatedAnimal.setAge(animalDetails.getAge());
+            if (animalDetails.getAvailableStatus() != null) updatedAnimal.setAvailableStatus(animalDetails.getAvailableStatus());
+            if (animalDetails.getBreed() != null)  updatedAnimal.setBreed(animalDetails.getBreed());
+            if(animalDetails.getLocation() != null) updatedAnimal.setLocation(animalDetails.getLocation());
+            if (animalDetails.getName() != null)  updatedAnimal.setName(animalDetails.getName());
+            if(animalDetails.getOrganisation_id() != null) updatedAnimal.setAge(animalDetails.getAge());
+            if(animalDetails.getSex() != null) updatedAnimal.setSex(animalDetails.getSex());
+            if(animalDetails.getSpecies() != null) updatedAnimal.setSpecies(animalDetails.getSpecies());
+
+
+            animalRepo.save(updatedAnimal);
+
+            return ResponseEntity.ok(updatedAnimal);
+
+
+        }else{
+            throw new BadRequestException("Invalid animal_id");
+        }
+
+    }
+
+
 
     // DELETE ANIMAL METHOD
-    public void deleteAnimal(Long id) {
-        boolean exists = animalRepo.existsById(id);
-        if (!exists) {
-            throw new IllegalStateException(
-                    "Animal with id: " + id + " does not exist!");
+    public ResponseEntity<String> deleteAnimal(Long id) {
+
+        if(animalRepo.findById(id).isEmpty()){
+            throw new BadRequestException("Invalid animal_id");
+        }else{
+            animalRepo.delete(animalRepo.findById(id).get());
+            return ResponseEntity.ok("Animal with id " + id + " deleted");
         }
-        animalRepo.deleteById(id);
+
+
     }
 
     public List<Animal> returnRelevantAnimals(String name, int minAge, int maxAge, Integer sexID, String location, Boolean availableOnly) throws Exception{
@@ -100,7 +100,5 @@ public class AnimalService {
         return result;
     }
 
-    public Optional<Animal> findByID(Long id){
-        return animalRepo.findById(id);
-    }
+
 }

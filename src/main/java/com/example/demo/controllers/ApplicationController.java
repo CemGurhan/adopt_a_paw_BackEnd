@@ -55,17 +55,12 @@ public class ApplicationController {
 
     }
 
-    @DeleteMapping("deleteApplication/{id}")
-    public ResponseEntity<HttpStatus> deleteApplication(@PathVariable("id") Long id){
+    @DeleteMapping("deleteApplication/{application_id}")
+    public ResponseEntity<String> deleteApplication(@PathVariable("application_id") Long application_id){
 
-        try{
-            Application returnApplication = applicationService.findApplicationByID(id);
-            applicationService.deleteApplication(returnApplication);
-        }catch (Exception e){
-            throw new BadRequestException("Invalid application ID");
-        }
 
-        return new ResponseEntity<>(HttpStatus.OK);
+
+        return applicationService.deleteApplication(application_id);
 
 
 
@@ -73,7 +68,7 @@ public class ApplicationController {
     }
 
     @PostMapping("/addNewApplication/{animal_id}/{customer_id}")
-    public Application addNewApplication(@PathVariable("animal_id") Long animal_id,
+    public ResponseEntity<Application> addNewApplication(@PathVariable("animal_id") Long animal_id,
                                          @PathVariable("customer_id") Long customer_id,
                                          @RequestParam(defaultValue = "0") ApplicationStatus applicationStatus){
 
@@ -85,7 +80,7 @@ public class ApplicationController {
     }
 
     @PutMapping("/updateApplicationStatus/{application_id}")
-    public Application updateApplictionStatus(@PathVariable("application_id") Long application_id,
+    public ResponseEntity<Application> updateApplictionStatus(@PathVariable("application_id") Long application_id,
                                               @RequestParam ApplicationStatus applicationStatus){
 
         return applicationService.updateApplicationStatus(application_id, applicationStatus);

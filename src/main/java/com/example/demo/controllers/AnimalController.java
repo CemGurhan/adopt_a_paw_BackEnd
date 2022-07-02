@@ -24,18 +24,7 @@ public class AnimalController {
     }
 
 
-    // CREATE - POST
 
-    // create new animal //
-//    @PostMapping("/animal")
-//    public ResponseEntity<List<Animal>> postAnimal(@RequestBody Animal animal) {
-//        animalRepo.save(animal);
-//        return new ResponseEntity<>(animalRepo.findAll(), HttpStatus.CREATED);
-//    }
-//
-//    // READ - GET
-//
-//    // get all animals //
     @GetMapping("/animal")
     public ResponseEntity<List<Animal>> getAllAnimals() {
         return new ResponseEntity<>(animalService.getAllAnimals(), HttpStatus.OK);
@@ -59,18 +48,6 @@ public class AnimalController {
 
 
 
-
-    // get animal by breed (finding like)
-
-//    @GetMapping("/animal/breed")
-//    public ResponseEntity<List<Animal>> findByBreedLike(@RequestParam(required = false, name = "breed") String breed) {
-//        if (breed != null) {
-//            return new ResponseEntity<>(animalRepo.findByBreedLike(breed), HttpStatus.OK);
-//        } else {
-//            return new ResponseEntity<>(animalRepo.findAll(), HttpStatus.OK);
-//        }
-//    }
-
     @GetMapping("/{id}")
     public ResponseEntity findByID(@PathVariable Long id){
         Optional<Animal> animalOptional = animalService.findByID(id);
@@ -84,45 +61,21 @@ public class AnimalController {
     @PutMapping("/{id}")
     public ResponseEntity<Animal> updateAnimal(
             @PathVariable("id") Long id,
-            @RequestParam(required = false) String name,
-            @RequestParam(required = false) Integer age,
-            @RequestParam(required = false) Integer sexID,
-            @RequestParam(required = false) String location,
-            @RequestParam(required = false) Integer organisationID,
-            @RequestParam(required = false) Integer speciesID,
-            @RequestParam(required = false) String breed,
-            @RequestParam(required = false) boolean reserved,
-            @RequestParam(required = false) boolean adopted
+            @RequestBody Animal animal
     ){
-        try {
-            return ResponseEntity.ok().body(animalService.updateAnimal(id, name, age, sexID, location, organisationID, speciesID, breed, reserved, adopted));
-        } catch (Exception e){
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage(), e);
-        }
+
+        return animalService.updateAnimal(id,animal);
+
     }
 
 
     // DELETE
 
     @DeleteMapping("/{id}")
-    public void deleteAnimal(@PathVariable(value = "id") Long id) {
-        animalService.deleteAnimal(id);
+    public ResponseEntity<String> deleteAnimal(@PathVariable(value = "id") Long id) {
+        return animalService.deleteAnimal(id);
     }
 
 
-//    @GetMapping("findSexByID/{id}")
-//    public SexEnums findSexByID(@PathVariable("id") Long id){
-//
-//        return animalService.findSexByID(id);
-//
-//    }
-//
-//    @GetMapping("returnAllSexEnums")
-//    public List<SexEnums> returnAllSexEnums(){
-//
-//        return animalService.returnAllSexEnums();
-//
-//
-//    }
 }
 
