@@ -25,36 +25,19 @@ public class AnimalController {
 
 
 
-    @GetMapping("/animal")
+    @GetMapping("/getAllAnimals")
     public ResponseEntity<List<Animal>> getAllAnimals() {
-        return new ResponseEntity<>(animalService.getAllAnimals(), HttpStatus.OK);
-    }
-
-    @GetMapping("/filteranimals")
-    public ResponseEntity<List<Animal>> filterAnimals(
-            @RequestParam(required = false, name = "name") String name,
-            @RequestParam(required = false, name = "min age", defaultValue = "0") int minAge,
-            @RequestParam(required = false, name = "max age", defaultValue = "100") int maxAge,
-            @RequestParam(required = false, name = "sex") Integer sexID,
-            @RequestParam(required = false, name = "location") String location,
-            @RequestParam(required = false, name = "Show only available animals", defaultValue = "false") Boolean availableOnly
-    ){
-        try{
-            return ResponseEntity.ok().body(animalService.returnRelevantAnimals(name, minAge, maxAge, sexID, location, availableOnly));
-        } catch (Exception e){
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage(), e);
-        }
+        return ResponseEntity.ok(animalService.getAllAnimals());
     }
 
 
 
-    @GetMapping("/{id}")
-    public ResponseEntity findByID(@PathVariable Long id){
-        Optional<Animal> animalOptional = animalService.findByID(id);
-        if (animalOptional.isPresent()){
-            return ResponseEntity.ok().body(animalOptional.get());
-        }
-        return ResponseEntity.notFound().build();
+
+    @GetMapping("/findAnimalById/{id}")
+    public ResponseEntity<Animal> findByID(@PathVariable Long animal_id){
+
+
+       return ResponseEntity.ok(animalService.findByID(animal_id).get());
     }
 
     // UPDATE - PUT
@@ -72,7 +55,7 @@ public class AnimalController {
     // DELETE
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteAnimal(@PathVariable(value = "id") Long id) {
+    public ResponseEntity<Animal> deleteAnimal(@PathVariable(value = "id") Long id) {
         return animalService.deleteAnimal(id);
     }
 

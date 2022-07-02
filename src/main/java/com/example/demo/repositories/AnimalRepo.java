@@ -16,16 +16,12 @@ public interface AnimalRepo extends JpaRepository <Animal, Long> {
     List<Animal> findByBreedLike(@Param("breed") String breed);
 
 
-//    @Query(value = "SELECT id, sex FROM sex_enums WHERE id=?", nativeQuery = true)
-//    SexEnums findSexByID(Long id);
-//
-//    @Query(value = "SELECT id , sex  FROM sex_enums",nativeQuery = true)
-//    List<SexEnums> findAllSexEnums();
+
 
     @Query(value = "select * from animals where lower(name) like lower(?1)", nativeQuery = true)
     List<Animal> findByName(String name);
 
-    List<Animal> findByAgeGreaterThanEqualAndAgeLessThanEqual(int minAge, int maxAge);
+
 
     @Query(value = "select * from animals where sex_id = ?1", nativeQuery = true)
     List<Animal> findBySex(Integer sexID);
@@ -33,7 +29,5 @@ public interface AnimalRepo extends JpaRepository <Animal, Long> {
     @Query(value = "select * from animals where lower(location) like lower(?1)", nativeQuery = true)
     List<Animal> findByLocation(String location);
 
-//    List<Animal> findByReservedFalse();
 
-//    List<Animal> findByAdoptedIs(Boolean adopted);
 }

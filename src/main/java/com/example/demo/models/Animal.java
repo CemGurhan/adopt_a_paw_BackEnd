@@ -20,8 +20,8 @@ public class Animal {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "age")
-    private Integer age;
+    @Column(name = "date_of_birth")
+    private String dateOfBirth;
 
     @Column
     @Enumerated(EnumType.ORDINAL)
@@ -49,11 +49,7 @@ public class Animal {
     @Enumerated(EnumType.ORDINAL)
     private AvailableStatus availableStatus;
 
-//    @Column(name = "reserved" , columnDefinition = "boolean default false")
-//    private boolean reserved;
-//
-//    @Column(name = "adopted" , columnDefinition = "boolean default false")
-//    private boolean adopted;
+
 
     @JsonIgnoreProperties({"animal"})
     @OneToMany(mappedBy = "animal", cascade = CascadeType.ALL)
@@ -65,15 +61,16 @@ public class Animal {
     }
 
     // arg constructor
-    public Animal (Long id, String name, Species species, Integer age, String breed, Sex sex, String location, Integer organisation_id, AvailableStatus availableStatus) {
-        this.id = id;
+
+
+    public Animal(String name, String dateOfBirth, Sex sex, String location, Integer organisation_id, Species species, String breed, AvailableStatus availableStatus) {
         this.name = name;
-        this.species = species;
-        this.age = age;
-        this.breed = breed;
+        this.dateOfBirth = dateOfBirth;
         this.sex = sex;
         this.location = location;
         this.organisation_id = organisation_id;
+        this.species = species;
+        this.breed = breed;
         this.availableStatus = availableStatus;
     }
 
@@ -93,12 +90,12 @@ public class Animal {
         this.name = name;
     }
 
-    public Integer getAge() {
-        return age;
+    public String getDateOfBirth() {
+        return dateOfBirth;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
     public Sex getSex() {

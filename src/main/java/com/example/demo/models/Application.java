@@ -21,6 +21,7 @@ public class Application {
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
+
     @ManyToOne
     @JoinColumn(name = "animal_id")
     private Animal animal;
