@@ -20,7 +20,7 @@ public class Customer {
     @Column(name = "last_name")
     private String lastName;
 
-    private int age;
+    private Integer age;
 
     private String location;
 
@@ -89,11 +89,11 @@ public class Customer {
         this.lastName = lastName;
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
