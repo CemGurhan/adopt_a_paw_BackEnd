@@ -48,7 +48,6 @@ public class AnimalService {
             if (animalDetails.getBreed() != null)  updatedAnimal.setBreed(animalDetails.getBreed());
             if(animalDetails.getLocation() != null) updatedAnimal.setLocation(animalDetails.getLocation());
             if (animalDetails.getName() != null)  updatedAnimal.setName(animalDetails.getName());
-            if(animalDetails.getOrganisation_id() != null) updatedAnimal.setOrganisation_id(animalDetails.getOrganisation_id());
             if(animalDetails.getSex() != null) updatedAnimal.setSex(animalDetails.getSex());
             if(animalDetails.getSpecies() != null) updatedAnimal.setSpecies(animalDetails.getSpecies());
 

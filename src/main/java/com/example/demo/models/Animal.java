@@ -34,8 +34,9 @@ public class Animal {
     @Column(name = "location")
     private String location;
 
-    @Column(name = "organisation_id")
-    private Integer organisation_id;
+    @ManyToOne
+    @JoinColumn(name = "organisation_id")
+    Organisation organisation;
 
 //    @Column(name = "species_id")
 //    private Integer species_id;
@@ -64,12 +65,11 @@ public class Animal {
     // arg constructor
 
 
-    public Animal(String name, String dateOfBirth, Sex sex, String location, Integer organisation_id, Species species, String breed, AvailableStatus availableStatus) {
+    public Animal(String name, String dateOfBirth, Sex sex, String location,  Species species, String breed, AvailableStatus availableStatus) {
         this.name = name;
         this.dateOfBirth = dateOfBirth;
         this.sex = sex;
         this.location = location;
-        this.organisation_id = organisation_id;
         this.species = species;
         this.breed = breed;
         this.availableStatus = availableStatus;
@@ -123,12 +123,12 @@ public class Animal {
         this.availableStatus = availableStatus;
     }
 
-    public Integer getOrganisation_id() {
-        return organisation_id;
+    public Organisation getOrganisation() {
+        return organisation;
     }
 
-    public void setOrganisation_id(Integer organisation_id) {
-        this.organisation_id = organisation_id;
+    public void setOrganisation(Organisation organisation) {
+        this.organisation = organisation;
     }
 
     public Species getSpecies() {
