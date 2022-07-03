@@ -6,11 +6,13 @@ import com.example.demo.models.Customer;
 import com.example.demo.models.enums.ApplicationStatus;
 import com.example.demo.repositories.AnimalRepo;
 import com.example.demo.repositories.ApplicationRepo;
+import org.springframework.context.support.ApplicationObjectSupport;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ApplicationService {
@@ -28,15 +30,17 @@ public class ApplicationService {
         this.customerService = customerService;
     }
 
-    public Application findApplicationByID(Long id){
+    public Application findApplicationByID(Long id) throws Exception {
 
-        return applicationRepo.findApplicationByID(id);
+        Optional <Application> oApplication = applicationRepo.findById(id);
+        if (oApplication.isEmpty()){
+            throw new Exception("Application of ID " + id + " does not exist");
+        }
+        return oApplication.get();
     }
 
     public List<Application> findAllApplications(){
-
         return applicationRepo.findAll();
-
     }
 
 
