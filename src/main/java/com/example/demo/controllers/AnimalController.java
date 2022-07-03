@@ -77,5 +77,18 @@ public class AnimalController {
     }
 
 
+
+    // ANIMAL PHOTOS
+
+    @GetMapping("/{id}/photourl")
+    public ResponseEntity findPhotoUrlByID(@PathVariable Long id){
+        Optional<Animal> animalOptional = animalService.findByID(id);
+        if (animalOptional.isPresent()){
+            return ResponseEntity.ok().body(animalOptional.get().getPhotoUrl());
+        }
+        return ResponseEntity.notFound().build();
+    }
+
+
 }
 
