@@ -23,7 +23,13 @@ public class Organisation {
 
     @JsonIgnoreProperties({"organisation"})
     @OneToMany(mappedBy = "organisation", cascade = CascadeType.ALL)
-    List<Animal> animals;
+    private List<Animal> animals;
+
+    @JsonIgnoreProperties({"organisation"})
+    @OneToMany(mappedBy = "organisation", cascade = CascadeType.ALL)
+    private List<Location> locations;
+
+
 
     public Organisation() {
     }
@@ -65,5 +71,13 @@ public class Organisation {
 
     public void setAnimals(List<Animal> animals) {
         this.animals = animals;
+    }
+
+    public List<Location> getLocations() {
+        return locations;
+    }
+
+    public void setLocations(List<Location> locations) {
+        this.locations = locations;
     }
 }
