@@ -80,7 +80,7 @@ public class Animal {
     // arg constructor
 
 
-    public Animal(String name, LocalDate dateOfBirth, Sex sex, String location, Species species, String breed, AvailableStatus availableStatus) {
+    public Animal(String name, LocalDate dateOfBirth, Sex sex, String location, Species species, String breed, AvailableStatus availableStatus, String photoUrl) {
         this.name = name;
         this.dateOfBirth = dateOfBirth;
         this.sex = sex;
