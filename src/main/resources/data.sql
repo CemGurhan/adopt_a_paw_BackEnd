@@ -68,11 +68,11 @@ INSERT INTO locations (city, country, address, postcode, organisation_id) VALUES
 
 
 INSERT INTO animals (name, breed, date_of_birth,sex, location, available_status, organisation_id, species, photo_url) VALUES('Tiny Tim', 'Chihuahua', '10/06/2020', 'Male', 'Hillingdon', 0, 1, 'Dog', 'https://www.rspca.org.uk/findapet/details/-/Animal/TINY_TIM_/ref/BSA2112441/rehome');
-INSERT INTO animals (name, breed, date_of_birth, sex, location, available_status, organisation_id, species) VALUES('Tiny Tim', 'Chihuahua', '10/06/2020', 0, 'Hillingdon', 0, 1, 'Dog');
-INSERT INTO animals (name, breed, date_of_birth, sex, location, available_status, organisation_id, species) VALUES('Crumpet', 'Shih Tzu', '10/06/2020', 1, 'Potters Bar', 1, 1, 'Dog');
-INSERT INTO animals (name, breed, date_of_birth, sex, location, available_status, organisation_id, species) VALUES('Flame', 'Staffordshire Bull Terrier', '10/06/2020', 1, 'Coventry', 1, 1, 'Dog');
-INSERT INTO animals (name, breed, date_of_birth, sex, location, available_status, organisation_id, species) VALUES('Coco', 'French Bulldog', '10/06/2020', 2, 'Southport', 1, 1, 'Dog');
-INSERT INTO animals (name, breed, date_of_birth, sex, location, available_status, organisation_id, species) VALUES('Pops', 'German Shepherd', '10/06/2020', 1, 'Aylesbury', 1, 1, 'Dog');
+INSERT INTO animals (name, breed, date_of_birth, sex, location, available_status, organisation_id, species) VALUES('Tiny Tim', 'Chihuahua', '10/06/2020', 'Male', 'Hillingdon', 0, 1, 'Dog');
+INSERT INTO animals (name, breed, date_of_birth, sex, location, available_status, organisation_id, species) VALUES('Crumpet', 'Shih Tzu', '10/06/2020', 'Female', 'Potters Bar', 1, 1, 'Dog');
+INSERT INTO animals (name, breed, date_of_birth, sex, location, available_status, organisation_id, species) VALUES('Flame', 'Staffordshire Bull Terrier', '10/06/2020', 'Male', 'Coventry', 1, 1, 'Dog');
+INSERT INTO animals (name, breed, date_of_birth, sex, location, available_status, organisation_id, species) VALUES('Coco', 'French Bulldog', '10/06/2020', 'Female', 'Southport', 1, 1, 'Dog');
+INSERT INTO animals (name, breed, date_of_birth, sex, location, available_status, organisation_id, species) VALUES('Pops', 'German Shepherd', '10/06/2020', 'Male', 'Aylesbury', 1, 1, 'Dog');
 --INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Crumpet', 'Shih Tzu', 5, 1, 'Potters Bar', 1, 1);
 --INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Flame', 'Staffordshire Bull Terrier', 12, 1, 'Coventry', 1, 1);
 --INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Coco', 'French Bulldog', 1, 2, 'Southport', 1, 1);
