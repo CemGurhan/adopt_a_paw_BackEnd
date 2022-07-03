@@ -66,7 +66,7 @@ INSERT INTO organisations (name) VALUES ('Woodgreen');
 
 
 
---INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Tiny Tim', 'Chihuahua', 4, 0, 'Hillingdon', 0, 1, 'Dog');
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Tiny Tim', 'Chihuahua', 4, 0, 'Hillingdon', 0, 1, 'Dog');
 --INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Crumpet', 'Shih Tzu', 5, 1, 'Potters Bar', 1, 1);
 --INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Flame', 'Staffordshire Bull Terrier', 12, 1, 'Coventry', 1, 1);
 --INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Coco', 'French Bulldog', 1, 2, 'Southport', 1, 1);
@@ -203,7 +203,7 @@ INSERT INTO organisations (name) VALUES ('Woodgreen');
 --INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Wilbur & Hew', 'Domestic', 4, 1, 'Cambridge', 6, 5);
 
 
---INSERT INTO applications (application_status, animal_id, customer_id) VALUES (1,1,4);
+INSERT INTO applications (application_status, animal_id, customer_id) VALUES (0,1,4);
 --INSERT INTO applications (application_status, animal_id, customer_id) VALUES (0,13,5);
 --INSERT INTO applications (application_status, animal_id, customer_id) VALUES (0,14,1);
 --INSERT INTO applications (application_status, animal_id, customer_id) VALUES (1,4,3);

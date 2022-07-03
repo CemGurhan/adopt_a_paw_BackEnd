@@ -2,9 +2,11 @@ package com.example.demo.services;
 
 import com.example.demo.models.Application;
 import com.example.demo.repositories.ApplicationRepo;
+import org.springframework.context.support.ApplicationObjectSupport;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ApplicationService {
@@ -19,15 +21,17 @@ public class ApplicationService {
         this.customerService = customerService;
     }
 
-    public Application findApplicationByID(Long id){
+    public Application findApplicationByID(Long id) throws Exception {
 
-        return applicationRepo.findApplicationByID(id);
+        Optional <Application> oApplication = applicationRepo.findById(id);
+        if (oApplication.isEmpty()){
+            throw new Exception("Application of ID " + id + " does not exist");
+        }
+        return oApplication.get();
     }
 
     public List<Application> findAllApplications(){
-
         return applicationRepo.findAll();
-
     }
 
     public void addNewApplication(Long application_type_id, Long animal_id, Long customer_id) throws Exception{

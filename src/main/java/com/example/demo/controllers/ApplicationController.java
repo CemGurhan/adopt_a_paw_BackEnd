@@ -9,48 +9,47 @@ import com.example.demo.services.CustomerService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
 @RestController
+@RequestMapping("/application")
 //@RequestMapping("/application")
 @CrossOrigin(origins = "http://localhost:3000")
 public class ApplicationController {
 
     private ApplicationService applicationService;
-    private AnimalService animalService;
 
-    private CustomerService customerService;
-
-    public ApplicationController(ApplicationService applicationService, AnimalService animalService, CustomerService customerService) {
+    public ApplicationController(ApplicationService applicationService) {
         this.applicationService = applicationService;
-        this.animalService = animalService;
-        this.customerService = customerService;
     }
 
-    @GetMapping("findApplicationByID/{id}")
-    public Application findApplicationByID(@PathVariable("id") Long id){
+//    @GetMapping("/findApplicationByID/{id}")
+//    public Application findApplicationByID(@PathVariable("id") Long id){
+//
+//        if(applicationService.findApplicationByID(id) == null){
+//            throw new BadRequestException("Invalid Application ID. This Application does not exist");
+//        }else {
+//            return applicationService.findApplicationByID(id);
+//        }
+//
+//    }
 
-        if(applicationService.findApplicationByID(id) == null){
-            throw new BadRequestException("Invalid Application ID. This Application does not exist");
-        }else {
-            return applicationService.findApplicationByID(id);
+    @GetMapping("/findAll")
+    public ResponseEntity<List<Application>> findAllApplications(){
+        return ResponseEntity.ok().body(applicationService.findAllApplications());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Application> findApplicationByID(@PathVariable("id") Long id){
+        try{
+            return ResponseEntity.ok().body(applicationService.findApplicationByID(id));
+        } catch (Exception e){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage(), e);
         }
-
     }
 
-    @GetMapping("findAllApplications")
-    public List<Application> findAllApplications(){
-
-        if(applicationService.findAllApplications()==null){
-            throw new EmptyDbException("'Applications' database is empty");
-        }else{
-            return applicationService.findAllApplications();
-        }
-
-
-
-    }
 
 //    @PostMapping("addNewApplication/{application_type_id}/{animal_id}/{customer_id}")
 //    public ResponseEntity<HttpStatus> addNewApplication(@PathVariable("application_type_id") Long application_type_id,
