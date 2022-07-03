@@ -50,7 +50,7 @@ public class Animal {
     private String breed;
 
     @Column
-    @Enumerated(EnumType.ORDINAL)
+    @Enumerated(EnumType.STRING)
     private AvailableStatus availableStatus;
 
     @Column
