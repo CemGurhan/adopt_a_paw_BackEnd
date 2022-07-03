@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-//@RequestMapping("/application")
+@RequestMapping("/application")
 @CrossOrigin(origins = "http://localhost:3000")
 public class ApplicationController {
 
@@ -31,7 +31,7 @@ public class ApplicationController {
         this.customerService = customerService;
     }
 
-    @GetMapping("findApplicationByID/{id}")
+    @GetMapping("/findApplicationByID/{id}")
     public Application findApplicationByID(@PathVariable("id") Long id){
 
         if(applicationService.findApplicationByID(id) == null){
@@ -42,7 +42,7 @@ public class ApplicationController {
 
     }
 
-    @GetMapping("findAllApplications")
+    @GetMapping("/findAllApplications")
     public List<Application> findAllApplications(){
 
         if(applicationService.findAllApplications()==null){
@@ -55,7 +55,7 @@ public class ApplicationController {
 
     }
 
-    @DeleteMapping("deleteApplication/{application_id}")
+    @DeleteMapping("/deleteApplication/{application_id}")
     public ResponseEntity<String> deleteApplication(@PathVariable("application_id") Long application_id){
 
 
@@ -68,7 +68,7 @@ public class ApplicationController {
     @PostMapping("/addNewApplication/{animal_id}/{customer_id}")
     public ResponseEntity<Application> addNewApplication(@PathVariable("animal_id") Long animal_id,
                                          @PathVariable("customer_id") Long customer_id,
-                                         @RequestParam(defaultValue = "0") ApplicationStatus applicationStatus){
+                                         @RequestParam(defaultValue = "0", name = "application_status") ApplicationStatus applicationStatus){
 
         return applicationService.addNewApplication(animal_id,customer_id,applicationStatus);
 
@@ -79,7 +79,7 @@ public class ApplicationController {
 
     @PutMapping("/updateApplicationStatus/{application_id}")
     public ResponseEntity<Application> updateApplictionStatus(@PathVariable("application_id") Long application_id,
-                                              @RequestParam ApplicationStatus applicationStatus){
+                                              @RequestParam(name = "application_status") ApplicationStatus applicationStatus){
 
         return applicationService.updateApplicationStatus(application_id, applicationStatus);
     }

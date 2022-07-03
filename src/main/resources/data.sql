@@ -20,7 +20,7 @@
 
 
 
-INSERT INTO customers (age,first_name,last_name,location, previous_adoptions) VALUES (23,'Cem','Gurhan','London',true);
+INSERT INTO customers (date_of_birth,first_name,last_name,location, previous_adoptions) VALUES ('12/05/1999','Cem','Gurhan','London',true);
 
 --INSERT INTO customer_preferred_species (customer_id, species_id) VALUES (1,1);
 
@@ -37,10 +37,10 @@ INSERT INTO customers (age,first_name,last_name,location, previous_adoptions) VA
 
 
 
-INSERT INTO customers (age,first_name,last_name,location, previous_adoptions) VALUES (26,'Kieran','Sandford','Manchester', True);
-INSERT INTO customers (age,first_name,last_name,location, previous_adoptions) VALUES (24,'Edward','Todd','St Albans', False);
-INSERT INTO customers (age,first_name,last_name,location, previous_adoptions) VALUES (25,'Becca','Bartholomew','London', False);
-INSERT INTO customers (age,first_name,last_name,location, previous_adoptions) VALUES (27,'Lewis','Broadhurst','Birmingham', True);
+INSERT INTO customers (date_of_birth,first_name,last_name,location, previous_adoptions) VALUES ('12/05/1999','Kieran','Sandford','Manchester', True);
+INSERT INTO customers (date_of_birth,first_name,last_name,location, previous_adoptions) VALUES ('12/05/1999','Edward','Todd','St Albans', False);
+INSERT INTO customers (date_of_birth,first_name,last_name,location, previous_adoptions) VALUES ('12/05/1999','Becca','Bartholomew','London', False);
+INSERT INTO customers (date_of_birth,first_name,last_name,location, previous_adoptions) VALUES ('12/05/1999','Lewis','Broadhurst','Birmingham', True);
 
 --INSERT INTO customer_preferred_species (species, customer_id) VALUES ('Dog',1);
 
@@ -64,6 +64,7 @@ INSERT INTO organisations (name) VALUES ('Blue Cross');
 INSERT INTO organisations (name) VALUES ('National Animal Welfare Trust');
 INSERT INTO organisations (name) VALUES ('Woodgreen');
 
+INSERT INTO locations (city, country, address, postcode, organisation_id) VALUES ('London', 'UK','19 Landor Avenue','N12 3RE', 1);
 
 
 INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Tiny Tim', 'Chihuahua', 4, 'Male', 'Hillingdon', 'Available', 1, 'Dog', 'https://www.rspca.org.uk/GenericImage/CallGenericImage?source=petSearch&size=large&imageId=328739');
@@ -201,6 +202,7 @@ INSERT INTO animals (name, breed, age, sex, location, available_status, organisa
 INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Monty and Morty', 'Domestic', 5, 'Male', 'Cambridge', 'Available', 6, 'Guineapig', 'https://woodgreen.org.uk/wp-content/uploads/2022/05/Monty-Morty.jpg');
 INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Shuffle and Sprinkles', 'Domestic', 1, 'Female', 'Cambridge', 'Available', 6, 'Guineapig', 'https://woodgreen.org.uk/wp-content/uploads/2022/06/Shuffle-1.jpg');
 INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Wilbur and Hew', 'Domestic', 4, 'Male', 'Cambridge', 'Available', 6, 'Guineapig', 'https://woodgreen.org.uk/wp-content/uploads/2022/06/Wilbur-Hew.jpg');
+
 
 
 --INSERT INTO applications (application_status, animal_id, customer_id) VALUES (1,1,4);

@@ -2,8 +2,10 @@ package com.example.demo.repositories;
 
 import com.example.demo.models.Animal;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -16,16 +18,12 @@ public interface AnimalRepo extends JpaRepository <Animal, Long> {
     List<Animal> findByBreedLike(@Param("breed") String breed);
 
 
-//    @Query(value = "SELECT id, sex FROM sex_enums WHERE id=?", nativeQuery = true)
-//    SexEnums findSexByID(Long id);
-//
-//    @Query(value = "SELECT id , sex  FROM sex_enums",nativeQuery = true)
-//    List<SexEnums> findAllSexEnums();
+
 
     @Query(value = "select * from animals where lower(name) like lower(?1)", nativeQuery = true)
     List<Animal> findByName(String name);
 
-    List<Animal> findByAgeGreaterThanEqualAndAgeLessThanEqual(int minAge, int maxAge);
+
 
     @Query(value = "select * from animals where sex_id = ?1", nativeQuery = true)
     List<Animal> findBySex(Integer sexID);
@@ -33,7 +31,10 @@ public interface AnimalRepo extends JpaRepository <Animal, Long> {
     @Query(value = "select * from animals where lower(location) like lower(?1)", nativeQuery = true)
     List<Animal> findByLocation(String location);
 
-//    List<Animal> findByReservedFalse();
+    @Transactional
+    @Modifying
+    @Query(value = "UPDATE animals SET customer_id = ?1 WHERE id = ?2 ", nativeQuery = true)
+    void addCustomerToAnimal(Long customer_id, Long animal_id);
 
-//    List<Animal> findByAdoptedIs(Boolean adopted);
+
 }

@@ -11,7 +11,9 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 public interface SpeciesTableRepo extends JpaRepository<SpeciesTable, Long> {
 
-    Species findBySpeciesEquals(String species);
+    SpeciesTable findBySpeciesEquals(String species);
+
+
 
     @Transactional
     @Modifying

@@ -2,7 +2,9 @@ package com.example.demo.services;
 
 import com.example.demo.exception.BadRequestException;
 import com.example.demo.models.Application;
+import com.example.demo.models.Customer;
 import com.example.demo.models.enums.ApplicationStatus;
+import com.example.demo.repositories.AnimalRepo;
 import com.example.demo.repositories.ApplicationRepo;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,11 +17,14 @@ public class ApplicationService {
 
     private ApplicationRepo applicationRepo;
     private AnimalService animalService;
+
+    private AnimalRepo animalRepo;
     private CustomerService customerService;
 
-    public ApplicationService(ApplicationRepo applicationRepo, AnimalService animalService, CustomerService customerService) {
+    public ApplicationService(ApplicationRepo applicationRepo, AnimalService animalService, AnimalRepo animalRepo, CustomerService customerService) {
         this.applicationRepo = applicationRepo;
         this.animalService = animalService;
+        this.animalRepo = animalRepo;
         this.customerService = customerService;
     }
 
@@ -78,6 +83,16 @@ public class ApplicationService {
             Application updatedApplication = applicationRepo.findById(application_id).get();
 
             updatedApplication.setApplicationStatus(applicationStatus);
+
+
+
+            if(applicationStatus.equals(ApplicationStatus.Approved)){
+
+
+
+                animalRepo.addCustomerToAnimal(updatedApplication.getCustomer().getId(), updatedApplication.getAnimal().getId());
+
+            }
 
             applicationRepo.save(updatedApplication);
 

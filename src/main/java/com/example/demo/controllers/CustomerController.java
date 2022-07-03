@@ -41,12 +41,12 @@ public class CustomerController {
     }
 
     @PostMapping("/setCustomerPreferredSpecies/{customer_id}/{species}")
-    public void setCustomerSpecies(@PathVariable("customer_id") Long customer_id,
+    public ResponseEntity<Customer> setCustomerSpecies(@PathVariable("customer_id") Long customer_id,
                                        @PathVariable("species") Species species){
 
 
 
-        customerService.addCustomerPreferredSpecies(customer_id, species);
+        return customerService.addCustomerPreferredSpecies(customer_id, species);
 
 
 
@@ -59,30 +59,28 @@ public class CustomerController {
 
 
     @PostMapping("addNewCustomer")
-    public void addNewCustomer(@RequestBody Customer customer){
+    public ResponseEntity<Customer> addNewCustomer(@RequestBody Customer customer){
 
-        customerService.addNewCustomer(customer);
+        return customerService.addNewCustomer(customer);
 
     }
 
 
     @PutMapping("updateCustomer/{id}")
-    public void updateCustomer(@PathVariable("id") Long id,
+    public ResponseEntity<Customer> updateCustomer(@PathVariable("id") Long id,
                                @RequestBody Customer customerDetails){
 
-        Customer returnCustomer = customerService.findCustomerByID(id);
 
-        customerService.updateCustomer(returnCustomer, customerDetails);
+
+        return customerService.updateCustomer(id, customerDetails);
 
     }
 
     @DeleteMapping("deleteCustomer/{id}")
-    public void deleteCustomer(@PathVariable("id") Long id){
+    public ResponseEntity<String> deleteCustomer(@PathVariable("id") Long customer_id){
 
-        Customer returnCustomer = customerService.findCustomerByID(id);
-
-        customerService.deleteCustomerPreferences(id);
-        customerService.deleteCustomer(returnCustomer);
+        customerService.deleteCustomerPreferences(customer_id);
+        return customerService.deleteCustomer(customer_id);
 
     }
 

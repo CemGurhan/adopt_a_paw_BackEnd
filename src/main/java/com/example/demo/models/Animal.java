@@ -3,9 +3,12 @@ package com.example.demo.models;
 import com.example.demo.models.enums.AvailableStatus;
 import com.example.demo.models.enums.Sex;
 import com.example.demo.models.enums.Species;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -20,8 +23,8 @@ public class Animal {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "age")
-    private Integer age;
+    @Column(name = "date_of_birth", columnDefinition = "DATE")
+    private LocalDate dateOfBirth;
 
     @Column
     @Enumerated(EnumType.STRING)
@@ -33,8 +36,9 @@ public class Animal {
     @Column(name = "location")
     private String location;
 
-    @Column(name = "organisation_id")
-    private Integer organisation_id;
+    @ManyToOne
+    @JoinColumn(name = "organisation_id")
+    Organisation organisation;
 
 //    @Column(name = "species_id")
 //    private Integer species_id;
@@ -58,9 +62,15 @@ public class Animal {
 //    @Column(name = "adopted" , columnDefinition = "boolean default false")
 //    private boolean adopted;
 
+
     @JsonIgnoreProperties({"animal"})
     @OneToMany(mappedBy = "animal", cascade = CascadeType.ALL)
     private List<Application> application;
+
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
+
 
     // no arg constructor
 
@@ -68,17 +78,26 @@ public class Animal {
     }
 
     // arg constructor
-    public Animal (Long id, String name, Species species, Integer age, String breed, Sex sex, String location, Integer organisation_id, AvailableStatus availableStatus, String photoUrl) {
-        this.id = id;
+
+
+    public Animal(String name, LocalDate dateOfBirth, Sex sex, String location, Species species, String breed, AvailableStatus availableStatus) {
         this.name = name;
-        this.species = species;
-        this.age = age;
-        this.breed = breed;
+        this.dateOfBirth = dateOfBirth;
         this.sex = sex;
         this.location = location;
-        this.organisation_id = organisation_id;
+        this.species = species;
+        this.breed = breed;
         this.availableStatus = availableStatus;
         this.photoUrl = photoUrl;
+    }
+
+    @JsonIgnore
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
     public Long getId() {
@@ -97,12 +116,12 @@ public class Animal {
         this.name = name;
     }
 
-    public Integer getAge() {
-        return age;
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
     public Sex getSex() {
@@ -129,12 +148,12 @@ public class Animal {
         this.availableStatus = availableStatus;
     }
 
-    public Integer getOrganisation_id() {
-        return organisation_id;
+    public Organisation getOrganisation() {
+        return organisation;
     }
 
-    public void setOrganisation_id(Integer organisation_id) {
-        this.organisation_id = organisation_id;
+    public void setOrganisation(Organisation organisation) {
+        this.organisation = organisation;
     }
 
     public Species getSpecies() {
@@ -153,6 +172,7 @@ public class Animal {
         this.breed = breed;
     }
 
+    @JsonIgnore
     public List<Application> getApplication() {
         return application;
     }
