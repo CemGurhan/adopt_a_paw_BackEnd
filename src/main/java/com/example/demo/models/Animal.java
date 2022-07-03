@@ -24,7 +24,7 @@ public class Animal {
     private Integer age;
 
     @Column
-    @Enumerated(EnumType.ORDINAL)
+    @Enumerated(EnumType.STRING)
     private Sex sex;
 
 //    @Column(name = "sex_id")
@@ -46,7 +46,7 @@ public class Animal {
     private String breed;
 
     @Column
-    @Enumerated(EnumType.ORDINAL)
+    @Enumerated(EnumType.STRING)
     private AvailableStatus availableStatus;
 
 //    @Column(name = "reserved" , columnDefinition = "boolean default false")
