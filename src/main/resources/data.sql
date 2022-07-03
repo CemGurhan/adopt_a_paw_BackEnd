@@ -136,71 +136,71 @@ INSERT INTO animals (name, breed, age, sex, location, available_status, organisa
 INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Haribo', 'Domestic Shorthair', 13, 'Female', 'Greater Manchester', 'Reserved', 4, 'Cat', 'https://www.bluecross.org.uk/sites/default/files/d8/styles/content_large_1000px_wide_/public/738786.jpg?itok=EwzFy4un');
 INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Pebble', 'Domestic Shorthair', 6, 'Female', 'Sheffield', 'Reserved', 4, 'Cat', 'https://www.bluecross.org.uk/sites/default/files/d8/styles/content_large_1000px_wide_/public/738060.jpg?itok=vjlRMiqz');
 
---INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Peter', 'English Spot', 2, 1, 'Sheffield', True, 4, 4);
---INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Bubblegum', 'Lionhead', 1, 1, 'Sheffield', True, 4, 4);
---INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Oreo', 'Lionhead', 2, 2, 'Yorkshire', 4, 4);
---INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Howie', 'English Spot', 1, 1, 'Oxfordshire', 4, 4);
---INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Coco', 'Mini Lop', 3, 2, 'Hampshire', 4, 4);
---
---INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Peanut', 'Domestic', 1, 1, 'Suffolk', True, 4, 5);
---INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Fudge', 'Domestic', 1, 1, 'Suffolk', True, 4, 5);
---INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Thyme', 'Domestic', 2, 1, 'Burford', 4, 5);
---INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Mabel', 'Domestic', 2, 2, 'Burford', True, 4, 5);
---INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Rupert', 'Domestic', 1, 1, 'Sheffield', 4, 5);
---
---
---
---INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Bee', 'Bassett Hound', 4, 1, 'Berkshire', 5, 1);
---INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Luna', 'Crossbreed', 1, 2, 'Berkshire', True, 5, 1);
---INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Stan', 'Springer Spaniel', 10, 1, 'Cornwall', True, 5, 1);
---INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Shadow', 'Shar-Pei', 3, 1, 'Essex', 5, 1);
---INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Kobe', 'French Bulldog/Pug', 1, 1, 'Berkshire', 5, 1);
---
---INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Freddie', 'Domestic Shorthair', 1, 1, 'Hertfordshire', 5, 2);
---INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Mimi', 'Domestic Shorthair', 5, 2, 'Hertfordshire', 5, 2);
---INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Dizzy', 'Domestic Shorthair', 15, 1, 'Berkshire', 5, 2);
---INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Spirit', 'Domestic Shorthair', 2, 2, 'Cornwall', 5, 2);
---INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Harold', 'Domestic Shorthair', 7, 1, 'Essex', 5, 2);
---
---INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Milo', 'Crossbreed', 4, 1, 'Bedfordshire', 5, 4);
---INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Rio', 'Lop', 1, 1, 'Bedfordshire', 5, 4);
---INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Bonnie', 'English Lop', 1, 2, 'Berkshire', 5, 4);
---INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Skye', 'Lop', 1, 1, 'Hertfordshire', 5, 4);
---INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Olive', 'Lop', 4, 2, 'Bedfordshire', True, 5, 4);
---
---INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Wilbur', 'Domestic', 1, 1, 'Hertfordshire', 5, 5);
---INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Winston', 'Domestic', 1, 1, 'Hertfordshire', 5, 5);
---INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Bodger', 'Domestic', 1, 1, 'Hertfordshire', 5, 5);
---INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Crunchie', 'Domestic', 2, 1, 'Hertfordshire', 5, 5);
---INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Bertie', 'Domestic', 2, 1, 'Hertfordshire', True, 5, 5);
---
---
---
---INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Barry', 'Greyhound', 7, 1, 'Cambridge', True, 6, 1);
---INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Archie', 'Lurcher', 2, 1, 'Cambridge', 6, 1);
---INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Mally', 'Crossbreed', 5, 1, 'Cambridge', 6, 1);
---INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Memphis', 'Staffordshire Bull Terrier', 2, 1, 'Cambridge', 6, 1);
---INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Tokyo', 'Crossbreed', 2, 2, 'Cambridge', 6, 1);
---
---INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Cosmo', 'Domestic Shorthair', 3, 2, 'Cambridge', 6, 2);
---INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Marble', 'Domestic Longhair', 1, 2, 'Cambridge', True, 6, 2);
---INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Mr Bojangles', 'Domestic Shorthair', 3, 1, 'Cambridge', 6, 2);
---INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Pickles', 'Domestic Shorthair', 5, 2, 'Cambridge', 6, 2);
---INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Winter', 'Domestic Shorthair', 1, 1, 'Cambridge', 6, 2);
---
---INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Norman', 'Albino', 1, 1, 'Cambridge', 6, 3);
---
---INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Oat, Almond and Soya', 'Mini Lop', 1, 1, 'Cambridge', 6, 4);
---INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Hazel', 'Crossbreed', 5, 2, 'Cambridge', 6, 4);
---INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Space and Raider', 'Crossbreed', 1, 2, 'Cambridge', 6, 4);
---INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Wesley and Winnie', 'Mini Lop', 2, 1, 'Cambridge', 6, 4);
---INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Benny and Jellybean', 'Crossbreed', 1, 1, 'Cambridge', 6, 4);
---
---INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Daisy', 'Domestic', 4, 2, 'Cambridge', True, 6, 5);
---INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Fluffy and Caramel', 'Domestic', 1, 2, 'Cambridge', 6, 5);
---INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Monty and Morty', 'Domestic', 5, 1, 'Cambridge', 6, 5);
---INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Shuffle and Sprinkles', 'Domestic', 1, 2, 'Cambridge', 6, 5);
---INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Wilbur and Hew', 'Domestic', 4, 1, 'Cambridge', 6, 5);
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Peter', 'English Spot', 2, 'Male', 'Sheffield', 'Reserved', 4, 'Rabbit', 'https://www.bluecross.org.uk/sites/default/files/d8/styles/content_large_1000px_wide_/public/731766.jpg?itok=cFul0e1x');
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Wolfie', 'Lop', 1, 'Male', 'Suffolk', 'Available', 4, 'Rabbit', 'https://www.bluecross.org.uk/sites/default/files/d8/styles/content_large_1000px_wide_/public/732228.jpg?itok=WMX7yYMU');
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Oreo', 'Lionhead', 2, 'Female', 'Yorkshire', 'Available', 4, 'Rabbit', 'https://www.bluecross.org.uk/sites/default/files/d8/styles/portrait_large/public/733997.jpg?itok=N_z7fe8S');
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Howie', 'English Spot', 1, 'Male', 'Oxfordshire', 'Available', 4, 'Rabbit', 'https://www.bluecross.org.uk/sites/default/files/d8/styles/content_large_1000px_wide_/public/739695.jpg?itok=zA_yXOuW');
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Coco', 'Mini Lop', 3, 'Female', 'Hampshire', 'Available', 4, 'Rabbit', 'https://www.bluecross.org.uk/sites/default/files/d8/styles/portrait_medium/public/737427.jpg?itok=UH0QMpuL');
+
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Peanut', 'Domestic', 1, 'Male', 'Suffolk', 'Reserved', 4, 'Guineapig', 'https://www.bluecross.org.uk/sites/default/files/d8/styles/content_large_1000px_wide_/public/738926.jpg?itok=jOqHCOMR');
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Fudge', 'Domestic', 1, 'Male', 'Suffolk', 'Reserved', 4, 'Guineapig', 'https://www.bluecross.org.uk/sites/default/files/d8/styles/portrait_large/public/733612.jpg?itok=CVFobHUN');
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Thyme', 'Domestic', 2, 'Male', 'Burford', 'Reserved', 4, 'Guineapig', 'https://www.bluecross.org.uk/sites/default/files/d8/styles/content_large_1000px_wide_/public/739742.jpg?itok=yr0dmSuE');
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Mabel', 'Domestic', 2, 'Female', 'Burford', 'Reserved', 4, 'Guineapig', 'https://www.bluecross.org.uk/sites/default/files/d8/styles/content_large_1000px_wide_/public/739749.jpg?itok=s0m800TQ');
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Rupert', 'Domestic', 1, 'Male', 'Sheffield', 'Available', 4, 'Guineapig', 'https://www.bluecross.org.uk/sites/default/files/d8/styles/portrait_large/public/739938.jpg?itok=sIPGrRDq');
+
+
+
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Bee', 'Bassett Hound', 4, 'Male', 'Berkshire', 'Reserved', 5, 'Dog', 'https://www.nawt.org.uk/sites/default/files/styles/flexslider_full_tall/public/dogs/Bee.jpg?itok=w8Ozj3Uw');
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Luna', 'Crossbreed', 1, 'Female', 'Berkshire', 'Reserved', 5, 'Dog', 'https://www.nawt.org.uk/sites/default/files/styles/flexslider_full_tall/public/dogs/Bee.jpg?itok=w8Ozj3Uw');
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Stan', 'Springer Spaniel', 10, 'Male', 'Cornwall', 'Reserved', 5, 'Dog', 'https://www.nawt.org.uk/sites/default/files/styles/flexslider_full_tall/public/dogs/WhatsApp%20Image%202022-06-19%20at%204.17.04%20PM.jpeg?itok=BRRvSSc5');
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Shadow', 'Shar-Pei', 3, 'Male', 'Essex', 'Available', 5, 'Dog', 'https://www.nawt.org.uk/sites/default/files/styles/flexslider_full_tall/public/dogs/8F29FB81-0C2E-429D-B47F-D4FD73A02254.jpeg?itok=6D2JyPh7');
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Kobe', 'French Bulldog/Pug', 1, 'Male', 'Berkshire', 'Available', 5, 'Dog', 'https://www.nawt.org.uk/sites/default/files/styles/flexslider_full_tall/public/dogs/Kobe1%20%282%29.jpg?itok=ENl-dUbm');
+
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Freddie', 'Domestic Shorthair', 1, 'Male', 'Hertfordshire', 'Reserved', 5, 'Cat', 'https://www.nawt.org.uk/sites/default/files/styles/flexslider_full_tall/public/cats/Freddie%201.jpg?itok=mGUx_xKQ');
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Mimi', 'Domestic Shorthair', 5, 'Female', 'Hertfordshire', 'Available', 5, 'Cat', 'https://www.nawt.org.uk/sites/default/files/styles/flexslider_full_tall/public/cats/Mimi%202.jpg?itok=7AlZ_nt_');
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Dizzy', 'Domestic Shorthair', 15, 'Male', 'Berkshire', 'Available', 5, 'Cat', 'https://www.nawt.org.uk/sites/default/files/styles/flexslider_full_tall/public/cats/Dizzy1.jpg?itok=4I-LXgUo');
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Spirit', 'Domestic Shorthair', 2, 'Female', 'Cornwall', 'Available', 5, 'Cat', 'https://www.nawt.org.uk/sites/default/files/styles/flexslider_full_tall/public/cats/Spirit.jpeg?itok=nPUHHfRR');
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Harold', 'Domestic Shorthair', 7, 'Male', 'Essex', 'Available', 5, 'Cat', 'https://www.nawt.org.uk/sites/default/files/styles/flexslider_full_tall/public/cats/harold.jpg?itok=tRNTPgbL');
+
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Milo', 'Crossbreed', 4, 'Male', 'Bedfordshire', 'Available', 5, 'Rabbit', 'https://www.nawt.org.uk/sites/default/files/styles/flexslider_full_tall/public/rabbits/1_51.jpg?itok=AyiAvklT');
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Rio', 'Lop', 1, 'Male', 'Bedfordshire', 'Available', 5, 'Rabbit', 'https://www.nawt.org.uk/sites/default/files/styles/flexslider_full_tall/public/rabbits/2_47.jpg?itok=XGhHFsof');
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Bonnie', 'English Lop', 1, 'Female', 'Berkshire', 'Available', 5, 'Rabbit', 'https://www.nawt.org.uk/sites/default/files/styles/flexslider_full_tall/public/rabbits/Bonnie1.jpg?itok=BL0CGoOH');
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Skye', 'Lop', 1, 'Male', 'Hertfordshire', 'Available', 5, 'Rabbit', 'https://www.nawt.org.uk/sites/default/files/styles/flexslider_full_tall/public/rabbits/IMG_20220521_195512.jpg?itok=GW0QfsNP');
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Theodore', 'Lop', 3, 'Male', 'Bedfordshire', 'Available', 5, 'Rabbit', 'https://www.nawt.org.uk/sites/default/files/styles/flexslider_full_tall/public/rabbits/theodore.jpg?itok=RBV6cQR1');
+
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Wilbur', 'Domestic', 1, 'Male', 'Hertfordshire', 'Available', 5, 'Guineapig', 'https://www.nawt.org.uk/sites/default/files/styles/flexslider_full_tall/public/rabbits/Wilbur%201.jpg?itok=uitChV2I');
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Winston', 'Domestic', 1, 'Male', 'Hertfordshire', 'Available', 5, 'Guineapig', 'https://www.nawt.org.uk/sites/default/files/styles/flexslider_full_tall/public/rabbits/Winston%201.jpg?itok=EDDlwJkS');
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Bodger', 'Domestic', 1, 'Male', 'Hertfordshire', 'Available', 5, 'Guineapig', 'https://www.nawt.org.uk/sites/default/files/styles/flexslider_full_tall/public/rabbits/Bodger%201.jpg?itok=S5gjatOk');
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Crunchie', 'Domestic', 2, 'Male', 'Hertfordshire', 'Available', 5, 'Guineapig', 'https://www.nawt.org.uk/sites/default/files/styles/flexslider_full_tall/public/rabbits/crunchie%201.jpg?itok=ZFIOeFqf');
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Bertie', 'Domestic', 2, 'Male', 'Hertfordshire', 'Reserved', 5, 'Guineapig', 'https://www.nawt.org.uk/sites/default/files/styles/flexslider_full_tall/public/rabbits/bertie%201.jpg?itok=PUXugnAB');
+
+
+
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Barry', 'Greyhound', 7, 'Male', 'Cambridge', 'Reserved', 6, 'Dog', 'https://woodgreen.org.uk/wp-content/uploads/2022/06/Barry-Barrow-Vic-133669-1536x1536.jpg');
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Archie', 'Lurcher', 2, 'Male', 'Cambridge', 'Available', 6, 'Dog', 'https://woodgreen.org.uk/wp-content/uploads/2022/06/Archie-2-1536x1024.jpg');
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Mally', 'Crossbreed', 5, 'Male', 'Cambridge', 'Available', 6, 'Dog', 'https://woodgreen.org.uk/wp-content/uploads/2022/02/Mally-133683-Jubilee-1536x864.jpg');
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Memphis', 'Staffordshire Bull Terrier', 2, 'Male', 'Cambridge', 'Available', 6, 'Dog', 'https://woodgreen.org.uk/wp-content/uploads/2022/05/Memphis-1.jpg');
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Tokyo', 'Crossbreed', 2, 'Female', 'Cambridge', 'Available', 6, 'Dog', 'https://woodgreen.org.uk/wp-content/uploads/2022/03/Tokyo-2-1-1536x1446.jpg');
+
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Cosmo', 'Domestic Shorthair', 3, 'Female', 'Cambridge', 'Available', 6, 'Cat', 'https://woodgreen.org.uk/wp-content/uploads/2022/04/146099-Cosmo-4-1536x1152.jpg');
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Marble', 'Domestic Longhair', 1, 'Female', 'Cambridge', 'Available', 6, 'Cat', 'https://woodgreen.org.uk/wp-content/uploads/2022/06/Marble-1.jpg');
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Mr Bojangles', 'Domestic Shorthair', 3, 'Male', 'Cambridge', 'Available', 6, 'Cat', 'https://woodgreen.org.uk/wp-content/uploads/2022/04/Mr-Bojangles-52318-1-1536x864.jpg');
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Pickles', 'Domestic Shorthair', 5, 'Female', 'Cambridge', 'Reserved', 6, 'Cat', 'https://woodgreen.org.uk/wp-content/uploads/2022/06/Pickles.jpg');
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Winter', 'Domestic Shorthair', 1, 'Male', 'Cambridge', 'Available', 6, 'Cat', 'https://woodgreen.org.uk/wp-content/uploads/2022/04/Winter-144894-3-1536x1152.jpg');
+
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Norman', 'Albino', 1, 'Male', 'Cambridge', 'Available', 6, 'Ferret', 'https://woodgreen.org.uk/wp-content/uploads/2022/01/Norman-1.jpg');
+
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Almond and Soya', 'Mini Lop', 1, 'Male', 'Cambridge', 'Available', 6, 'Rabbit', 'https://woodgreen.org.uk/wp-content/uploads/2022/06/Almond-1.jpg');
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Hazel', 'Crossbreed', 5, 'Female', 'Cambridge', 'Available', 6, 'Rabbit', 'https://woodgreen.org.uk/wp-content/uploads/2022/03/Hazel-56852.jpg');
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Space and Raider', 'Crossbreed', 1, 'Female', 'Cambridge', 'Available', 6, 'Rabbit', 'https://woodgreen.org.uk/wp-content/uploads/2021/12/Space-_-Raider-136374-136375.jpg');
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Wesley and Winnie', 'Mini Lop', 2, 'Male', 'Cambridge', 'Available', 6, 'Rabbit', 'https://woodgreen.org.uk/wp-content/uploads/2022/01/Wesley_Winnie2.jpg');
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Benny and Jellybean', 'Crossbreed', 1, 'Male', 'Cambridge', 'Available', 6, 'Rabbit', 'https://woodgreen.org.uk/wp-content/uploads/2022/04/Benny-Pic-1.jpg');
+
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Daisy', 'Domestic', 4, 'Female', 'Cambridge', 'Reserved', 6, 'Guineapig', 'https://woodgreen.org.uk/wp-content/uploads/2022/03/Daisy-135127-1536x1152.jpg');
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Fluffy and Caramel', 'Domestic', 1, 'Female', 'Cambridge', 'Available', 6, 'Guineapig', 'https://woodgreen.org.uk/wp-content/uploads/2022/06/GPs.jpg');
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Monty and Morty', 'Domestic', 5, 'Male', 'Cambridge', 'Available', 6, 'Guineapig', 'https://woodgreen.org.uk/wp-content/uploads/2022/05/Monty-Morty.jpg');
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Shuffle and Sprinkles', 'Domestic', 1, 'Female', 'Cambridge', 'Available', 6, 'Guineapig', 'https://woodgreen.org.uk/wp-content/uploads/2022/06/Shuffle-1.jpg');
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Wilbur and Hew', 'Domestic', 4, 'Male', 'Cambridge', 'Available', 6, 'Guineapig', 'https://woodgreen.org.uk/wp-content/uploads/2022/06/Wilbur-Hew.jpg');
 
 
 --INSERT INTO applications (application_status, animal_id, customer_id) VALUES (1,1,4);
