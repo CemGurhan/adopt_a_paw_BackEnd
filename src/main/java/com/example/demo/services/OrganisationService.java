@@ -1,7 +1,10 @@
 package com.example.demo.services;
 
+import com.example.demo.exception.BadRequestException;
 import com.example.demo.models.Organisation;
 import com.example.demo.repositories.OrganisationRepo;
+import org.aspectj.weaver.ast.Or;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,7 +20,13 @@ public class OrganisationService {
 
     public Organisation findOrganisationByID(Long id){
 
-        return organisationRepo.findOrganisationByID(id);
+        if(organisationRepo.findById(id).isPresent()){
+            return organisationRepo.findOrganisationByID(id);
+        }else{
+            throw new BadRequestException("Invalid organisation id");
+        }
+
+
 
     }
 
@@ -27,12 +36,47 @@ public class OrganisationService {
 
     }
 
-    public void addnewOrganisation(Organisation returnOrganisation, Organisation organisationDetails){
+    public ResponseEntity<Organisation> addNewOrganisation(Organisation organisation){
 
-        returnOrganisation.setName(organisationDetails.getName());
+        organisationRepo.save(organisation);
 
-        organisationRepo.save(returnOrganisation);
+        return ResponseEntity.ok(organisation);
 
+    }
+
+    public ResponseEntity<Organisation> updateOrganisation(Long organisation_id, Organisation organisationDetails ){
+
+        if(organisationRepo.findById(organisation_id).isPresent()){
+
+            Organisation returnOrganisation = organisationRepo.findById(organisation_id).get();
+
+            if(organisationDetails.getName() != null)  returnOrganisation.setName(organisationDetails.getName());
+            if(organisationDetails.getSlogan() != null) returnOrganisation.setSlogan(organisationDetails.getSlogan());
+
+            organisationRepo.save(returnOrganisation);
+
+            return ResponseEntity.ok(returnOrganisation);
+
+        }else{
+
+            throw new BadRequestException("Invalid organisation_id");
+        }
+
+    }
+
+
+    public ResponseEntity<String> deleteOrganisation(Long organisation_id){
+
+        if(organisationRepo.findById(organisation_id).isPresent()){
+
+            organisationRepo.delete( organisationRepo.findById(organisation_id).get());
+
+            return ResponseEntity.ok("Organisation with id " + organisation_id + " deleted");
+
+
+        }else{
+            throw new BadRequestException("Invalid organisation_id");
+        }
 
 
     }

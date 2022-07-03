@@ -16,7 +16,6 @@ public class Application {
     private Long id;
 
 
-    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "customer_id")
     private Customer customer;

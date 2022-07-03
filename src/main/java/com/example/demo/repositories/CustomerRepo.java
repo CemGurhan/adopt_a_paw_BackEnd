@@ -21,7 +21,7 @@ public interface CustomerRepo extends JpaRepository<Customer,Long> {
 
     @Transactional
     @Modifying
-    @Query(value = "DELETE FROM customer_preferences_mapper WHERE customer_id = ?", nativeQuery = true)
+    @Query(value = "DELETE FROM customer_preferred_species WHERE customer_id = ?", nativeQuery = true)
     void deleteCustomerPreferences(Long id);
 
 

@@ -4,6 +4,7 @@ package com.example.demo.services;
 import com.example.demo.exception.BadRequestException;
 import com.example.demo.models.Animal;
 import com.example.demo.repositories.AnimalRepo;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -47,7 +48,6 @@ public class AnimalService {
             if (animalDetails.getBreed() != null)  updatedAnimal.setBreed(animalDetails.getBreed());
             if(animalDetails.getLocation() != null) updatedAnimal.setLocation(animalDetails.getLocation());
             if (animalDetails.getName() != null)  updatedAnimal.setName(animalDetails.getName());
-            if(animalDetails.getOrganisation_id() != null) updatedAnimal.setOrganisation_id(animalDetails.getOrganisation_id());
             if(animalDetails.getSex() != null) updatedAnimal.setSex(animalDetails.getSex());
             if(animalDetails.getSpecies() != null) updatedAnimal.setSpecies(animalDetails.getSpecies());
 
@@ -66,16 +66,23 @@ public class AnimalService {
 
 
     // DELETE ANIMAL METHOD
-    public ResponseEntity<Animal> deleteAnimal(Long id) {
+    public ResponseEntity<HttpStatus> deleteAnimal(Long id) {
 
         if(animalRepo.findById(id).isEmpty()){
             throw new BadRequestException("Invalid animal_id");
         }else{
             animalRepo.delete(animalRepo.findById(id).get());
-            return ResponseEntity.ok(animalRepo.findById(id).get());
+            return ResponseEntity.ok(HttpStatus.OK);
         }
 
 
+    }
+
+    public ResponseEntity<Animal> addNewAnimal(Animal animal) {
+
+        animalRepo.save(animal);
+
+        return ResponseEntity.ok(animal);
     }
 
 
