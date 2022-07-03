@@ -66,7 +66,11 @@ INSERT INTO organisations (name) VALUES ('Woodgreen');
 
 
 
+<<<<<<< HEAD
 INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Tiny Tim', 'Chihuahua', 4, 'Male', 'Hillingdon', 'Available', 1, 'Dog', 'https://www.rspca.org.uk/GenericImage/CallGenericImage?source=petSearch&size=large&imageId=328739');
+=======
+INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species, photo_url) VALUES('Tiny Tim', 'Chihuahua', 4, 0, 'Hillingdon', 0, 1, 'Dog', 'https://www.rspca.org.uk/findapet/details/-/Animal/TINY_TIM_/ref/BSA2112441/rehome');
+>>>>>>> ac66f1b4871ac7e743970a05bd7ca8273de97b83
 --INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Crumpet', 'Shih Tzu', 5, 1, 'Potters Bar', 1, 1);
 --INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Flame', 'Staffordshire Bull Terrier', 12, 1, 'Coventry', 1, 1);
 --INSERT INTO animals (name, breed, age, sex, location, available_status, organisation_id, species) VALUES('Coco', 'French Bulldog', 1, 2, 'Southport', 1, 1);
