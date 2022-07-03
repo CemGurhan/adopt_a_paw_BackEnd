@@ -7,6 +7,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -21,8 +23,8 @@ public class Animal {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "date_of_birth")
-    private String dateOfBirth;
+    @Column(name = "date_of_birth", columnDefinition = "DATE")
+    private LocalDate dateOfBirth;
 
     @Column
     @Enumerated(EnumType.ORDINAL)
@@ -65,7 +67,7 @@ public class Animal {
     // arg constructor
 
 
-    public Animal(String name, String dateOfBirth, Sex sex, String location,  Species species, String breed, AvailableStatus availableStatus) {
+    public Animal(String name, LocalDate dateOfBirth, Sex sex, String location, Species species, String breed, AvailableStatus availableStatus) {
         this.name = name;
         this.dateOfBirth = dateOfBirth;
         this.sex = sex;
@@ -91,11 +93,11 @@ public class Animal {
         this.name = name;
     }
 
-    public String getDateOfBirth() {
+    public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(String dateOfBirth) {
+    public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
