@@ -53,7 +53,7 @@ public class CustomerService {
 
         if(customerDetails.getFirstName()!=null) returnCustomer.setFirstName(customerDetails.getFirstName());
         if(customerDetails.getLastName()!=null) returnCustomer.setLastName(customerDetails.getLastName());
-        if(customerDetails.getAge() != null)  returnCustomer.setAge(customerDetails.getAge());
+        if(customerDetails.getDateOfBirth() != null)  returnCustomer.setDateOfBirth(customerDetails.getDateOfBirth());
         if(customerDetails.getLocation() != null)  returnCustomer.setLocation(customerDetails.getLocation());
 
         customerRepo.save(returnCustomer);

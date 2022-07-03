@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -20,7 +21,7 @@ public class Customer {
     @Column(name = "last_name")
     private String lastName;
 
-    private Integer age;
+    private LocalDate dateOfBirth;
 
     private String location;
 
@@ -46,11 +47,11 @@ public class Customer {
     public Customer (){
     }
 
-    public Customer(Long id, String firstName, String lastName, int age, String location, Boolean previousAdoptions) {
+    public Customer(Long id, String firstName, String lastName, LocalDate dateOfBirth, String location, Boolean previousAdoptions) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.age = age;
+        this.dateOfBirth = dateOfBirth;
         this.location = location;
         this.previousAdoptions = previousAdoptions;
 
@@ -89,12 +90,20 @@ public class Customer {
         this.lastName = lastName;
     }
 
-    public Integer getAge() {
-        return age;
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public List<SpeciesTable> getSpecies() {
+        return species;
+    }
+
+    public void setSpecies(List<SpeciesTable> species) {
+        this.species = species;
     }
 
     public String getLocation() {
