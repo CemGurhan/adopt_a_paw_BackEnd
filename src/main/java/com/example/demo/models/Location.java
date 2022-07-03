@@ -3,6 +3,7 @@ package com.example.demo.models;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "locations")
 public class Location {
 
     @Id
@@ -14,7 +15,9 @@ public class Location {
 
     private String city;
 
-    private String exactAddress;
+    private String address;
+
+    private String postcode;
 
     @ManyToOne
     @JoinColumn(name = "organisation_id")
@@ -23,10 +26,21 @@ public class Location {
     public Location() {
     }
 
-    public Location(String country, String city, String exactAddress) {
+    public Location(Long id, String country, String city, String address, String postcode, Organisation organisation) {
+        this.id = id;
         this.country = country;
         this.city = city;
-        this.exactAddress = exactAddress;
+        this.address = address;
+        this.postcode = postcode;
+        this.organisation = organisation;
+    }
+
+    public String getPostcode() {
+        return postcode;
+    }
+
+    public void setPostcode(String postcode) {
+        this.postcode = postcode;
     }
 
     public Long getId() {
@@ -53,12 +67,12 @@ public class Location {
         this.city = city;
     }
 
-    public String getExactAddress() {
-        return exactAddress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setExactAddress(String exactAddress) {
-        this.exactAddress = exactAddress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public Organisation getOrganisation() {

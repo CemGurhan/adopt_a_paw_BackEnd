@@ -64,6 +64,8 @@ INSERT INTO organisations (name) VALUES ('Blue Cross');
 INSERT INTO organisations (name) VALUES ('National Animal Welfare Trust');
 INSERT INTO organisations (name) VALUES ('Woodgreen');
 
+INSERT INTO locations (city, country, address, postcode, organisation_id) VALUES ('London', 'UK','19 Landor Avenue','N12 3RE', 1);
+
 
 
 INSERT INTO animals (name, breed, date_of_birth, sex, location, available_status, organisation_id, species) VALUES('Tiny Tim', 'Chihuahua', '10/06/2020', 'Male', 'Hillingdon', 0, 1, 'Dog');
