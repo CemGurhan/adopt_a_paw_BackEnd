@@ -49,6 +49,9 @@ public class Animal {
     @Enumerated(EnumType.ORDINAL)
     private AvailableStatus availableStatus;
 
+    @Column
+    private String photoUrl;
+
 //    @Column(name = "reserved" , columnDefinition = "boolean default false")
 //    private boolean reserved;
 //
@@ -65,7 +68,7 @@ public class Animal {
     }
 
     // arg constructor
-    public Animal (Long id, String name, Species species, Integer age, String breed, Sex sex, String location, Integer organisation_id, AvailableStatus availableStatus) {
+    public Animal (Long id, String name, Species species, Integer age, String breed, Sex sex, String location, Integer organisation_id, AvailableStatus availableStatus, String photoUrl) {
         this.id = id;
         this.name = name;
         this.species = species;
@@ -75,6 +78,7 @@ public class Animal {
         this.location = location;
         this.organisation_id = organisation_id;
         this.availableStatus = availableStatus;
+        this.photoUrl = photoUrl;
     }
 
     public Long getId() {
@@ -157,4 +161,11 @@ public class Animal {
         this.application = application;
     }
 
+    public String getPhotoUrl() {
+        return photoUrl;
+    }
+
+    public void setPhotoUrl(String photoUrl) {
+        this.photoUrl = photoUrl;
+    }
 }
