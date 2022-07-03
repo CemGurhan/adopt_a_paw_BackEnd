@@ -42,6 +42,12 @@ public class Customer {
     private List<SpeciesTable> species;
 
 
+    @JsonIgnoreProperties({"customer"})
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    private List<Animal> adoptedAnimals;
+
+
+
 
 
     public Customer (){
@@ -57,6 +63,13 @@ public class Customer {
 
     }
 
+    public List<Animal> getAdoptedAnimals() {
+        return adoptedAnimals;
+    }
+
+    public void setAdoptedAnimals(List<Animal> adoptedAnimals) {
+        this.adoptedAnimals = adoptedAnimals;
+    }
 
     public List<Application> getApplication() {
         return application;

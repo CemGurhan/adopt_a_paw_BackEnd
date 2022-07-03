@@ -67,6 +67,11 @@ public class Animal {
     @OneToMany(mappedBy = "animal", cascade = CascadeType.ALL)
     private List<Application> application;
 
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
+
+
     // no arg constructor
 
     public Animal() {
@@ -84,6 +89,15 @@ public class Animal {
         this.breed = breed;
         this.availableStatus = availableStatus;
         this.photoUrl = photoUrl;
+    }
+
+    @JsonIgnore
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
     public Long getId() {

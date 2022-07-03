@@ -49,16 +49,30 @@ public class CustomerService {
 
     }
 
-    public ResponseEntity<Customer> updateCustomer(Customer returnCustomer, Customer customerDetails){
+    public ResponseEntity<Customer> updateCustomer(Long id, Customer customerDetails){
 
-        if(customerDetails.getFirstName()!=null) returnCustomer.setFirstName(customerDetails.getFirstName());
-        if(customerDetails.getLastName()!=null) returnCustomer.setLastName(customerDetails.getLastName());
-        if(customerDetails.getDateOfBirth() != null)  returnCustomer.setDateOfBirth(customerDetails.getDateOfBirth());
-        if(customerDetails.getLocation() != null)  returnCustomer.setLocation(customerDetails.getLocation());
+        if(customerRepo.findById(id).isPresent()){
 
-        customerRepo.save(returnCustomer);
+            Customer returnCustomer = customerRepo.findById(id).get();
 
-        return ResponseEntity.ok(returnCustomer);
+            if(customerDetails.getFirstName()!=null) returnCustomer.setFirstName(customerDetails.getFirstName());
+            if(customerDetails.getLastName()!=null) returnCustomer.setLastName(customerDetails.getLastName());
+            if(customerDetails.getDateOfBirth() != null)  returnCustomer.setDateOfBirth(customerDetails.getDateOfBirth());
+            if(customerDetails.getLocation() != null)  returnCustomer.setLocation(customerDetails.getLocation());
+
+
+
+            customerRepo.save(returnCustomer);
+
+            return ResponseEntity.ok(returnCustomer);
+
+        }else{
+            throw new BadRequestException("Invalid customer_id");
+        }
+
+
+
+
 
     }
 

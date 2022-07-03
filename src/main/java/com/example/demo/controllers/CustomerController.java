@@ -70,9 +70,9 @@ public class CustomerController {
     public ResponseEntity<Customer> updateCustomer(@PathVariable("id") Long id,
                                @RequestBody Customer customerDetails){
 
-        Customer returnCustomer = customerService.findCustomerByID(id);
 
-        return customerService.updateCustomer(returnCustomer, customerDetails);
+
+        return customerService.updateCustomer(id, customerDetails);
 
     }
 
