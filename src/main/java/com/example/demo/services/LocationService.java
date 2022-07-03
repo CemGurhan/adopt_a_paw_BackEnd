@@ -105,6 +105,17 @@ public class LocationService {
 
     }
 
+    public String deleteLocation(Long location_id){
+
+        if(locationRepo.findById(location_id).isPresent()){
+            locationRepo.delete(locationRepo.findById(location_id).get());
+            return "Location with id " + location_id + " deleted";
+        }else{
+
+            throw new BadRequestException("Invalid location_id");
+        }
+    }
+
 
 
 }

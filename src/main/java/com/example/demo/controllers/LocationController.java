@@ -61,4 +61,12 @@ public class LocationController {
 
     }
 
+    @DeleteMapping("/deleteLocation/{location_id}")
+    public ResponseEntity<String> deleteLocation(@PathVariable("location_id") Long location_id){
+
+        return ResponseEntity.ok(locationService.deleteLocation(location_id));
+
+
+    }
+
 }
