@@ -49,6 +49,14 @@ public class Animal {
     @Enumerated(EnumType.ORDINAL)
     private AvailableStatus availableStatus;
 
+    @Column
+    private String photoUrl;
+
+//    @Column(name = "reserved" , columnDefinition = "boolean default false")
+//    private boolean reserved;
+//
+//    @Column(name = "adopted" , columnDefinition = "boolean default false")
+//    private boolean adopted;
 
 
     @JsonIgnoreProperties({"animal"})
@@ -72,6 +80,7 @@ public class Animal {
         this.species = species;
         this.breed = breed;
         this.availableStatus = availableStatus;
+        this.photoUrl = photoUrl;
     }
 
     public Long getId() {
@@ -154,4 +163,11 @@ public class Animal {
         this.application = application;
     }
 
+    public String getPhotoUrl() {
+        return photoUrl;
+    }
+
+    public void setPhotoUrl(String photoUrl) {
+        this.photoUrl = photoUrl;
+    }
 }
