@@ -58,18 +58,14 @@ public class ApplicationController {
                                          @PathVariable("customer_id") Long customer_id,
                                          @RequestParam(defaultValue = "0", name = "application_status") ApplicationStatus applicationStatus){
 
-        return applicationService.addNewApplication(animal_id,customer_id,applicationStatus);
-
-
-
-
+        return ResponseEntity.ok().body(applicationService.addNewApplication(animal_id,customer_id,applicationStatus));
     }
 
     @PutMapping("/updateApplicationStatus/{application_id}")
-    public ResponseEntity<Application> updateApplictionStatus(@PathVariable("application_id") Long application_id,
+    public ResponseEntity<Application> updateApplicationStatus(@PathVariable("application_id") Long application_id,
                                               @RequestParam(name = "application_status") ApplicationStatus applicationStatus){
 
-        return applicationService.updateApplicationStatus(application_id, applicationStatus);
+        return ResponseEntity.ok().body(applicationService.updateApplicationStatus(application_id, applicationStatus));
     }
 
 }

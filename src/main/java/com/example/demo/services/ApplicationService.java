@@ -45,7 +45,7 @@ public class ApplicationService {
 
 
 
-    public ResponseEntity<Application> addNewApplication(Long animal_id, Long customer_id, ApplicationStatus applicationStatus){
+    public Application addNewApplication(Long animal_id, Long customer_id, ApplicationStatus applicationStatus){
 
         Application newApplication = new Application();
 
@@ -74,41 +74,24 @@ public class ApplicationService {
         applicationRepo.save(newApplication);
 
 
-        return ResponseEntity.ok(newApplication);
+        return newApplication;
 
     }
 
-    public ResponseEntity<Application> updateApplicationStatus(Long application_id, ApplicationStatus applicationStatus){
-
-
+    public Application updateApplicationStatus(Long application_id, ApplicationStatus applicationStatus){
 
         if(applicationRepo.findById(application_id).isPresent() && applicationStatus != null){
-
             Application updatedApplication = applicationRepo.findById(application_id).get();
 
             updatedApplication.setApplicationStatus(applicationStatus);
-
-
-
             if(applicationStatus.equals(ApplicationStatus.Approved)){
-
-
-
                 animalRepo.addCustomerToAnimal(updatedApplication.getCustomer().getId(), updatedApplication.getAnimal().getId());
-
             }
-
             applicationRepo.save(updatedApplication);
-
-            return ResponseEntity.ok(updatedApplication);
+            return updatedApplication;
 
         }
-
         throw new BadRequestException("Invalid application_id");
-
-
-
-
     }
 
     public ResponseEntity<String> deleteApplication(Long application_id){
