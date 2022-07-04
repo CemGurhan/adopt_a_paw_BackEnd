@@ -3,6 +3,7 @@ package com.example.demo.services;
 
 import com.example.demo.exception.BadRequestException;
 import com.example.demo.models.Animal;
+import com.example.demo.models.enums.Sex;
 import com.example.demo.repositories.AnimalRepo;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -86,7 +87,7 @@ public class AnimalService {
         return ResponseEntity.ok(animal);
     }
 
-    public List<Animal> returnRelevantAnimals(String name, int minAge, int maxAge, Integer sexID, String location, Boolean availableOnly) throws Exception{
+    public List<Animal> returnRelevantAnimals(String name, int minAge, int maxAge, Sex sex, String location, Boolean availableOnly) throws Exception{
 
         if (minAge > maxAge){
             throw new Exception("Max age must be lower than min age!");
@@ -101,8 +102,8 @@ public class AnimalService {
             result = result.stream().filter(byName::contains).collect(Collectors.toList());
         }
 
-        if (sexID != null){
-            List<Animal> bySex = animalRepo.findBySex(sexID);
+        if (sex != null){
+            List<Animal> bySex = animalRepo.findBySexIs(sex);
             result = result.stream().filter(bySex::contains).collect(Collectors.toList());
         }
         if (location != null){
