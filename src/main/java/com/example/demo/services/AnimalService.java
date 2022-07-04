@@ -3,11 +3,13 @@ package com.example.demo.services;
 
 import com.example.demo.exception.BadRequestException;
 import com.example.demo.models.Animal;
+import com.example.demo.models.enums.Sex;
 import com.example.demo.repositories.AnimalRepo;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -85,7 +87,34 @@ public class AnimalService {
         return ResponseEntity.ok(animal);
     }
 
+    public List<Animal> returnRelevantAnimals(String name, int minAge, int maxAge, Sex sex, String location, Boolean availableOnly) throws Exception{
 
+        if (minAge > maxAge){
+            throw new Exception("Max age must be lower than min age!");
+        }
 
+        List<Animal> result = animalRepo.findByDOBBetween(LocalDate.now().minusYears(maxAge), LocalDate.now().minusYears(minAge));
+        List<Animal> notAdopted = animalRepo.findByNotAdopted();
+        result = result.stream().filter(notAdopted::contains).collect(Collectors.toList());
+
+        if (name != null){
+            List<Animal> byName = animalRepo.findByName(name);
+            result = result.stream().filter(byName::contains).collect(Collectors.toList());
+        }
+
+        if (sex != null){
+            List<Animal> bySex = animalRepo.findBySexIs(sex);
+            result = result.stream().filter(bySex::contains).collect(Collectors.toList());
+        }
+        if (location != null){
+            List<Animal> byLocation = animalRepo.findByLocation(location);
+            result = result.stream().filter(byLocation::contains).collect(Collectors.toList());
+        }
+        if (availableOnly){
+            List<Animal> byAvailable = animalRepo.findAvailableOnly();
+            result = result.stream().filter(byAvailable::contains).collect(Collectors.toList());
+        }
+        return result;
+    }
 
 }
