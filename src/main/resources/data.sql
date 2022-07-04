@@ -57,12 +57,12 @@ INSERT INTO customers (date_of_birth,first_name,last_name,location, previous_ado
 --INSERT INTO customer_preferences_mapper (species_id,customer_id) VALUES (3,5);
 
 
-INSERT INTO organisations (name) VALUES ('RSPCA');
-INSERT INTO organisations (name) VALUES ('Battersea');
-INSERT INTO organisations (name) VALUES ('Dogs Trust');
-INSERT INTO organisations (name) VALUES ('Blue Cross');
-INSERT INTO organisations (name) VALUES ('National Animal Welfare Trust');
-INSERT INTO organisations (name) VALUES ('Woodgreen');
+INSERT INTO organisations (name, slogan) VALUES ('RSPCA', 'x');
+INSERT INTO organisations (name, slogan) VALUES ('Battersea', 'x');
+INSERT INTO organisations (name, slogan) VALUES ('Dogs Trust', 'x');
+INSERT INTO organisations (name, slogan) VALUES ('Blue Cross', 'x');
+INSERT INTO organisations (name, slogan) VALUES ('National Animal Welfare Trust', 'x');
+INSERT INTO organisations (name, slogan) VALUES ('Woodgreen', 'x');
 
 INSERT INTO locations (city, country, address, postcode, organisation_id) VALUES ('London', 'UK','19 Landor Avenue','N12 3RE', 1);
 
