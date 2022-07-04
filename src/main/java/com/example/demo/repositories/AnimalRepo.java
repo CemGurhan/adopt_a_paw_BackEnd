@@ -31,6 +31,12 @@ public interface AnimalRepo extends JpaRepository <Animal, Long> {
     @Query(value = "select * from animals where lower(location) like lower(?1)", nativeQuery = true)
     List<Animal> findByLocation(String location);
 
+    @Query(value = "select * from animals where not available_status = 'Adopted'", nativeQuery = true)
+    List<Animal> findByNotAdopted();
+
+    @Query(value = "select * from animals where available_status = 'Available'", nativeQuery = true)
+    List<Animal> findAvailableOnly();
+
     @Transactional
     @Modifying
     @Query(value = "UPDATE animals SET customer_id = ?1 WHERE id = ?2 ", nativeQuery = true)

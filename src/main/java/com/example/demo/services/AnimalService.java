@@ -93,6 +93,8 @@ public class AnimalService {
         }
 
         List<Animal> result = animalRepo.findByDOBBetween(LocalDate.now().minusYears(maxAge), LocalDate.now().minusYears(minAge));
+        List<Animal> notAdopted = animalRepo.findByNotAdopted();
+        result = result.stream().filter(notAdopted::contains).collect(Collectors.toList());
 
         if (name != null){
             List<Animal> byName = animalRepo.findByName(name);
@@ -107,10 +109,10 @@ public class AnimalService {
             List<Animal> byLocation = animalRepo.findByLocation(location);
             result = result.stream().filter(byLocation::contains).collect(Collectors.toList());
         }
-//        if (availableOnly){
-//            List<Animal> byAvailable = animalRepo.findByReservedFalse();
-//            result = result.stream().filter(byAvailable::contains).collect(Collectors.toList());
-//        }
+        if (availableOnly){
+            List<Animal> byAvailable = animalRepo.findAvailableOnly();
+            result = result.stream().filter(byAvailable::contains).collect(Collectors.toList());
+        }
         return result;
     }
 
