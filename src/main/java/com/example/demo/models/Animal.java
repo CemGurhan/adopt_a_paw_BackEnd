@@ -27,7 +27,7 @@ public class Animal {
     private LocalDate dateOfBirth;
 
     @Column
-    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.ORDINAL)
     private Sex sex;
 
 //    @Column(name = "sex_id")
