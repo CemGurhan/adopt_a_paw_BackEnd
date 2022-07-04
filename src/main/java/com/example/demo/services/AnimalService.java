@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -85,7 +86,32 @@ public class AnimalService {
         return ResponseEntity.ok(animal);
     }
 
+    public List<Animal> returnRelevantAnimals(String name, int minAge, int maxAge, Integer sexID, String location, Boolean availableOnly) throws Exception{
 
+        if (minAge > maxAge){
+            throw new Exception("Max age must be lower than min age!");
+        }
 
+        List<Animal> result = animalRepo.findByDOBBetween(LocalDate.now().minusYears(maxAge), LocalDate.now().minusYears(minAge));
+
+        if (name != null){
+            List<Animal> byName = animalRepo.findByName(name);
+            result = result.stream().filter(byName::contains).collect(Collectors.toList());
+        }
+
+        if (sexID != null){
+            List<Animal> bySex = animalRepo.findBySex(sexID);
+            result = result.stream().filter(bySex::contains).collect(Collectors.toList());
+        }
+        if (location != null){
+            List<Animal> byLocation = animalRepo.findByLocation(location);
+            result = result.stream().filter(byLocation::contains).collect(Collectors.toList());
+        }
+//        if (availableOnly){
+//            List<Animal> byAvailable = animalRepo.findByReservedFalse();
+//            result = result.stream().filter(byAvailable::contains).collect(Collectors.toList());
+//        }
+        return result;
+    }
 
 }
