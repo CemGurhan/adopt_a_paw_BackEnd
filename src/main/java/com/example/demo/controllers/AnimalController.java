@@ -64,10 +64,21 @@ public class AnimalController {
         return animalService.addNewAnimal(animal);
     }
 
-
-
-
-
+    @GetMapping("/filteranimals")
+    public ResponseEntity<List<Animal>> filterAnimals(
+            @RequestParam(required = false, name = "name") String name,
+            @RequestParam(required = false, name = "min age", defaultValue = "0") int minAge,
+            @RequestParam(required = false, name = "max age", defaultValue = "100") int maxAge,
+            @RequestParam(required = false, name = "sex") Integer sexID,
+            @RequestParam(required = false, name = "location") String location,
+            @RequestParam(required = false, name = "Show only available animals", defaultValue = "false") Boolean availableOnly
+    ){
+        try{
+            return ResponseEntity.ok().body(animalService.returnRelevantAnimals(name, minAge, maxAge, sexID, location, availableOnly));
+        } catch (Exception e){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage(), e);
+        }
+    }
 
 
     // ANIMAL PHOTOS
