@@ -1,8 +1,11 @@
 package com.example.demo.controllers;
 
+import com.example.demo.models.enums.ApplicationStatus;
+import com.example.demo.models.enums.AvailableStatus;
 import com.example.demo.models.enums.Sex;
 import com.example.demo.models.enums.Species;
 import com.example.demo.services.EnumService;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -26,11 +29,21 @@ public class EnumController {
 
     @GetMapping("/getAllSexes")
     public ResponseEntity<List<Sex>> getAllSexes(){
-        return ResponseEntity.ok(enumService.getAllSexes());
+        return ResponseEntity.ok().body(enumService.getAllSexes());
     }
 
     @GetMapping("/getAllSpecies")
     public ResponseEntity<List<Species>> getAllSpecies(){
         return ResponseEntity.ok().body(enumService.getAllSpecies());
+    }
+
+    @GetMapping("/getAllAppStatuses")
+    public ResponseEntity<List<ApplicationStatus>>getAllApps(){
+        return ResponseEntity.ok().body(enumService.getAllApps());
+    }
+
+    @GetMapping("/getAllAvlStatuses")
+    public ResponseEntity<List<AvailableStatus>>getAllAvlStatus(){
+        return ResponseEntity.ok().body(enumService.getAllAvlStatus());
     }
 }
