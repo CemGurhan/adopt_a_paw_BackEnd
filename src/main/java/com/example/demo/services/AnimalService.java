@@ -4,6 +4,7 @@ package com.example.demo.services;
 import com.example.demo.exception.BadRequestException;
 import com.example.demo.models.Animal;
 import com.example.demo.models.enums.Sex;
+import com.example.demo.models.enums.Species;
 import com.example.demo.repositories.AnimalRepo;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -87,19 +88,24 @@ public class AnimalService {
         return ResponseEntity.ok(animal);
     }
 
-    public List<Animal> returnRelevantAnimals(String name, int minAge, int maxAge, Sex sex, String location, Boolean availableOnly) throws Exception{
+    public List<Animal> returnRelevantAnimals(String name, int minAge, int maxAge, Species species, Sex sex, String location, Boolean availableOnly) throws Exception{
 
         if (minAge > maxAge){
             throw new Exception("Max age must be lower than min age!");
         }
 
-        List<Animal> result = animalRepo.findByDOBBetween(LocalDate.now().minusYears(maxAge), LocalDate.now().minusYears(minAge));
+        List<Animal> result = animalRepo.findByDOBBetween(LocalDate.now().minusYears(maxAge + 1).plusDays(1), LocalDate.now().minusYears(minAge));
         List<Animal> notAdopted = animalRepo.findByNotAdopted();
         result = result.stream().filter(notAdopted::contains).collect(Collectors.toList());
 
         if (name != null){
             List<Animal> byName = animalRepo.findByName(name);
             result = result.stream().filter(byName::contains).collect(Collectors.toList());
+        }
+
+        if (species != null){
+            List<Animal> bySpecies = animalRepo.findBySpeciesIs(species);
+            result = result.stream().filter(bySpecies::contains).collect(Collectors.toList());
         }
 
         if (sex != null){

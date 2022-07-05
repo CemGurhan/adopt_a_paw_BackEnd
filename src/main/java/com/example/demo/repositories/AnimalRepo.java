@@ -2,6 +2,7 @@ package com.example.demo.repositories;
 
 import com.example.demo.models.Animal;
 import com.example.demo.models.enums.Sex;
+import com.example.demo.models.enums.Species;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -28,6 +29,8 @@ public interface AnimalRepo extends JpaRepository <Animal, Long> {
 
 //    @Query(value = "select * from animals where sex_id = ?1", nativeQuery = true)
 //    List<Animal> findBySex(Integer sexID);
+
+    List<Animal> findBySpeciesIs(Species species);
 
     List<Animal> findBySexIs(Sex sex);
 
