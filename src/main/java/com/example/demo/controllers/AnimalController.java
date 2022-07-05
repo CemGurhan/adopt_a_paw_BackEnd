@@ -74,9 +74,8 @@ public class AnimalController {
             @RequestParam(required = false, name = "species") Species species,
             @RequestParam(required = false, name = "sex") Sex sex,
             @RequestParam(required = false, name = "location") String location,
-            @RequestParam(required = false, name = "Show only available animals", defaultValue = "false") Boolean availableOnly
+            @RequestParam(required = false, name = "availableOnly", defaultValue = "false") Boolean availableOnly
     ){
-        System.out.println("*** species = " + species);
         try{
             return ResponseEntity.ok().body(animalService.returnRelevantAnimals(name, minAge, maxAge, species, sex, location, availableOnly));
         } catch (Exception e){
