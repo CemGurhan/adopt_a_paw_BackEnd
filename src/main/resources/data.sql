@@ -57,12 +57,12 @@ INSERT INTO customers (date_of_birth,first_name,last_name,location, previous_ado
 --INSERT INTO customer_preferences_mapper (species_id,customer_id) VALUES (3,5);
 
 
-INSERT INTO organisations (name) VALUES ('RSPCA');
-INSERT INTO organisations (name) VALUES ('Battersea');
-INSERT INTO organisations (name) VALUES ('Dogs Trust');
-INSERT INTO organisations (name) VALUES ('Blue Cross');
-INSERT INTO organisations (name) VALUES ('National Animal Welfare Trust');
-INSERT INTO organisations (name) VALUES ('Woodgreen');
+INSERT INTO organisations (name, email, phone, slogan, logo_url) VALUES ('RSPCA', 'enquiries@rspca.co.uk', '0800 343 4242', 'A world where all animals are respected and treated with kindness and compassion.', 'https://www.rspca.org.uk/o/ptl2017Theme/images/img/rspca.png');
+INSERT INTO organisations (name, email, phone, slogan, logo_url) VALUES ('Battersea', 'adoptions@battersea.co.uk', '0300 528 6000', 'Here for every cat and dog', 'https://www.battersea.org.uk/sites/all/themes/battersea_theme/images/logo.png');
+INSERT INTO organisations (name, email, phone, slogan, logo_url) VALUES ('Dogs Trust', 'adopt-a-dog@dogstrust.org', '0330 600 5858', 'A Dog is for life, not just for Christmas', 'https://upload.wikimedia.org/wikipedia/en/thumb/e/e8/Dogs_Trust_Logo_2020.jpg/220px-Dogs_Trust_Logo_2020.jpg');
+INSERT INTO organisations (name, email, phone, slogan, logo_url) VALUES ('Blue Cross', 'enquiries@bluecross.co.uk', '0800 283 5656', 'Pets change lives. We change theirs.', 'https://www.bluecross.org.uk/sites/default/files/d8/styles/theme_logo_large/public/src/img/site-logo/BX154376_BX_125_Logo_RGB-280.png?itok=8jpk46-p');
+INSERT INTO organisations (name, email, phone, slogan, logo_url) VALUES ('National Animal Welfare Trust', 'adoptnow@nawt.org', '0800 433 3333', 'We never stop caring.', 'https://website-assets.ihasco.co.uk/uploads/blog/NAWT_Round_logo_transparent_1.jpg');
+INSERT INTO organisations (name, email, phone, slogan, logo_url) VALUES ('Woodgreen', 'info@woodgreen.org.uk', '0300 384 7500', 'We believe every pet deserves a warm, safe, loving home.', 'https://upload.wikimedia.org/wikipedia/en/thumb/3/32/Woodgreen_logo.svg/1200px-Woodgreen_logo.svg.png');
 
 INSERT INTO locations (city, country, address, postcode, organisation_id) VALUES ('London', 'UK','19 Landor Avenue','N12 3RE', 1);
 

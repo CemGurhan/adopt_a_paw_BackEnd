@@ -18,7 +18,14 @@ public class Organisation {
     @Column(name = "name")
     private String name;
 
+    private String email;
+
+    private String phone;
     private String slogan;
+
+    private String logo_url;
+
+
 
 
     @JsonIgnoreProperties({"organisation"})
@@ -34,10 +41,14 @@ public class Organisation {
     public Organisation() {
     }
 
-    public Organisation(Long id, String name, String slogan) {
+    public Organisation(Long id, String name, String email, String phone, String slogan, String logo_url) {
         this.id = id;
         this.name = name;
+        this.email = email;
+        this.phone = phone;
         this.slogan = slogan;
+        this.logo_url = logo_url;
+
 
     }
 
@@ -63,6 +74,30 @@ public class Organisation {
 
     public void setSlogan(String slogan) {
         this.slogan = slogan;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getLogo_url() {
+        return logo_url;
+    }
+
+    public void setLogo_url(String logo_url) {
+        this.logo_url = logo_url;
     }
 
     public List<Animal> getAnimals() {
