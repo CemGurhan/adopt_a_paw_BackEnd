@@ -94,7 +94,7 @@ public class AnimalService {
             throw new Exception("Max age must be lower than min age!");
         }
 
-        List<Animal> result = animalRepo.findByDOBBetween(LocalDate.now().minusYears(maxAge), LocalDate.now().minusYears(minAge));
+        List<Animal> result = animalRepo.findByDOBBetween(LocalDate.now().minusYears(maxAge + 1).plusDays(1), LocalDate.now().minusYears(minAge));
         List<Animal> notAdopted = animalRepo.findByNotAdopted();
         result = result.stream().filter(notAdopted::contains).collect(Collectors.toList());
 

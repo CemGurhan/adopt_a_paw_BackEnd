@@ -69,14 +69,14 @@ public class AnimalController {
     @GetMapping("/filteranimals")
     public ResponseEntity<List<Animal>> filterAnimals(
             @RequestParam(required = false, name = "name") String name,
-            @RequestParam(required = false, name = "min age", defaultValue = "0") int minAge,
-            @RequestParam(required = false, name = "max age", defaultValue = "100") int maxAge,
+            @RequestParam(required = false, name = "minAge", defaultValue = "0") int minAge,
+            @RequestParam(required = false, name = "maxAge", defaultValue = "100") int maxAge,
             @RequestParam(required = false, name = "species") Species species,
             @RequestParam(required = false, name = "sex") Sex sex,
             @RequestParam(required = false, name = "location") String location,
             @RequestParam(required = false, name = "Show only available animals", defaultValue = "false") Boolean availableOnly
     ){
-        System.out.println("*** species = " + name);
+        System.out.println("*** species = " + species);
         try{
             return ResponseEntity.ok().body(animalService.returnRelevantAnimals(name, minAge, maxAge, species, sex, location, availableOnly));
         } catch (Exception e){
