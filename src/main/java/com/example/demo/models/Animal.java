@@ -147,6 +147,7 @@ public class Animal {
         this.availableStatus = availableStatus;
     }
 
+    @JsonIgnore
     public Organisation getOrganisation() {
         return organisation;
     }
@@ -171,7 +172,7 @@ public class Animal {
         this.breed = breed;
     }
 
-    //    @JsonIgnore
+        @JsonIgnore
     public List<Application> getApplications() {
         return applications;
     }
