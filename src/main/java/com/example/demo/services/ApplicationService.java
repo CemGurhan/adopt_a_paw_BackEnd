@@ -21,14 +21,11 @@ public class ApplicationService {
 
     private ApplicationRepo applicationRepo;
     private AnimalService animalService;
-
-    private AnimalRepo animalRepo;
     private CustomerService customerService;
 
-    public ApplicationService(ApplicationRepo applicationRepo, AnimalService animalService, AnimalRepo animalRepo, CustomerService customerService) {
+    public ApplicationService(ApplicationRepo applicationRepo, AnimalService animalService, CustomerService customerService) {
         this.applicationRepo = applicationRepo;
         this.animalService = animalService;
-        this.animalRepo = animalRepo;
         this.customerService = customerService;
     }
 
@@ -79,9 +76,12 @@ public class ApplicationService {
         if (applicationStatus == ApplicationStatus.Approved){
             selectedAnimal.setAvailableStatus(AvailableStatus.Adopted);
             selectedAnimal.getApplications().forEach(a -> a.setApplicationStatus(ApplicationStatus.Rejected));
+            selectedAnimal.getApplications().forEach(a -> applicationRepo.save(a));
         }
 
+        animalService.updateAnimal(selectedAnimal.getId(), selectedAnimal);
         application.get().setApplicationStatus(applicationStatus);
+        applicationRepo.save(application.get());
         return application.get();
     }
 
