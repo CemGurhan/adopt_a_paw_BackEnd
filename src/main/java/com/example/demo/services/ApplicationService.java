@@ -1,9 +1,11 @@
 package com.example.demo.services;
 
 import com.example.demo.exception.BadRequestException;
+import com.example.demo.models.Animal;
 import com.example.demo.models.Application;
 import com.example.demo.models.Customer;
 import com.example.demo.models.enums.ApplicationStatus;
+import com.example.demo.models.enums.AvailableStatus;
 import com.example.demo.repositories.AnimalRepo;
 import com.example.demo.repositories.ApplicationRepo;
 import org.springframework.context.support.ApplicationObjectSupport;
@@ -45,53 +47,42 @@ public class ApplicationService {
 
 
 
-    public Application addNewApplication(Long animal_id, Long customer_id, ApplicationStatus applicationStatus){
+    public Application addNewApplication(Long animalID, Long customerID){
 
-        Application newApplication = new Application();
+        Optional<Animal> animal = animalService.findByID(animalID);
+        Optional<Customer> customer = customerService.findCustomerByIDOpt(customerID);
 
-
-
-        if(animalService.findByID(animal_id).isEmpty() && customerService.findCustomerByID(customer_id) == null){
-            throw new BadRequestException("Invalid animal_id and customer_id");
+        if (animal.isEmpty()){
+            throw new BadRequestException("Invalid animal ID");
         }
 
-        if(animalService.findByID(animal_id).isPresent()){
-            newApplication.setAnimal(animalService.findByID(animal_id).get());
-        }else{
-            throw new BadRequestException("Invalid animal_id");
+        if (customer.isEmpty()){
+            throw new BadRequestException("Invalid customer ID");
         }
 
-        if(customerService.findCustomerByID(customer_id) != null){
-            newApplication.setCustomer(customerService.findCustomerByID(customer_id));
-        }else{
-            throw new BadRequestException("Invalid customer_id");
-        }
-
-        if(applicationStatus!=null){
-            newApplication.setApplicationStatus(applicationStatus);
-        }
+        Application newApplication = new Application(customer.get(), animal.get());
 
         applicationRepo.save(newApplication);
-
-
         return newApplication;
-
     }
 
-    public Application updateApplicationStatus(Long application_id, ApplicationStatus applicationStatus){
+    public Application updateApplicationStatus(Long application_id, ApplicationStatus applicationStatus) throws Exception {
 
-        if(applicationRepo.findById(application_id).isPresent() && applicationStatus != null){
-            Application updatedApplication = applicationRepo.findById(application_id).get();
+        Optional<Application> application = Optional.ofNullable(findApplicationByID(application_id));
 
-            updatedApplication.setApplicationStatus(applicationStatus);
-            if(applicationStatus.equals(ApplicationStatus.Approved)){
-                animalRepo.addCustomerToAnimal(updatedApplication.getCustomer().getId(), updatedApplication.getAnimal().getId());
-            }
-            applicationRepo.save(updatedApplication);
-            return updatedApplication;
-
+        if (application.isEmpty()){
+            throw new BadRequestException("Invalid Application ID");
         }
-        throw new BadRequestException("Invalid application_id");
+
+        Animal selectedAnimal = application.get().getAnimal();
+
+        if (applicationStatus == ApplicationStatus.Approved){
+            selectedAnimal.setAvailableStatus(AvailableStatus.Adopted);
+            selectedAnimal.getApplications().forEach(a -> a.setApplicationStatus(ApplicationStatus.Rejected));
+        }
+
+        application.get().setApplicationStatus(applicationStatus);
+        return application.get();
     }
 
     public ResponseEntity<String> deleteApplication(Long application_id){
