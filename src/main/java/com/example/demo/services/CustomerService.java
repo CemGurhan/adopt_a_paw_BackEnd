@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CustomerService {
@@ -24,6 +25,14 @@ public class CustomerService {
 
     public Customer findCustomerByID(Long id){
         return customerRepo.findCustomerByID(id);
+    }
+
+    public Optional<Customer> findCustomerByIDOpt(Long id){
+        if (customerRepo.findById(id).isPresent()){
+            return customerRepo.findById(id);
+        } else {
+            throw new BadRequestException("Invalid Customer ID");
+        }
     }
 
     public List<Customer> findAllCustomers(){
@@ -79,7 +88,7 @@ public class CustomerService {
     public void deleteCustomerPreferences(Long id){
 
 
-            customerRepo.deleteCustomerPreferences(id);
+        customerRepo.deleteCustomerPreferences(id);
 
 
 

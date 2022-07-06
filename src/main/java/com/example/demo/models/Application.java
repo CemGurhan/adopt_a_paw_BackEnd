@@ -64,4 +64,10 @@ public class Application {
     public void setApplicationStatus(ApplicationStatus applicationStatus) {
         this.applicationStatus = applicationStatus;
     }
+
+    public Application(Customer customer, Animal animal) {
+        this.customer = customer;
+        this.animal = animal;
+        this.applicationStatus = ApplicationStatus.Pending;
+    }
 }
