@@ -147,7 +147,7 @@ public class Animal {
         this.availableStatus = availableStatus;
     }
 
-    @JsonIgnore
+
     public Organisation getOrganisation() {
         return organisation;
     }
