@@ -6,7 +6,6 @@ import com.example.demo.models.Application;
 import com.example.demo.models.enums.ApplicationStatus;
 import com.example.demo.services.AnimalService;
 import com.example.demo.services.ApplicationService;
-import com.example.demo.services.CustomerService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,16 +20,11 @@ import java.util.List;
 public class ApplicationController {
 
     private ApplicationService applicationService;
-    private AnimalService animalService;
-
-    private CustomerService customerService;
 
 
 
-    public ApplicationController(ApplicationService applicationService, AnimalService animalService, CustomerService customerService) {
+    public ApplicationController(ApplicationService applicationService) {
         this.applicationService = applicationService;
-        this.animalService = animalService;
-        this.customerService = customerService;
     }
 
     @GetMapping("/findAll")
@@ -55,17 +49,24 @@ public class ApplicationController {
 
     @PostMapping("/addNewApplication/{animal_id}/{customer_id}")
     public ResponseEntity<Application> addNewApplication(@PathVariable("animal_id") Long animal_id,
-                                         @PathVariable("customer_id") Long customer_id,
-                                         @RequestParam(defaultValue = "0", name = "application_status") ApplicationStatus applicationStatus){
+                                         @PathVariable("customer_id") Long customer_id){
 
-        return ResponseEntity.ok().body(applicationService.addNewApplication(animal_id,customer_id,applicationStatus));
+        try {
+            return ResponseEntity.ok().body(applicationService.addNewApplication(animal_id, customer_id));
+        } catch (Exception e){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage(), e);
+        }
     }
+
 
     @PutMapping("/updateApplicationStatus/{application_id}")
     public ResponseEntity<Application> updateApplicationStatus(@PathVariable("application_id") Long application_id,
                                               @RequestParam(name = "application_status") ApplicationStatus applicationStatus){
-
-        return ResponseEntity.ok().body(applicationService.updateApplicationStatus(application_id, applicationStatus));
+        try {
+            return ResponseEntity.ok().body(applicationService.updateApplicationStatus(application_id, applicationStatus));
+        } catch (Exception e){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage(), e);
+        }
     }
 
 }

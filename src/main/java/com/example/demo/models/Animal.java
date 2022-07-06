@@ -8,7 +8,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -65,7 +64,7 @@ public class Animal {
 
     @JsonIgnoreProperties({"animal"})
     @OneToMany(mappedBy = "animal", cascade = CascadeType.ALL)
-    private List<Application> application;
+    private List<Application> applications;
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
@@ -172,13 +171,13 @@ public class Animal {
         this.breed = breed;
     }
 
-    @JsonIgnore
-    public List<Application> getApplication() {
-        return application;
+//    @JsonIgnore
+    public List<Application> getApplications() {
+        return applications;
     }
 
-    public void setApplication(List<Application> application) {
-        this.application = application;
+    public void setApplications(List<Application> application) {
+        this.applications = applications;
     }
 
     public String getPhotoUrl() {
