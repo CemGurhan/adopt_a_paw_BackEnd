@@ -226,7 +226,7 @@ INSERT INTO bot_animal_key_words (key_word, bot_key_word_id) VALUES ('to',7);
 INSERT INTO applications (application_status, animal_id, customer_id) VALUES (1,1,4);
 INSERT INTO applications (application_status, animal_id, customer_id) VALUES (0,13,5);
 INSERT INTO applications (application_status, animal_id, customer_id) VALUES (0,14,1);
-INSERT INTO applications (application_status, animal_id, customer_id) VALUES (1,4,3);
+INSERT INTO applications (application_status, animal_id, customer_id) VALUES (1,50,3);
 INSERT INTO applications (application_status, animal_id, customer_id) VALUES (1,6,4);
 INSERT INTO applications (application_status, animal_id, customer_id) VALUES (1,1,2);
 INSERT INTO applications (application_status, animal_id, customer_id) VALUES (2,1,4);

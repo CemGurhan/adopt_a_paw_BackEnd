@@ -59,7 +59,7 @@ public class CustomerController {
     @PutMapping("updateCustomer/{id}")
     public ResponseEntity<Customer> updateCustomer(@PathVariable("id") Long id,
                                @RequestBody Customer customerDetails){
-        return customerService.updateCustomer(id, customerDetails);
+        return ResponseEntity.ok().body(customerService.updateCustomer(id, customerDetails));
     }
 
     @DeleteMapping("deleteCustomer/{id}")

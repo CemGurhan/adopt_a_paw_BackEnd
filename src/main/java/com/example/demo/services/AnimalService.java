@@ -122,4 +122,8 @@ public class AnimalService {
         return result;
     }
 
+    public void addCustomerToAnimal(Long customerID, Long animalID){
+        animalRepo.addCustomerToAnimal(customerID, animalID);
+    }
+
 }

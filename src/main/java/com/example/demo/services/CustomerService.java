@@ -61,7 +61,7 @@ public class CustomerService {
 
     }
 
-    public ResponseEntity<Customer> updateCustomer(Long id, Customer customerDetails){
+    public Customer updateCustomer(Long id, Customer customerDetails){
 
         if(customerRepo.findById(id).isPresent()){
 
@@ -72,20 +72,21 @@ public class CustomerService {
             if(customerDetails.getDateOfBirth() != null)  returnCustomer.setDateOfBirth(customerDetails.getDateOfBirth());
             if(customerDetails.getLocation() != null)  returnCustomer.setLocation(customerDetails.getLocation());
 
-
-
             customerRepo.save(returnCustomer);
 
-            return ResponseEntity.ok(returnCustomer);
+            return returnCustomer;
 
         }else{
             throw new BadRequestException("Invalid customer_id");
         }
+    }
 
-
-
-
-
+    public void addAdoptedAnimal(Customer customer, Animal animal){
+        List<Animal> temp = customer.getAdoptedAnimals();
+        temp.add(animal);
+        customer.setAdoptedAnimals(temp);
+        customer.setPreviousAdoptions(true);
+        customerRepo.save(customer);
     }
 
     public void deleteCustomerPreferences(Long id){

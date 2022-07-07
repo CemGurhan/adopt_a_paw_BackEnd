@@ -77,6 +77,9 @@ public class ApplicationService {
             selectedAnimal.setAvailableStatus(AvailableStatus.Adopted);
             selectedAnimal.getApplications().forEach(a -> a.setApplicationStatus(ApplicationStatus.Rejected));
             selectedAnimal.getApplications().forEach(a -> applicationRepo.save(a));
+            Customer selectedCustomer = application.get().getCustomer();
+            animalService.addCustomerToAnimal(selectedCustomer.getId(), selectedAnimal.getId());
+            customerService.addAdoptedAnimal(selectedCustomer, selectedAnimal);
         }
 
         animalService.updateAnimal(selectedAnimal.getId(), selectedAnimal);
