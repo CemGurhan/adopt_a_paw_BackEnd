@@ -37,7 +37,6 @@ public class AnimalService {
         }else{
             throw new BadRequestException("Invalid animal_id");
         }
-
     }
 
     // UPDATE ANIMAL METHOD

@@ -1,6 +1,7 @@
 package com.example.demo.services;
 
 import com.example.demo.exception.BadRequestException;
+import com.example.demo.models.Animal;
 import com.example.demo.models.Customer;
 import com.example.demo.models.enums.Species;
 import com.example.demo.repositories.CustomerRepo;
@@ -23,8 +24,12 @@ public class CustomerService {
         this.speciesTableRepo = speciesTableRepo;
     }
 
-    public Customer findCustomerByID(Long id){
-        return customerRepo.findCustomerByID(id);
+    public Customer findByID(Long id){
+        if (customerRepo.findById(id).isPresent()){
+            return customerRepo.findById(id).get();
+        }else{
+            throw new BadRequestException("Invalid customer ID");
+        }
     }
 
     public Optional<Customer> findCustomerByIDOpt(Long id){
@@ -36,9 +41,7 @@ public class CustomerService {
     }
 
     public List<Customer> findAllCustomers(){
-
         return customerRepo.findAll();
-
     }
 
     public ResponseEntity<Customer> addNewCustomer(Customer customer) {
