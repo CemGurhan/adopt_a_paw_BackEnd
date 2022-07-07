@@ -1,5 +1,6 @@
 package com.example.demo.models;
 
+import com.example.demo.appuser.AppUser;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -45,6 +46,10 @@ public class Customer {
     @JsonIgnoreProperties({"customer"})
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private List<Animal> adoptedAnimals;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name= "app_user_id")
+    private AppUser appUser;
 
 
 
@@ -143,5 +148,11 @@ public class Customer {
         this.id = id;
     }
 
+    public AppUser getAppUser() {
+        return appUser;
+    }
 
+    public void setAppUser(AppUser appUser) {
+        this.appUser = appUser;
+    }
 }

@@ -1,5 +1,6 @@
 package com.example.demo.appuser;
 
+import com.example.demo.models.Customer;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -42,12 +43,21 @@ public class AppUser implements UserDetails {
     private Boolean locked = false;
     private Boolean enabled = false;
 
-    public AppUser(String firstName, String lastName, String email, String password, AppUserRole appUserRole) {
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name= "customer_id", referencedColumnName = "id")
+    private Customer customer;
+
+
+
+
+    public AppUser(String firstName, String lastName, String email, String password, AppUserRole appUserRole, Customer customer) {
+
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.appUserRole = appUserRole;
+        this.customer = customer;
 
     }
 
@@ -95,5 +105,13 @@ public class AppUser implements UserDetails {
     @Override
     public boolean isEnabled() {
         return enabled;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 }

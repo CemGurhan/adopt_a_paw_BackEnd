@@ -6,6 +6,7 @@ import com.example.demo.appuser.AppUserService;
 import com.example.demo.email.EmailSender;
 import com.example.demo.registration.token.ConfirmationToken;
 import com.example.demo.registration.token.ConfirmationTokenService;
+import com.example.demo.repositories.CustomerRepo;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,6 +21,8 @@ public class RegistrationService {
     private final EmailValidator emailValidator;
 
     private final ConfirmationTokenService confirmationTokenService;
+
+    private final CustomerRepo customerRepo;
 
     private final EmailSender emailSender;
     public String register(RegistrationRequest request) {
@@ -36,7 +39,10 @@ public class RegistrationService {
                         request.getLastName(),
                         request.getEmail(),
                         request.getPassword(),
-                        request.getAppUserRole()
+                        request.getAppUserRole(),
+                        customerRepo.findCustomerByID(request.getCustomer_id())
+
+
 //                        AppUserRole.USER
 
 
