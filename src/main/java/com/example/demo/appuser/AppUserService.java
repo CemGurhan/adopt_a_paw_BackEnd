@@ -1,6 +1,7 @@
 package com.example.demo.appuser;
 
 
+import com.example.demo.exception.BadRequestException;
 import com.example.demo.registration.token.ConfirmationToken;
 import com.example.demo.registration.token.ConfirmationTokenService;
 import lombok.AllArgsConstructor;
@@ -65,4 +66,28 @@ public class AppUserService implements UserDetailsService {
     public int enableAppUser(String email) {
         return appUserRepository.enableAppUser(email);
     }
+
+    public AppUser findUserBy_email_password(String email, String password){
+
+
+
+        if(bCryptPasswordEncoder
+                .matches(password,appUserRepository.findUserBy_email(email).getPassword())){
+
+            return appUserRepository.findUserBy_email(email);
+
+
+
+        }else{
+            throw new UsernameNotFoundException(String.format(USER_NOT_FOUND_MSG, email));
+        }
+
+
+
+
+
+
+    }
+
+
 }
