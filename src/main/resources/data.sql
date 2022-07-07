@@ -203,6 +203,26 @@ INSERT INTO animals (name, breed, date_of_birth, sex, location, available_status
 INSERT INTO animals (name, breed, date_of_birth, sex, location, available_status, organisation_id, species, photo_url) VALUES('Shuffle and Sprinkles', 'Domestic', '2021-01-01', 1, 'Cambridge', 'Available', 6, 'Guineapig', 'https://woodgreen.org.uk/wp-content/uploads/2022/06/Shuffle-1.jpg');
 INSERT INTO animals (name, breed, date_of_birth, sex, location, available_status, organisation_id, species, photo_url) VALUES('Wilbur and Hew', 'Domestic', '2018-01-01', 0, 'Cambridge', 'Available', 6, 'Guineapig', 'https://woodgreen.org.uk/wp-content/uploads/2022/06/Wilbur-Hew.jpg');
 
+INSERT INTO bot_key_words (key_word, key_word_type) VALUES ('Hello','GREETING');
+INSERT INTO bot_key_words (key_word, key_word_type) VALUES ('Hi','GREETING');
+INSERT INTO bot_key_words (key_word, key_word_type) VALUES ('Hey','GREETING');
+INSERT INTO bot_key_words (key_word, key_word_type) VALUES ('Good morning','GREETING');
+INSERT INTO bot_key_words (key_word, key_word_type) VALUES ('Good evening','GREETING');
+INSERT INTO bot_key_words (key_word, key_word_type) VALUES ('Good afternoon','GREETING');
+
+INSERT INTO bot_key_words (key_word, key_word_type, key_word_operation) VALUES ('animal','QUESTION','GOTO');
+
+
+INSERT INTO bot_animal_key_words (key_word, bot_key_word_id) VALUES ('animal',7);
+INSERT INTO bot_animal_key_words (key_word, bot_key_word_id) VALUES ('page',7);
+INSERT INTO bot_animal_key_words (key_word, bot_key_word_id) VALUES ('to',7);
+
+
+
+
+
+
+
 
 
 INSERT INTO applications (application_status, animal_id, customer_id) VALUES (1,1,4);
